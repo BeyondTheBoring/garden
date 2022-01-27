@@ -5,6 +5,10 @@
       "path": "projects/garden"
     },
     {
+      "name": "@btb/utils",
+      "path": "projects/utils"
+    },
+    {
       "path": ".",
       "name": "@btb"
     }
