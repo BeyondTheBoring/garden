@@ -1,0 +1,13 @@
+{
+  "name": "beyond-the-boring",
+  "private": true,
+  "workspaces": [
+    "projects/**"
+  ],
+  "scripts": {
+    "dev": "lerna run dev --parallel"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
