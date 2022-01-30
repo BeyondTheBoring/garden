@@ -1,6 +1,9 @@
+import { Popover, Transition } from '@headlessui/react'
+import { MenuAlt3Icon } from '@heroicons/react/outline'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Fragment } from 'react'
 
 import { Container } from '@/components/Container'
 import { Monster } from '@/components/Monster'
@@ -37,7 +40,38 @@ const Home: NextPage = () => {
                 </span>
               </a>
             </Link>
-            <ul className="hidden sm:flex space-x-6 items-center text-sm md:space-x-8 md:text-base">
+
+            <Popover className="flex items-center relative sm:hidden z-10">
+              <Popover.Button className="rounded-lg p-1 -m-1 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-700">
+                <MenuAlt3Icon className="w-5 h-5" aria-hidden="true" />
+                <span className="sr-only">Open navigation menu</span>
+              </Popover.Button>
+              <Transition
+                as={Fragment}
+                enter="duration-150 ease-out"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="duration-100 ease-in"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Popover.Panel className="absolute top-2 right-5 bg-white py-2 shadow-md rounded-2xl ring-1 ring-gray-900 ring-opacity-5 overflow-hidden">
+                  <ul className="flex flex-col">
+                    {navLinks.map(link => (
+                      <li key={link.title}>
+                        <Link href={link.href}>
+                          <a className="block py-2 px-6 whitespace-nowrap font-medium focus:outline-none hover:bg-yellow-200 focus:bg-yellow-200">
+                            {link.title}
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </Popover.Panel>
+              </Transition>
+            </Popover>
+
+            <ul className="hidden sm:flex space-x-5 items-center text-sm md:space-x-8 lg:space-x-10 xl:space-x-12 md:text-base">
               {navLinks.map(link => (
                 <li key={link.title}>
                   <Link href={link.href}>
@@ -48,13 +82,7 @@ const Home: NextPage = () => {
                 </li>
               ))}
               <li>
-                {/* <SubscribeButton
-                  variant="dark"
-                  className="px-4 py-1 rounded-full lg:px-5 lg:py-1.5"
-                >
-                  Subscribe
-                </SubscribeButton> */}
-                <button className="btn btn-dark rounded-full px-5 py-1.5 text-xs lg:text-sm">
+                <button className="btn btn-dark rounded-full px-3 py-1 md:px-5 md:py-1.5 text-xs lg:text-sm">
                   Subscribe
                 </button>
               </li>
