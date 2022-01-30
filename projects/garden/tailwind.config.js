@@ -14,25 +14,28 @@ module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './utils/**/*.{js,ts,jsx,tsx,mdx}',
   ],
 
   theme: {
     colors: btbColors,
 
     fontFamily: {
+      // sans: ['system-ui', ...defaultTheme.fontFamily.sans],
+      // sans: ['tenon', ...defaultTheme.fontFamily.sans],
       sans: ['brix-sans', ...defaultTheme.fontFamily.sans],
       hand: ['fuzzy-bubbles', ...defaultTheme.fontFamily.sans],
+    },
+
+    fontSize: {
+      ...bumpedFontSizes,
+      '9xl': ['10rem', { lineHeight: '1' }],
     },
 
     fontWeight: {
       regular: 400,
       medium: 500,
       bold: 700,
-    },
-
-    fontSize: {
-      ...bumpedFontSizes,
-      '9xl': ['10rem', { lineHeight: '1' }],
     },
 
     screens: {

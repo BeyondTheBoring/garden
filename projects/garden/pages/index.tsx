@@ -54,14 +54,16 @@ const Home: NextPage = () => {
                 >
                   Subscribe
                 </SubscribeButton> */}
-                <button>Subscribe</button>
+                <button className="btn btn-dark rounded-full px-5 py-1.5 text-xs lg:text-sm">
+                  Subscribe
+                </button>
               </li>
             </ul>
           </nav>
         </Container>
 
         <div className="absolute w-full -bottom-5">
-          <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto" />
+          <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto drop-shadow-lg" />
         </div>
       </header>
 
@@ -71,7 +73,7 @@ const Home: NextPage = () => {
             Learning should be fun
           </h1>
 
-          <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-20">
+          <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
             <p>
               <b className="text-gray-900">
                 No one wants another boring “online course.”
@@ -125,7 +127,13 @@ const Home: NextPage = () => {
             trees need regular grooming to keep them healthy and fruitful.
           </p>
 
-          <a href="/garden">Visit the Garden</a>
+          <div className="text-center mt-5 xs:mt-8 lg:mt-10">
+            <Link href="#">
+              <a className="btn btn-dark rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
+                Visit the Garden
+              </a>
+            </Link>
+          </div>
         </main>
       </Container>
     </div>
