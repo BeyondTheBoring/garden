@@ -1,4 +1,3 @@
-import colors from '@/theme/colors'
 import btbColors from '@/theme/colors'
 
 export type SlopedRadialProps = {

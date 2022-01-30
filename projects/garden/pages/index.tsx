@@ -65,42 +65,69 @@ const Home: NextPage = () => {
         </div>
       </header>
 
-      <main>
-        <h1 className="text-gray-900">Learning should be fun</h1>
+      <Container>
+        <main className="my-14 max-w-3xl mx-auto text-gray-700 xs:my-16 xs:text-lg lg:my-20 lg:max-w-4xl lg:text-xl xl:my-24">
+          <h1 className="text-2xl font-bold tracking-tighter text-center text-gray-900 xs:text-3xl lg:text-4xl xl:text-5xl">
+            Learning should be fun
+          </h1>
 
-        <p>
-          <b>No one wants another boring “online course.”</b>
-        </p>
-        <p>
-          But, everyone loves a fascinating <b>story</b>, a compelling{' '}
-          <b>game</b>, or a unique <b>adventure</b>.
-        </p>
-        <p>
-          I'm Merott, and I'm on a mission to{' '}
-          <b>make online courses worthy of people's undivided attention. </b>
-          Beyond the Boring is a digital garden 🌱 feeding my curiosity while
-          helping you build <b>powerful, thrilling courses.</b>
-        </p>
-        <p>
-          You'll find ideas around{' '}
-          <b>learning experience design, storytelling, gamification,</b> and how
-          you might <b>apply them to your own courses.</b>
-        </p>
+          <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-20">
+            <p>
+              <b className="text-gray-900">
+                No one wants another boring “online course.”
+              </b>
+            </p>
 
-        <h2>The Garden 🌱</h2>
+            <p className="mt-2 xs:mt-3 lg:mt-5">
+              But, everyone loves a fascinating{' '}
+              <b className="text-gray-900">story</b>, a compelling{' '}
+              <b className="text-gray-900">game</b>, or a unique{' '}
+              <b className="text-gray-900">adventure</b>.
+            </p>
 
-        <p>Imagine a blog, but a living and breathing one.</p>
-        <p>
-          Ideas start as tiny seeds, cultivated over time until they grow into
-          solid, reliable trees.
-        </p>
-        <p>
-          Not every seed survives, and the work is never complete. Even the
-          trees need regular grooming to keep them healthy and fruitful.
-        </p>
+            <p className="mt-2 xs:mt-3 lg:mt-5">
+              I'm Merott, and I'm on a mission to{' '}
+              <b className="text-gray-900">
+                make online courses worthy of people's undivided attention.{' '}
+              </b>
+              Beyond the Boring is a digital garden 🌱 feeding my curiosity
+              while helping you{' '}
+              <b className="text-gray-900">
+                build powerful, thrilling courses.
+              </b>
+            </p>
 
-        <a href="/garden">Visit the Garden</a>
-      </main>
+            <p className="mt-2 xs:mt-3 lg:mt-5">
+              You'll find ideas around{' '}
+              <b className="text-gray-900">
+                learning experience design, storytelling, gamification,
+              </b>{' '}
+              and how you might{' '}
+              <b className="text-gray-900">apply them to your own courses.</b>
+            </p>
+          </div>
+
+          <h2 className="mt-8 text-lg font-bold text-gray-900 xs:mt-12 xs:text-xl lg:mt-20 lg:text-2xl">
+            The Garden 🌱
+          </h2>
+
+          <p className="mt-2 xs:mt-3 lg:mt-5">
+            Imagine a blog, but a living and breathing one.
+          </p>
+
+          <p className="mt-2 xs:mt-3 lg:mt-5">
+            Ideas start as tiny seeds, cultivated over time until they grow into
+            solid, reliable trees.
+          </p>
+
+          <p className="mt-2 xs:mt-3 lg:mt-5">
+            Not every seed survives, and the work is never complete. Even the
+            trees need regular grooming to keep them healthy and fruitful.
+          </p>
+
+          <a href="/garden">Visit the Garden</a>
+        </main>
+      </Container>
     </div>
   )
 }
