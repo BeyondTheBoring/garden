@@ -5,8 +5,10 @@
     "projects/**"
   ],
   "scripts": {
+    "build": "lerna run build --parallel",
     "dev": "lerna run dev --parallel",
-    "prepare": "husky install"
+    "prepare": "husky install && yarn hack:tailwind-intellisense",
+    "hack:tailwind-intellisense": "ln -s projects/garden/tailwind.config.js tailwind.config.js"
   },
   "devDependencies": {
     "husky": "^7.0.4",

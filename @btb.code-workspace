@@ -15,19 +15,26 @@
   ],
   "settings": {
     "blueprint.templatesPath": ["../../blueprint-templates"],
+
+    "editor.wordWrap": "wordWrapColumn",
+
     "files.associations": {
       "**/blueprint-templates/**": "txt"
     },
+
+    "grammarly.dialect": "british",
+
     "files.exclude": {
       "projects": true,
       "**/dist": true,
       "**/node_modules": true,
       "**/coverage": true
     },
+
     "search.exclude": {
       "**/*.log": true,
-      "**/yarn.lock": true
-    },
-    "grammarly.dialect": "british"
+      "**/yarn.lock": true,
+      "./tailwind.config.js": true
+    }
   }
 }
