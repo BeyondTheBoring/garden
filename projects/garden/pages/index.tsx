@@ -25,7 +25,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="relative h-[320px]">
+      <header className="relative h-[240px] tall:lg:h-[320px]">
         <SlopedRadial color="yellow" />
         <Container>
           <nav className="flex pt-5 justify-between items-center md:pt-6 lg:pt-7">
@@ -61,7 +61,7 @@ const Home: NextPage = () => {
         </Container>
 
         <div className="absolute w-full -bottom-5">
-          <Monster className="w-4/12 xs:w-40 tall:lg:w-[200px] max-w-full mx-auto" />
+          <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto" />
         </div>
       </header>
 
