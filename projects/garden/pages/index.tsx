@@ -3,17 +3,37 @@ import { MenuAlt3Icon } from '@heroicons/react/outline'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Fragment } from 'react'
+import { Fragment, ReactElement } from 'react'
 
+import ArrowRight from '@/assets/icons/filled/arrow-right.svg'
+import Fingerprint from '@/assets/icons/outline/fingerprint.svg'
+import Leaf from '@/assets/icons/outline/leaf.svg'
+import TriangleCircle from '@/assets/icons/outline/triangle-circle.svg'
 import { Container } from '@/components/Container'
 import { Monster } from '@/components/Monster'
 import { MonsterEye } from '@/components/MonsterEye'
 import { SlopedRadial } from '@/components/SlopedRadial'
 
-const navLinks: Array<{ title: string; href: string }> = [
-  { title: 'The Garden', href: '#' },
-  { title: 'Work Together', href: '#' },
-  { title: 'About', href: '#' },
+const navLinks: Array<{
+  title: string
+  href: string
+  icon: ReactElement
+}> = [
+  {
+    title: 'The Garden',
+    href: '/garden',
+    icon: <Leaf className="w-6 h-6" />,
+  },
+  {
+    title: 'Work Together',
+    href: '/work-together',
+    icon: <TriangleCircle className="w-6 h-6" />,
+  },
+  {
+    title: 'About',
+    href: '/about',
+    icon: <Fingerprint className="w-6 h-6" />,
+  },
 ]
 
 const Home: NextPage = () => {
@@ -60,8 +80,9 @@ const Home: NextPage = () => {
                     {navLinks.map(link => (
                       <li key={link.title}>
                         <Link href={link.href}>
-                          <a className="block py-2 px-6 whitespace-nowrap font-medium focus:outline-none hover:bg-yellow-200 focus:bg-yellow-200">
-                            {link.title}
+                          <a className="flex items-center py-2 pl-6 pr-10 space-x-4 whitespace-nowrap font-medium text-gray-700 focus:outline-none hover:bg-yellow-200 focus:bg-yellow-200">
+                            <span className="inline-block">{link.icon}</span>
+                            <span>{link.title}</span>
                           </a>
                         </Link>
                       </li>
@@ -75,8 +96,11 @@ const Home: NextPage = () => {
               {navLinks.map(link => (
                 <li key={link.title}>
                   <Link href={link.href}>
-                    <a className="text-gray-800 hover:text-gray-900 focus:text-gray-900">
-                      {link.title}
+                    <a className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 focus:text-gray-900 subpixel-antialiased">
+                      <span className="hidden lg:inline-block">
+                        {link.icon}
+                      </span>
+                      <span>{link.title}</span>
                     </a>
                   </Link>
                 </li>
@@ -156,9 +180,10 @@ const Home: NextPage = () => {
           </p>
 
           <div className="text-center mt-5 xs:mt-8 lg:mt-10">
-            <Link href="#">
-              <a className="btn btn-dark rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
-                Visit the Garden
+            <Link href="/garden">
+              <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
+                <span>Visit the Garden</span>
+                <ArrowRight className="ml-2 w-5 h-5 lg:w-6 lg:h-6" />
               </a>
             </Link>
           </div>
