@@ -1,44 +1,22 @@
-import { Popover, Transition } from '@headlessui/react'
-import { MenuAlt3Icon } from '@heroicons/react/outline'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Fragment, ReactElement } from 'react'
 
 import ArrowRight from '@/assets/icons/filled/arrow-right.svg'
-import Fingerprint from '@/assets/icons/outline/fingerprint.svg'
-import Leaf from '@/assets/icons/outline/leaf.svg'
-import TriangleCircle from '@/assets/icons/outline/triangle-circle.svg'
 import { Container } from '@/components/Container'
+import { HeaderNav } from '@/components/HeaderNav'
 import { Monster } from '@/components/Monster'
-import { MonsterEye } from '@/components/MonsterEye'
-import { SlopedRadial } from '@/components/SlopedRadial'
+import colors from '@/theme/colors'
+import { PageMainContainer } from '@/components/PageMainContainer'
 
-const navLinks: Array<{
-  title: string
-  href: string
-  icon: ReactElement
-}> = [
-  {
-    title: 'The Garden',
-    href: '/garden',
-    icon: <Leaf className="w-6 h-6" />,
-  },
-  {
-    title: 'Work Together',
-    href: '/work-together',
-    icon: <TriangleCircle className="w-6 h-6" />,
-  },
-  {
-    title: 'About',
-    href: '/about',
-    icon: <Fingerprint className="w-6 h-6" />,
-  },
-]
+const headerGradient = {
+  baseColor: colors.yellow[300],
+  lightColor: colors.yellow[200],
+}
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Beyond the Boring | Learning should be fun</title>
         <meta
@@ -48,148 +26,73 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="relative h-[240px] tall:lg:h-[320px]">
-        <SlopedRadial color="yellow" />
-        <Container>
-          <nav className="flex pt-5 justify-between items-center md:pt-6 lg:pt-7">
-            <Link href="/">
-              <a className="flex space-x-3 items-center font-hand tracking-[-0.08em] text-lg lg:text-[22px] lg:space-x-5">
-                <MonsterEye className="h-6 lg:h-8" />
-                <span className="leading-tight mt-[.2em]">
-                  Beyond the Boring
-                </span>
-              </a>
-            </Link>
+      <HeaderNav gradient={headerGradient}>
+        <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto drop-shadow-lg" />
+      </HeaderNav>
 
-            <Popover className="flex items-center relative sm:hidden z-10">
-              <Popover.Button className="rounded-lg p-1 -m-1 text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-700">
-                <MenuAlt3Icon className="w-5 h-5" aria-hidden="true" />
-                <span className="sr-only">Open navigation menu</span>
-              </Popover.Button>
-              <Transition
-                as={Fragment}
-                enter="duration-150 ease-out"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="duration-100 ease-in"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Popover.Panel className="absolute top-2 right-5 bg-white py-2 shadow-md rounded-2xl ring-1 ring-gray-900 ring-opacity-5 overflow-hidden">
-                  <ul className="flex flex-col">
-                    {navLinks.map(link => (
-                      <li key={link.title}>
-                        <Link href={link.href}>
-                          <a className="flex items-center py-2 pl-6 pr-10 space-x-4 whitespace-nowrap font-medium text-gray-700 focus:outline-none hover:bg-yellow-200 focus:bg-yellow-200">
-                            <span className="inline-block">{link.icon}</span>
-                            <span>{link.title}</span>
-                          </a>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Popover.Panel>
-              </Transition>
-            </Popover>
+      <PageMainContainer title="Learning should be fun">
+        <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
+          <p>
+            <b className="text-gray-900">
+              No one wants another boring “online course.”
+            </b>
+          </p>
 
-            <ul className="hidden sm:flex space-x-5 items-center text-sm md:space-x-8 lg:space-x-10 xl:space-x-12 md:text-base">
-              {navLinks.map(link => (
-                <li key={link.title}>
-                  <Link href={link.href}>
-                    <a className="flex items-center space-x-2 text-gray-700 hover:text-gray-900 focus:text-gray-900 subpixel-antialiased">
-                      <span className="hidden lg:inline-block">
-                        {link.icon}
-                      </span>
-                      <span>{link.title}</span>
-                    </a>
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <button className="btn btn-dark rounded-full px-3 py-1 md:px-5 md:py-1.5 text-xs lg:text-sm">
-                  Subscribe
-                </button>
-              </li>
-            </ul>
-          </nav>
-        </Container>
+          <p className="mt-2 xs:mt-3 lg:mt-5">
+            But, everyone loves a fascinating{' '}
+            <b className="text-gray-900">story</b>, a compelling{' '}
+            <b className="text-gray-900">game</b>, or a unique{' '}
+            <b className="text-gray-900">adventure</b>.
+          </p>
 
-        <div className="absolute w-full -bottom-5">
-          <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto drop-shadow-lg" />
+          <p className="mt-2 xs:mt-3 lg:mt-5">
+            I'm Merott, and I'm on a mission to{' '}
+            <b className="text-gray-900">
+              make online courses worthy of people's undivided attention.{' '}
+            </b>
+            Beyond the Boring is a digital garden 🌱 feeding my curiosity while
+            helping you{' '}
+            <b className="text-gray-900">build powerful, thrilling courses.</b>
+          </p>
+
+          <p className="mt-2 xs:mt-3 lg:mt-5">
+            You'll find ideas around{' '}
+            <b className="text-gray-900">
+              learning experience design, storytelling, gamification,
+            </b>{' '}
+            and how you might{' '}
+            <b className="text-gray-900">apply them to your own courses.</b>
+          </p>
         </div>
-      </header>
 
-      <Container>
-        <main className="my-14 max-w-3xl mx-auto text-gray-700 xs:my-16 xs:text-lg lg:my-20 lg:max-w-4xl lg:text-xl xl:my-24">
-          <h1 className="text-2xl font-bold tracking-tighter text-center text-gray-900 xs:text-3xl lg:text-4xl xl:text-5xl">
-            Learning should be fun
-          </h1>
+        <h2 className="mt-8 text-lg font-bold text-gray-900 xs:mt-12 xs:text-xl lg:mt-20 lg:text-2xl">
+          The Garden 🌱
+        </h2>
 
-          <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
-            <p>
-              <b className="text-gray-900">
-                No one wants another boring “online course.”
-              </b>
-            </p>
+        <p className="mt-2 xs:mt-3 lg:mt-5">
+          Imagine a blog, but a living and breathing one.
+        </p>
 
-            <p className="mt-2 xs:mt-3 lg:mt-5">
-              But, everyone loves a fascinating{' '}
-              <b className="text-gray-900">story</b>, a compelling{' '}
-              <b className="text-gray-900">game</b>, or a unique{' '}
-              <b className="text-gray-900">adventure</b>.
-            </p>
+        <p className="mt-2 xs:mt-3 lg:mt-5">
+          Ideas start as tiny seeds, cultivated over time until they grow into
+          solid, reliable trees.
+        </p>
 
-            <p className="mt-2 xs:mt-3 lg:mt-5">
-              I'm Merott, and I'm on a mission to{' '}
-              <b className="text-gray-900">
-                make online courses worthy of people's undivided attention.{' '}
-              </b>
-              Beyond the Boring is a digital garden 🌱 feeding my curiosity
-              while helping you{' '}
-              <b className="text-gray-900">
-                build powerful, thrilling courses.
-              </b>
-            </p>
+        <p className="mt-2 xs:mt-3 lg:mt-5">
+          Not every seed survives, and the work is never complete. Even the
+          trees need regular grooming to keep them healthy and fruitful.
+        </p>
 
-            <p className="mt-2 xs:mt-3 lg:mt-5">
-              You'll find ideas around{' '}
-              <b className="text-gray-900">
-                learning experience design, storytelling, gamification,
-              </b>{' '}
-              and how you might{' '}
-              <b className="text-gray-900">apply them to your own courses.</b>
-            </p>
-          </div>
-
-          <h2 className="mt-8 text-lg font-bold text-gray-900 xs:mt-12 xs:text-xl lg:mt-20 lg:text-2xl">
-            The Garden 🌱
-          </h2>
-
-          <p className="mt-2 xs:mt-3 lg:mt-5">
-            Imagine a blog, but a living and breathing one.
-          </p>
-
-          <p className="mt-2 xs:mt-3 lg:mt-5">
-            Ideas start as tiny seeds, cultivated over time until they grow into
-            solid, reliable trees.
-          </p>
-
-          <p className="mt-2 xs:mt-3 lg:mt-5">
-            Not every seed survives, and the work is never complete. Even the
-            trees need regular grooming to keep them healthy and fruitful.
-          </p>
-
-          <div className="text-center mt-5 xs:mt-8 lg:mt-10">
-            <Link href="/garden">
-              <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
-                <span>Visit the Garden</span>
-                <ArrowRight className="ml-2 w-5 h-5 lg:w-6 lg:h-6" />
-              </a>
-            </Link>
-          </div>
-        </main>
-      </Container>
-    </div>
+        <div className="text-center mt-5 xs:mt-8 lg:mt-10">
+          <Link href="/garden">
+            <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
+              <span>Visit the Garden</span>
+              <ArrowRight className="ml-2 w-5 h-5 lg:w-6 lg:h-6" />
+            </a>
+          </Link>
+        </div>
+      </PageMainContainer>
+    </>
   )
 }
 

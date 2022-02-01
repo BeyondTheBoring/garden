@@ -1,10 +1,11 @@
 const twColors = require('tailwindcss/colors')
 
 module.exports = {
-  baclk: twColors.baclk,
+  black: twColors.black,
   white: twColors.white,
   blue: twColors.sky,
   gray: twColors.slate,
+  green: twColors.lime,
   yellow: {
     50: '#fffbeb',
     100: '#fef3c7',

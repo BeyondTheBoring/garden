@@ -1,25 +1,21 @@
 import btbColors from '@/theme/colors'
 
 export type SlopedRadialProps = {
-  color: 'yellow'
+  baseColor: string
+  lightColor: string
 }
 
-const gradients: Record<
-  SlopedRadialProps['color'],
-  { from: string; to: string }
-> = {
-  yellow: { from: btbColors.yellow[200], to: btbColors.yellow[300] },
-}
-
-export default function SlopedRadial({ color }: SlopedRadialProps) {
-  const gradient = gradients[color]
-  const shapesFill = encodeURIComponent(gradient.to)
+export default function SlopedRadial({
+  baseColor,
+  lightColor,
+}: SlopedRadialProps) {
+  const shapesFill = encodeURIComponent(baseColor)
 
   return (
     <div
       className="absolute -z-10 h-full w-full"
       style={{
-        background: `radial-gradient(50% 50% at 50% 50%, ${gradient.from} 20%, ${gradient.to} 100%)`,
+        background: `radial-gradient(50% 50% at 50% 50%, ${lightColor} 0%, ${baseColor} 100%)`,
       }}
     >
       <div
