@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
+import Almond from '@/assets/icons/outline/almond.svg'
+import Water from '@/assets/icons/outline/water.svg'
 import { HeaderNav } from '@/components/HeaderNav'
 import { PageMainContainer } from '@/components/PageMainContainer'
 import colors from '@/theme/colors'
@@ -82,14 +84,38 @@ const Garden: NextPage = () => {
             >
               <Link href="#">
                 <a className="flex flex-col w-full h-full" aria-label={title}>
-                  <div className="p-4 xs:py-5 xs:px-6">
+                  <div className="flex-1 flex flex-col m-4 xs:m-7">
                     <h2 className="text-base font-bold xs:text-lg sm">
                       {title}
                     </h2>
-                    <p className="pt-2 text-sm line-clamp-3 xs:pt-3 xs:text-base">
+
+                    <p className="mt-2 text-sm line-clamp-3 xs:mt-3 xs:text-base">
                       {description}
                     </p>
+
+                    <div className="mt-auto">
+                      <div className="mt-5 flex space-x-6 text-xxs font-medium uppercase text-gray-500 xs:text-xs">
+                        <div className="flex">
+                          <Almond
+                            className="w-4 h-4 xs:w-5 xs:h-5"
+                            role="img"
+                            aria-label="Growth stage"
+                          />
+                          <div className="ml-1">Seed</div>
+                        </div>
+
+                        <div className="flex">
+                          <Water
+                            className="w-4 h-4 xs:w-5 xs:h-5"
+                            role="img"
+                            aria-label="Last tended"
+                          />
+                          <div className="ml-1">2 months ago</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
                   <div className="-order-1 aspect-w-7 aspect-h-4 bg-gray-200 shadow select-none">
                     <Image
                       src={image}
