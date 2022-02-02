@@ -5,11 +5,17 @@ const reactSvg = require('next-react-svg')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   experimental: {
     externalDir: true,
     optimizeCss: true,
   },
+
+  images: {
+    domains: ['images.unsplash.com'],
+    formats: ['image/avif', 'image/webp'],
+  },
+
+  reactStrictMode: true,
 }
 
 module.exports = withPlugins(

@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import ArrowRight from '@/assets/icons/filled/arrow-right.svg'
-import { Container } from '@/components/Container'
 import { HeaderNav } from '@/components/HeaderNav'
 import { Monster } from '@/components/Monster'
 import colors from '@/theme/colors'
@@ -30,7 +29,10 @@ const Home: NextPage = () => {
         <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto drop-shadow-lg" />
       </HeaderNav>
 
-      <PageMainContainer title="Learning should be fun">
+      <PageMainContainer
+        title="Learning should be fun"
+        className="mx-auto max-w-3xl lg:max-w-4xl"
+      >
         <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
           <p>
             <b className="text-gray-900">
