@@ -57,7 +57,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
           </Link>
 
           <Popover className="flex items-center relative sm:hidden z-10">
-            <Popover.Button className="rounded-lg p-1 -m-1 text-gray-800 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-800">
+            <Popover.Button className="btn-icon">
               <MenuAlt3Icon className="w-5 h-5" aria-hidden="true" />
               <span className="sr-only">Open navigation menu</span>
             </Popover.Button>

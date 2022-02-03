@@ -5,9 +5,11 @@ import Link from 'next/link'
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
 import Almond from '@/assets/icons/outline/almond.svg'
 import Water from '@/assets/icons/outline/water.svg'
+import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
 import { HeaderNav } from '@/components/HeaderNav'
 import { PageMainContainer } from '@/components/PageMainContainer'
 import colors from '@/theme/colors'
+import { useState } from 'react'
 
 const posts = [
   {
@@ -53,6 +55,8 @@ const posts = [
 ]
 
 const Garden: NextPage = () => {
+  const [showGardenExplainer, setShowGardenExplainer] = useState(true)
+
   return (
     <>
       <HeaderNav
@@ -71,7 +75,10 @@ const Garden: NextPage = () => {
         <p className="max-w-2xl mx-auto text-center">
           Ideas around learning experience design, storytelling, and
           gamification, growing over time from tiny seeds to solid trees.
-          <button className="btn btn-dark inline-block ml-2 px-2 text-xs rounded-full pt-px">
+          <button
+            className="btn btn-dark inline-block ml-2 px-2 text-xs rounded-full pt-px"
+            onClick={() => setShowGardenExplainer(true)}
+          >
             WTF?
           </button>
         </p>
@@ -80,7 +87,7 @@ const Garden: NextPage = () => {
           {posts.map(({ id, title, description, image }) => (
             <li
               key={id}
-              className="relative max-w-md bg-white overflow-hidden rounded-3xl shadow transition-all duration-150 ease-out hover:-translate-y-1 hover:-translate-x-px hover:shadow-md focus-within:-translate-y-1 focus-within:-translate-x-px focus-within:shadow-md focus-within:ring ring-gray-800"
+              className="relative max-w-md bg-white overflow-hidden rounded-3xl shadow transition-all duration-150 ease-out hover:-translate-y-1 hover:-translate-x-px hover:shadow-md focus-within:-translate-y-1 focus-within:-translate-x-px focus-within:ring ring-offset-2 ring-offset-white ring-gray-900"
             >
               <Link href="#">
                 <a className="flex flex-col w-full h-full" aria-label={title}>
@@ -130,6 +137,11 @@ const Garden: NextPage = () => {
           ))}
         </ul>
       </PageMainContainer>
+
+      <DigitalGardenExplainer
+        open={showGardenExplainer}
+        onClose={() => setShowGardenExplainer(false)}
+      />
     </>
   )
 }
