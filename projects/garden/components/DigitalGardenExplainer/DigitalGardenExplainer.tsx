@@ -14,7 +14,11 @@ export default function DigitalGardenExplainer({
 }: DigitalGardenExplainerProps) {
   return (
     <Transition.Root as={Fragment} show={open}>
-      <Dialog open={open} onClose={onClose} className="fixed z-10 inset-5">
+      <Dialog
+        open={open}
+        onClose={onClose}
+        className="fixed z-10 inset-3 xs:inset-5"
+      >
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -59,56 +63,61 @@ export default function DigitalGardenExplainer({
 
             <Dialog.Description
               as="div"
-              className="relative flex-1 -mt-8 px-8 pt-10 pb-6 overflow-y-scroll md:px-10 md:pt-14 md:pb-8"
+              className="relative flex-1 -mt-4 px-8 py-6 overflow-y-scroll md:-mt-8 md:px-10 md:py-8 md:text-lg"
             >
-              <p>
+              <p className="mt-5 md:mt-7">
                 Imagine a blog, but a <em>living and breathing</em> one! 🌱
               </p>
-              <p>
+              <p className="mt-5 md:mt-7">
                 It's a collection of notes, ideas and explorations that start as
                 tiny seeds, and are cultivated over time until they grow into
                 solid, reliable trees.
               </p>
-              <p>
+              <p className="mt-5 md:mt-7">
                 Not every seed survives, and the work is never complete. Even
                 the trees need regular grooming to keep them healthy and
                 fruitful.
               </p>
-              <p>
-                You'll find the growth status of each post where they’re listed,
+              <p className="mt-5 md:mt-7">
+                You'll find the growth status of each post where they're listed,
                 and also on their individual pages.
               </p>
-              <p>Here are the different stages of growth and what they mean:</p>
-              <ul>
-                <li>
+              <p className="mt-5 md:mt-7">
+                Here are the different stages of growth and what they mean:
+              </p>
+              <ul className="mt-3 ml-5 list-disc">
+                <li className="mt-1 md:mt-2">
                   <strong>Seed:</strong> the spark of an idea / prone to dying
                 </li>
-                <li>
+                <li className="mt-1 md:mt-2">
                   <strong>Seedling:</strong> a promising idea / worth exploring
                 </li>
-                <li>
+                <li className="mt-1 md:mt-2">
                   <strong>Sapling:</strong> a growing idea / starting to take
                   shape
                 </li>
-                <li>
+                <li className="mt-1 md:mt-2">
                   <strong>Tree:</strong> a fully-grown idea / shaped and
                   clarified
                 </li>
               </ul>
-              <p>
+              <p className="mt-5 md:mt-7">
                 You'll also find the date on which a post was 'planted', and
                 more important than that, when it was last 'tended to.'
               </p>
               {/* todo: [ADD SCREENSHOT INDICATING GROWTH STAGE + DATES] */}
-              If you're curious to learn more, check out{' '}
-              <a
-                href="https://maggieappleton.com/garden-history"
-                target="_blank"
-                rel="noreferrer"
-              >
-                A Brief History & Ethos of the Digital Garden by Maggie Appleton
-              </a>
-              .
+              <p className="mt-5 md:mt-7">
+                If you're curious to learn more, check out{' '}
+                <a
+                  href="https://maggieappleton.com/garden-history"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  A Brief History & Ethos of the Digital Garden by Maggie
+                  Appleton
+                </a>
+                .
+              </p>
             </Dialog.Description>
           </div>
         </Transition.Child>
