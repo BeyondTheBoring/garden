@@ -59,7 +59,7 @@ export default function DigitalGardenExplainer({
 
             <Dialog.Description
               as="div"
-              className="flex-1 px-8 py-6 overflow-y-scroll md:px-10 md:py-8"
+              className="relative flex-1 -mt-8 px-8 pt-10 pb-6 overflow-y-scroll md:px-10 md:pt-14 md:pb-8"
             >
               <p>
                 Imagine a blog, but a <em>living and breathing</em> one! 🌱

@@ -12,26 +12,33 @@ export default function WavyHeader({
 }: WavyHeaderProps) {
   return (
     <div className="relative">
-      <div
-        className="absolute w-full h-full pointer-events-none"
-        style={{
-          background: `radial-gradient(50% 50% at 50% 50%, ${lightColor} 0%, ${baseColor} 100%)`,
-        }}
-      ></div>
+      <div className="absolute w-full h-full pointer-events-none z-10 rounded-t-3xl overflow-hidden">
+        <svg
+          viewBox="0 0 800 160"
+          preserveAspectRatio="none"
+          className="w-full h-full drop-shadow-sm"
+        >
+          <path
+            d="M0 160c185.5-77.675 800 73.253 800-101.772V0H0v160Z"
+            fill="url(#wavy-gradient)"
+          />
+          <defs>
+            <radialGradient
+              id="wavy-gradient"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(400 80) rotate(90) scale(80 400)"
+            >
+              <stop offset="0.21875" stopColor={lightColor} />
+              <stop offset="1" stopColor={baseColor} />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
 
-      <svg
-        viewBox="0 0 800 160"
-        preserveAspectRatio="none"
-        className="absolute w-full h-full top-px pointer-events-none"
-        aria-hidden="true"
-      >
-        <path
-          d="M375.123 141.316C225.913 134.487 76.488 127.648 0 159.676h800V58c-.131 102.755-212.285 93.045-424.877 83.316Z"
-          fill={colors.white}
-        />
-      </svg>
-
-      <div className="relative">
+      <div className="relative z-20">
         <div {...props}></div>
       </div>
     </div>
