@@ -74,11 +74,14 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                 <ul className="flex flex-col">
                   {navLinks.map(link => (
                     <li key={link.title}>
-                      <Link href={link.href}>
-                        <a className="flex items-center py-2 pl-6 pr-10 space-x-4 whitespace-nowrap font-medium text-gray-800 focus:outline-none hover:bg-yellow-200 focus:bg-yellow-200">
+                      <Link href={link.href} passHref>
+                        <Popover.Button
+                          as="a"
+                          className="flex items-center py-2 pl-6 pr-10 space-x-4 whitespace-nowrap font-medium text-gray-800 focus:outline-none hover:bg-yellow-200 focus:bg-yellow-200"
+                        >
                           <span className="inline-block">{link.icon}</span>
                           <span>{link.title}</span>
-                        </a>
+                        </Popover.Button>
                       </Link>
                     </li>
                   ))}
