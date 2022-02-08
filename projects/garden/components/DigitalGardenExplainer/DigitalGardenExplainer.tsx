@@ -1,6 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
+import Image from 'next/image'
 import { Fragment } from 'react'
+
 import { WavyHeader } from '@/components/WavyHeader'
 import colors from '@/theme/colors'
 
@@ -69,19 +71,25 @@ export default function DigitalGardenExplainer({
                 Imagine a blog, but a <em>living and breathing</em> one! 🌱
               </p>
               <p className="mt-5 md:mt-7">
-                It's a collection of notes, ideas and explorations that start as
-                tiny seeds, and are cultivated over time until they grow into
-                solid, reliable trees.
+                It's a collection of notes, ideas and explorations starting as
+                tiny seeds, and cultivated over time until they grow into solid,
+                reliable trees.
               </p>
               <p className="mt-5 md:mt-7">
-                Not every seed survives, and the work is never complete. Even
-                the trees need regular grooming to keep them healthy and
-                fruitful.
+                Not every seed survives, and not every tree produces fruit, but
+                the work is never complete. Everything is always a work in
+                progress.
               </p>
-              <p className="mt-5 md:mt-7">
-                You'll find the growth status of each post where they're listed,
-                and also on their individual pages.
-              </p>
+              <div className="-mx-8 my-8 md:-mx-10 md:my-10">
+                <div className="relative aspect-w-16 aspect-h-9">
+                  <Image
+                    src="/img/digital-garden-32.png"
+                    alt="Visualization of a digital garden, with a seed growing into a seedling, a sapling, and eventually a solid tree producing products (an apple.)"
+                    layout="fill"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
               <p className="mt-5 md:mt-7">
                 Here are the different stages of growth and what they mean:
               </p>
@@ -100,10 +108,14 @@ export default function DigitalGardenExplainer({
                   <strong>Tree:</strong> a fully-grown idea / shaped and
                   clarified
                 </li>
+                <li className="mt-1 md:mt-2">
+                  <strong>Fruit:</strong> a product to sell / rich in value
+                </li>
               </ul>
               <p className="mt-5 md:mt-7">
-                You'll also find the date on which a post was 'planted', and
-                more important than that, when it was last 'tended to.'
+                Every post on Beyond the Boring will display its growth status,
+                the date on which it was 'planted', and most importantly, when
+                it was last 'tended to.'
               </p>
               {/* todo: [ADD SCREENSHOT INDICATING GROWTH STAGE + DATES] */}
               <p className="mt-5 md:mt-7">
