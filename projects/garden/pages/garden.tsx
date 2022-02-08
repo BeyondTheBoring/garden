@@ -55,7 +55,7 @@ const posts = [
 ]
 
 const Garden: NextPage = () => {
-  const [showGardenExplainer, setShowGardenExplainer] = useState(true)
+  const [showGardenExplainer, setShowGardenExplainer] = useState(false)
 
   return (
     <>
