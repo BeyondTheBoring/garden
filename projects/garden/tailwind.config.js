@@ -24,7 +24,7 @@ module.exports = {
       // sans: ['system-ui', ...defaultTheme.fontFamily.sans],
       // sans: ['tenon', ...defaultTheme.fontFamily.sans],
       sans: ['brix-sans', ...defaultTheme.fontFamily.sans],
-      hand: ['fuzzy-bubbles', ...defaultTheme.fontFamily.sans],
+      hand: ['merott-fuzzy', ...defaultTheme.fontFamily.sans],
     },
 
     fontSize: {

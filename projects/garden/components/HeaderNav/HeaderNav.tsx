@@ -50,7 +50,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
       <Container>
         <nav className="flex pt-5 justify-between items-center md:pt-6 lg:pt-7">
           <Link href="/">
-            <a className="flex space-x-3 items-center font-hand tracking-[-0.08em] text-lg lg:text-[22px] lg:space-x-5">
+            <a className="flex space-x-3 items-center font-hand font-bold tracking-tight text-lg lg:text-[22px] lg:space-x-5">
               <MonsterEye className="h-6 lg:h-8" />
               <span className="leading-tight mt-[.2em]">Beyond the Boring</span>
             </a>

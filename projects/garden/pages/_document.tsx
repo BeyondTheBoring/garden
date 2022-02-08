@@ -19,7 +19,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/FuzzyBubbles-Bold.woff2"
+            href="/fonts/MerottFuzzy-Bold.woff2"
             as="font"
             crossOrigin="anonymous"
           />

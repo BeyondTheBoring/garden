@@ -1,6 +1,6 @@
 @layer components {
   .btn {
-    @apply relative inline-block leading-tight text-gray-900 border-2 shadow-sm font-hand tracking-tighter transition-colors duration-150 focus:outline-none focus:border-gray-900 active:shadow-none disabled:shadow-none disabled:text-opacity-40 disabled:cursor-default;
+    @apply relative inline-block leading-tight text-gray-900 border-2 shadow-sm font-hand font-bold tracking-wide transition-colors duration-150 focus:outline-none focus:border-gray-900 active:shadow-none disabled:shadow-none disabled:text-opacity-40 disabled:cursor-default;
 
     &.btn-plain {
       @apply border-gray-200 bg-gray-50 hover:bg-white active:bg-gray-200 disabled:bg-gray-50;
