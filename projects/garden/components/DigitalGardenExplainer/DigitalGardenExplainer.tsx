@@ -121,6 +121,7 @@ export default function DigitalGardenExplainer({
               <p className="mt-5 md:mt-7">
                 If you're curious to learn more, check out{' '}
                 <a
+                  className="link"
                   href="https://maggieappleton.com/garden-history"
                   target="_blank"
                   rel="noreferrer"

@@ -1,0 +1,12 @@
+@layer components {
+  .link {
+    @apply -mx-[0.08em] rounded-sm bg-gradient-to-r from-green-300 to-green-300
+      bg-no-repeat px-[0.08em]
+      [background-position:0_90%]
+      [background-size:100%_0.15em]
+      hover:[background-size:100%_100%]
+      focus:[background-size:100%_100%]
+      motion-safe:transition-all
+      motion-safe:duration-200;
+  }
+}
