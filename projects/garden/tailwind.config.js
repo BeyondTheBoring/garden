@@ -23,6 +23,9 @@ module.exports = {
     fontFamily: {
       // sans: ['system-ui', ...defaultTheme.fontFamily.sans],
       // sans: ['tenon', ...defaultTheme.fontFamily.sans],
+      // sans: ['Qanelas Soft', ...defaultTheme.fontFamily.sans],
+      // sans: ['Proxima Soft Condensed', ...defaultTheme.fontFamily.sans],
+      // sans: ['Cera Compact Pro', ...defaultTheme.fontFamily.sans],
       sans: ['brix-sans', ...defaultTheme.fontFamily.sans],
       hand: ['merott-fuzzy', ...defaultTheme.fontFamily.sans],
     },
@@ -33,7 +36,7 @@ module.exports = {
     },
 
     fontWeight: {
-      regular: 400,
+      normal: 400,
       medium: 500,
       bold: 700,
     },
