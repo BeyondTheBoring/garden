@@ -25,7 +25,7 @@ class MyDocument extends Document {
           />
         </Head>
 
-        <body className="text-base tracking-tight bg-gray-50 selection:bg-yellow-200 antialiased">
+        <body className="bg-gray-50 text-base tracking-tight antialiased selection:bg-yellow-200">
           <Main />
           <NextScript />
         </body>

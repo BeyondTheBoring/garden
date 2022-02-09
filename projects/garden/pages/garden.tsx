@@ -65,34 +65,34 @@ const Garden: NextPage = () => {
           lightColor: colors.green[200],
         }}
       >
-        <BeanSeedling className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto drop-shadow-lg" />
+        <BeanSeedling className="mx-auto w-36 max-w-full drop-shadow-lg md:w-40 tall:lg:w-[200px]" />
       </HeaderNav>
 
       <PageMainContainer
         title="The Garden"
-        className="flex flex-col mt-4 xs:mt-6 lg:mt-10"
+        className="mt-4 flex flex-col xs:mt-6 lg:mt-10"
       >
-        <p className="max-w-2xl mx-auto text-center">
+        <p className="mx-auto max-w-2xl text-center">
           Ideas around learning experience design, storytelling, and
           gamification, growing over time from tiny seeds to solid trees.
           <button
-            className="btn btn-dark inline-block ml-2 px-2 text-xs rounded-full pt-px"
+            className="btn btn-dark ml-2 inline-block rounded-full px-2 pt-px text-xs"
             onClick={() => setShowGardenExplainer(true)}
           >
             WTF?
           </button>
         </p>
 
-        <ul className="mt-8 mx-auto grid gap-6 sm:gap-8 md:mt-10 md:grid-cols-2 lg:mt-12 xl:mt-14 xl:grid-cols-3 xl:gap-10">
+        <ul className="mx-auto mt-8 grid gap-6 sm:gap-8 md:mt-10 md:grid-cols-2 lg:mt-12 xl:mt-14 xl:grid-cols-3 xl:gap-10">
           {posts.map(({ id, title, description, image }) => (
             <li
               key={id}
-              className="relative max-w-md bg-white overflow-hidden rounded-3xl shadow transition-all duration-150 ease-out hover:-translate-y-1 hover:-translate-x-px hover:shadow-md focus-within:-translate-y-1 focus-within:-translate-x-px focus-within:ring ring-offset-2 ring-offset-white ring-gray-900"
+              className="relative max-w-md overflow-hidden rounded-3xl bg-white shadow ring-gray-900 ring-offset-2 ring-offset-white transition-all duration-150 ease-out focus-within:-translate-y-1 focus-within:-translate-x-px focus-within:ring hover:-translate-y-1 hover:-translate-x-px hover:shadow-md"
             >
               <Link href="#">
-                <a className="flex flex-col w-full h-full" aria-label={title}>
-                  <div className="flex-1 flex flex-col m-4 xs:m-7">
-                    <h2 className="text-base font-bold xs:text-lg sm">
+                <a className="flex h-full w-full flex-col" aria-label={title}>
+                  <div className="m-4 flex flex-1 flex-col xs:m-7">
+                    <h2 className="sm text-base font-bold xs:text-lg">
                       {title}
                     </h2>
 
@@ -104,7 +104,7 @@ const Garden: NextPage = () => {
                       <div className="mt-5 flex space-x-6 text-xxs font-medium uppercase text-gray-500 xs:text-xs">
                         <div className="flex">
                           <Almond
-                            className="w-4 h-4 xs:w-5 xs:h-5"
+                            className="h-4 w-4 xs:h-5 xs:w-5"
                             role="img"
                             aria-label="Growth stage"
                           />
@@ -113,7 +113,7 @@ const Garden: NextPage = () => {
 
                         <div className="flex">
                           <Water
-                            className="w-4 h-4 xs:w-5 xs:h-5"
+                            className="h-4 w-4 xs:h-5 xs:w-5"
                             role="img"
                             aria-label="Last tended"
                           />
@@ -123,7 +123,7 @@ const Garden: NextPage = () => {
                     </div>
                   </div>
 
-                  <div className="-order-1 aspect-w-7 aspect-h-4 bg-gray-200 shadow select-none">
+                  <div className="aspect-w-7 aspect-h-4 -order-1 select-none bg-gray-200 shadow">
                     <Image
                       src={image}
                       alt={title}

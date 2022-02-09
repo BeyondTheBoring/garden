@@ -19,7 +19,7 @@ export default function DigitalGardenExplainer({
       <Dialog
         open={open}
         onClose={onClose}
-        className="fixed z-10 inset-3 xs:inset-5"
+        className="fixed inset-3 z-10 xs:inset-5"
       >
         <Transition.Child
           as={Fragment}
@@ -42,7 +42,7 @@ export default function DigitalGardenExplainer({
           leaveFrom="scale-100 translate-x-0"
           leaveTo="scale-75 translate-x-[110%]"
         >
-          <div className="relative ml-auto w-full h-full max-w-2xl flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div className="relative ml-auto flex h-full w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl">
             <WavyHeader
               baseColor={colors.green['200']}
               lightColor={colors.green[100]}
@@ -65,7 +65,7 @@ export default function DigitalGardenExplainer({
 
             <Dialog.Description
               as="div"
-              className="relative flex-1 -mt-4 px-8 py-6 overflow-y-scroll md:-mt-8 md:px-10 md:py-8 md:text-lg"
+              className="relative -mt-4 flex-1 overflow-y-scroll px-8 py-6 md:-mt-8 md:px-10 md:py-8 md:text-lg"
             >
               <p className="mt-5 md:mt-7">
                 Imagine a blog, but a <em>living and breathing</em> one! 🌱
@@ -81,7 +81,7 @@ export default function DigitalGardenExplainer({
                 progress.
               </p>
               <div className="-mx-8 my-8 md:-mx-10 md:my-10">
-                <div className="relative aspect-w-16 aspect-h-9">
+                <div className="aspect-w-16 aspect-h-9 relative">
                   <Image
                     src="/img/digital-garden-32.png"
                     alt="Visualization of a digital garden, with a seed growing into a seedling, a sapling, and eventually a solid tree producing products (an apple.)"

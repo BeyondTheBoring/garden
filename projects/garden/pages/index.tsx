@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       </Head>
 
       <HeaderNav gradient={headerGradient}>
-        <Monster className="w-36 md:w-40 tall:lg:w-[200px] max-w-full mx-auto drop-shadow-lg" />
+        <Monster className="mx-auto w-36 max-w-full drop-shadow-lg md:w-40 tall:lg:w-[200px]" />
       </HeaderNav>
 
       <PageMainContainer
@@ -85,11 +85,11 @@ const Home: NextPage = () => {
           trees need regular grooming to keep them healthy and fruitful.
         </p>
 
-        <div className="text-center mt-5 xs:mt-8 lg:mt-10">
+        <div className="mt-5 text-center xs:mt-8 lg:mt-10">
           <Link href="/garden">
             <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
               <span>Visit the Garden</span>
-              <ArrowRight className="ml-2 w-5 h-5 lg:w-6 lg:h-6" />
+              <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6" />
             </a>
           </Link>
         </div>

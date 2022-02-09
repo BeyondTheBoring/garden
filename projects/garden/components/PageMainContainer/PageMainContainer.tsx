@@ -12,7 +12,7 @@ export default function PageMainContainer({
     <Container>
       <main className="my-14 text-gray-700 xs:my-16 xs:text-lg lg:my-20 lg:text-xl xl:my-24">
         {title && (
-          <h1 className="text-2xl font-bold tracking-tighter text-center text-gray-900 xs:text-3xl lg:text-4xl xl:text-5xl">
+          <h1 className="text-center text-2xl font-bold tracking-tighter text-gray-900 xs:text-3xl lg:text-4xl xl:text-5xl">
             {title}
           </h1>
         )}

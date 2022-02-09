@@ -12,11 +12,11 @@ export default function WavyHeader({
 }: WavyHeaderProps) {
   return (
     <div className="relative">
-      <div className="absolute w-full h-full pointer-events-none z-10 rounded-t-3xl overflow-hidden">
+      <div className="pointer-events-none absolute z-10 h-full w-full overflow-hidden rounded-t-3xl">
         <svg
           viewBox="0 0 800 160"
           preserveAspectRatio="none"
-          className="w-full h-full drop-shadow-sm"
+          className="h-full w-full drop-shadow-sm"
         >
           <path
             d="M0 160c185.5-77.675 800 73.253 800-101.772V0H0v160Z"
