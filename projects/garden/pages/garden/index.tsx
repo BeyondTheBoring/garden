@@ -3,13 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
-import Almond from '@/assets/icons/outline/almond.svg'
 import Water from '@/assets/icons/outline/water.svg'
 import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
 import { HeaderNav } from '@/components/HeaderNav'
 import { PageMainContainer } from '@/components/PageMainContainer'
 import colors from '@/theme/colors'
 import { useState } from 'react'
+import { GrowthStageIcon } from '@/components/GrowthStageIcon'
+import { GrowthStage } from '@/enums/GrowthStage'
 
 const posts = [
   {
@@ -103,10 +104,9 @@ const Garden: NextPage = () => {
                     <div className="mt-auto">
                       <div className="mt-5 flex space-x-6 text-xxs font-medium uppercase text-gray-500 xs:text-xs">
                         <div className="flex">
-                          <Almond
+                          <GrowthStageIcon
+                            stage={GrowthStage.Seed}
                             className="h-4 w-4 xs:h-5 xs:w-5"
-                            role="img"
-                            aria-label="Growth stage"
                           />
                           <div className="ml-1">Seed</div>
                         </div>
@@ -123,7 +123,7 @@ const Garden: NextPage = () => {
                     </div>
                   </div>
 
-                  <div className="aspect-w-7 aspect-h-4 -order-1 select-none bg-gray-200 shadow">
+                  <div className="aspect-w-16 aspect-h-9 -order-1 select-none bg-gray-200 shadow">
                     <Image
                       src={image}
                       alt={title}

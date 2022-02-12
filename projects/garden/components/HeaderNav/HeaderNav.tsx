@@ -43,14 +43,20 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
     <header
       className={classnames('relative', {
         'h-[240px] tall:lg:h-[320px]': gradient,
+        'border-b border-gray-200': !gradient,
       })}
     >
       {gradient && <SlopedRadial {...gradient} />}
 
       <Container>
-        <nav className="flex items-center justify-between pt-5 md:pt-6 lg:pt-7">
+        <nav
+          className={classnames(
+            { 'pb-5 md:pb-6 lg:pb-7': !gradient },
+            'flex items-center justify-between pt-5 md:pt-6 lg:pt-7',
+          )}
+        >
           <Link href="/">
-            <a className="flex items-center space-x-3 font-hand text-lg font-bold tracking-tight lg:space-x-5 lg:text-[22px]">
+            <a className="flex items-center space-x-3 font-hand text-lg font-bold tracking-tight text-gray-900 lg:space-x-5 lg:text-[22px]">
               <MonsterEye className="h-6 lg:h-8" />
               <span className="mt-[.2em] leading-tight">Beyond the Boring</span>
             </a>

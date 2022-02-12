@@ -14,13 +14,22 @@
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.3.1",
+    "gray-matter": "^4.0.3",
+    "image-size": "^1.0.1",
+    "mini-svg-data-uri": "^1.4.3",
     "next": "12.0.9",
+    "next-mdx-remote": "^3.0.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "reading-time": "^1.5.0",
+    "sqip": "^1.0.0-alpha.35",
+    "sqip-plugin-primitive": "^1.0.0-alpha.37",
+    "svgo": "^2.8.0"
   },
   "devDependencies": {
     "@types/node": "17.0.12",
     "@types/react": "17.0.38",
+    "@types/svgo": "^2.6.1",
     "autoprefixer": "^10.4.2",
     "classnames": "^2.3.1",
     "critters": "^0.0.16",
