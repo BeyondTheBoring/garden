@@ -1,3 +1,6 @@
+import { Popover, Transition } from '@headlessui/react'
+import MenuAlt3Icon from '@heroicons/react/outline/MenuAlt3Icon'
+import classnames from 'classnames'
 import Link from 'next/link'
 import { Fragment, ReactElement } from 'react'
 
@@ -7,9 +10,6 @@ import TriangleCircle from '@/assets/icons/outline/triangle-circle.svg'
 import { SlopedRadial, SlopedRadialProps } from '@/components/SlopedRadial'
 import { Container } from '@/components/Container'
 import { MonsterEye } from '@/components/MonsterEye'
-import { Popover, Transition } from '@headlessui/react'
-import MenuAlt3Icon from '@heroicons/react/outline/MenuAlt3Icon'
-import classnames from 'classnames'
 
 const navLinks: Array<{
   title: string
