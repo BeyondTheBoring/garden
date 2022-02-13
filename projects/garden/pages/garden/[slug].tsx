@@ -55,7 +55,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
       <HeaderNav />
 
       <Container className="mt-10 lg:mt-14 2xl:mt-20">
-        <div className="mx-auto max-w-[70ch] text-base sm:text-lg xl:text-xl 2xl:text-2xl">
+        <div className="mx-auto max-w-[68ch] text-base sm:text-lg xl:text-xl">
           <div className="flex flex-col">
             <div className="flex space-x-10 text-xs font-bold uppercase text-gray-500 sm:text-sm">
               <div className="flex items-center space-x-1 sm:space-x-1.5">
@@ -75,7 +75,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
               {post.title}
             </h1>
 
-            <p className="mt-5 text-gray-700 sm:mt-6 sm:text-lg lg:text-xl xl:mt-7 xl:text-inherit 2xl:mt-10">
+            <p className="mt-5 text-gray-700 sm:mt-6 sm:text-xl xl:mt-7 xl:text-2xl 2xl:mt-10">
               {post.description}
             </p>
 
