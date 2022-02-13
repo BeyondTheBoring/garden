@@ -55,7 +55,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
       <HeaderNav />
 
       <Container className="mt-10 lg:mt-14 2xl:mt-20">
-        <div className="mx-auto max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
+        <div className="mx-auto max-w-[70ch] text-base sm:text-lg xl:text-xl 2xl:text-2xl">
           <div className="flex flex-col">
             <div className="flex space-x-10 text-xs font-bold uppercase text-gray-500 sm:text-sm">
               <div className="flex items-center space-x-1 sm:space-x-1.5">
@@ -75,7 +75,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
               {post.title}
             </h1>
 
-            <p className="mt-5 text-gray-700 sm:mt-6 sm:text-lg lg:text-xl xl:mt-7 2xl:mt-10 2xl:text-2xl">
+            <p className="mt-5 text-gray-700 sm:mt-6 sm:text-lg lg:text-xl xl:mt-7 xl:text-inherit 2xl:mt-10">
               {post.description}
             </p>
 
@@ -118,7 +118,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
 
             {/* when adjusting margin, adjust negative margins on 'img'
                 components too, so they remain full width */}
-            <div className="m-5 xs:m-8 sm:m-10 sm:text-lg md:m-12 xl:m-16 xl:text-xl 2xl:text-2xl">
+            <div className="m-5 xs:m-8 sm:m-10 md:m-12 xl:m-16">
               <MDXRemote {...mdx} components={mdxComponents} />
             </div>
           </article>

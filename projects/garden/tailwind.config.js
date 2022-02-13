@@ -17,6 +17,7 @@ const fontSizeConfig = {
   '7xl': [rem(74), 1],
   '8xl': [rem(98), 1],
   '9xl': [rem(130), 1],
+  'inherit': 'inherit',
 }
 
 module.exports = {
