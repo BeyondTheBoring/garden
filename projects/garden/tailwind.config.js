@@ -1,14 +1,23 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const btbColors = require('./theme/colors')
 
-const defaultFontSizes = Object.keys(defaultTheme.fontSize)
-const bumpedFontSizes = ['xxs', ...defaultFontSizes].reduce(
-  (bumpedSizes, size, index) => ({
-    ...bumpedSizes,
-    [size]: defaultTheme.fontSize[defaultFontSizes[index]],
-  }),
-  {},
-)
+const rem = px => `${px / 16}rem`
+const fontSizeConfig = {
+  'xxs': [rem(13), 1],
+  'xs': [rem(14), rem(18)],
+  'sm': [rem(16), rem(24)],
+  'base': [rem(18), rem(28)],
+  'lg': [rem(20), rem(32)],
+  'xl': [rem(22), rem(36)],
+  '2xl': [rem(25), rem(42)],
+  '3xl': [rem(32), 1],
+  '4xl': [rem(38), 1],
+  '5xl': [rem(50), 1],
+  '6xl': [rem(62), 1],
+  '7xl': [rem(74), 1],
+  '8xl': [rem(98), 1],
+  '9xl': [rem(130), 1],
+}
 
 module.exports = {
   content: [
@@ -30,10 +39,7 @@ module.exports = {
       hand: ['merott-fuzzy', ...defaultTheme.fontFamily.sans],
     },
 
-    fontSize: {
-      ...bumpedFontSizes,
-      '9xl': ['10rem', { lineHeight: '1' }],
-    },
+    fontSize: fontSizeConfig,
 
     fontWeight: {
       normal: 400,

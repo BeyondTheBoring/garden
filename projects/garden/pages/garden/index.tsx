@@ -77,7 +77,7 @@ const Garden: NextPage = () => {
           Ideas around learning experience design, storytelling, and
           gamification, growing over time from tiny seeds to solid trees.
           <button
-            className="btn btn-dark ml-2 inline-block rounded-full px-2 pt-px text-xs"
+            className="btn btn-dark ml-2 inline-block rounded-full px-2 pt-[2px] text-xs"
             onClick={() => setShowGardenExplainer(true)}
           >
             WTF?
@@ -103,7 +103,7 @@ const Garden: NextPage = () => {
 
                     <div className="mt-auto">
                       <div className="mt-5 flex space-x-6 text-xxs font-medium uppercase text-gray-500 xs:text-xs">
-                        <div className="flex">
+                        <div className="flex items-center">
                           <GrowthStageIcon
                             stage={GrowthStage.Seed}
                             className="h-4 w-4 xs:h-5 xs:w-5"
@@ -111,7 +111,7 @@ const Garden: NextPage = () => {
                           <div className="ml-1">Seed</div>
                         </div>
 
-                        <div className="flex">
+                        <div className="flex items-center">
                           <Water
                             className="h-4 w-4 xs:h-5 xs:w-5"
                             role="img"

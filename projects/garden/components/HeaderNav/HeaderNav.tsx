@@ -96,7 +96,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
             </Transition>
           </Popover>
 
-          <ul className="hidden items-center space-x-4 text-sm sm:flex md:space-x-8 md:text-base lg:space-x-10 xl:space-x-12">
+          <ul className="hidden items-center space-x-3 text-sm sm:flex md:space-x-6 md:text-base lg:space-x-10 xl:space-x-12">
             {navLinks.map(link => (
               <li key={link.title}>
                 <Link href={link.href}>
@@ -107,8 +107,8 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                 </Link>
               </li>
             ))}
-            <li>
-              <button className="btn btn-dark rounded-full px-3 py-1 text-xs md:px-5 md:py-1.5 lg:text-sm">
+            <li className="text-xxs md:text-xs lg:text-sm">
+              <button className="btn btn-dark ml-2 rounded-full px-3 py-1.5 leading-none md:px-4 md:py-2 lg:px-5 lg:py-2.5">
                 Subscribe
               </button>
             </li>

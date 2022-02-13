@@ -21,7 +21,7 @@ export type PostProps = {
 
 const mdxComponents = {
   img: (props: ImageProps) => (
-    <span className="my-6 -mx-5 block shadow xs:-mx-8 sm:-mx-10 sm:my-8 sm:text-lg md:-mx-12 xl:-mx-16 xl:my-12 xl:text-xl">
+    <span className="my-6 -mx-5 block shadow xs:-mx-8 sm:-mx-10 sm:my-8 md:-mx-12 xl:-mx-16 xl:my-12">
       <Image
         {...props}
         alt={props.alt}
@@ -71,7 +71,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
               </div>
             </div>
 
-            <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:mt-3 sm:text-3xl lg:text-4xl lg:tracking-tighter xl:mt-4 xl:text-5xl 2xl:text-6xl">
+            <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:mt-3 sm:text-3xl xl:mt-4 xl:text-5xl xl:tracking-tighter 2xl:text-6xl">
               {post.title}
             </h1>
 
@@ -118,10 +118,8 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
 
             {/* when adjusting margin, adjust negative margins on 'img'
                 components too, so they remain full width */}
-            <div className="m-5 xs:m-8 sm:m-10 sm:text-lg md:m-12 xl:m-16 xl:text-xl">
-              <div className="leading-relaxed xl:leading-10">
-                <MDXRemote {...mdx} components={mdxComponents} />
-              </div>
+            <div className="m-5 xs:m-8 sm:m-10 sm:text-lg md:m-12 xl:m-16 xl:text-xl 2xl:text-2xl">
+              <MDXRemote {...mdx} components={mdxComponents} />
             </div>
           </article>
         </div>

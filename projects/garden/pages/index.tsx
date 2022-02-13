@@ -40,14 +40,14 @@ const Home: NextPage = () => {
             </b>
           </p>
 
-          <p className="mt-2 xs:mt-3 lg:mt-5">
+          <p className="mt-4 xs:mt-5 lg:mt-6">
             But, everyone loves a fascinating{' '}
             <b className="text-gray-900">story</b>, a compelling{' '}
             <b className="text-gray-900">game</b>, or a unique{' '}
             <b className="text-gray-900">adventure</b>.
           </p>
 
-          <p className="mt-2 xs:mt-3 lg:mt-5">
+          <p className="mt-4 xs:mt-5 lg:mt-6">
             I'm Merott, and I'm on a mission to{' '}
             <b className="text-gray-900">
               make online courses worthy of people's undivided attention.{' '}
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
             <b className="text-gray-900">build powerful, thrilling courses.</b>
           </p>
 
-          <p className="mt-2 xs:mt-3 lg:mt-5">
+          <p className="mt-4 xs:mt-5 lg:mt-6">
             You'll find ideas around{' '}
             <b className="text-gray-900">
               learning experience design, storytelling, gamification,
@@ -67,25 +67,25 @@ const Home: NextPage = () => {
           </p>
         </div>
 
-        <h2 className="mt-8 text-lg font-bold text-gray-900 xs:mt-12 xs:text-xl lg:mt-20 lg:text-2xl">
+        <h2 className="mt-8 text-xl font-bold text-gray-900 xs:mt-12 xs:text-2xl lg:mt-20 lg:text-3xl">
           The Garden 🌱
         </h2>
 
-        <p className="mt-2 xs:mt-3 lg:mt-5">
+        <p className="mt-4 xs:mt-5 lg:mt-6">
           Imagine a blog, but a living and breathing one.
         </p>
 
-        <p className="mt-2 xs:mt-3 lg:mt-5">
+        <p className="mt-4 xs:mt-5 lg:mt-6">
           Ideas start as tiny seeds, cultivated over time until they grow into
           solid, reliable trees.
         </p>
 
-        <p className="mt-2 xs:mt-3 lg:mt-5">
+        <p className="mt-4 xs:mt-5 lg:mt-6">
           Not every seed survives, and the work is never complete. Even the
           trees need regular grooming to keep them healthy and fruitful.
         </p>
 
-        <div className="mt-5 text-center xs:mt-8 lg:mt-10">
+        <div className="mt-6 text-center xs:mt-8 lg:mt-10">
           <Link href="/garden">
             <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
               <span>Visit the Garden</span>

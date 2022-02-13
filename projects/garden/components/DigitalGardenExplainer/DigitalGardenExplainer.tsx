@@ -67,15 +67,15 @@ export default function DigitalGardenExplainer({
               as="div"
               className="relative -mt-4 flex-1 overflow-y-scroll px-8 py-6 md:-mt-8 md:px-10 md:py-8 md:text-lg"
             >
-              <p className="mt-5 md:mt-7">
+              <p className="mt-3 md:mt-5">
                 Imagine a blog, but a <em>living and breathing</em> one! 🌱
               </p>
-              <p className="mt-5 md:mt-7">
+              <p className="mt-3 md:mt-5">
                 It's a collection of notes, ideas and explorations starting as
                 tiny seeds, and cultivated over time until they grow into solid,
                 reliable trees.
               </p>
-              <p className="mt-5 md:mt-7">
+              <p className="mt-3 md:mt-5">
                 Not every seed survives, and not every tree produces fruit, but
                 the work is never complete. Everything is always a work in
                 progress.
@@ -90,7 +90,7 @@ export default function DigitalGardenExplainer({
                   />
                 </div>
               </div>
-              <p className="mt-5 md:mt-7">
+              <p className="mt-3 md:mt-5">
                 Here are the different stages of growth and what they mean:
               </p>
               <ul className="mt-3 ml-5 list-disc">
@@ -112,13 +112,13 @@ export default function DigitalGardenExplainer({
                   <strong>Fruit:</strong> a product to sell / rich in value
                 </li>
               </ul>
-              <p className="mt-5 md:mt-7">
+              <p className="mt-3 md:mt-5">
                 Every post on Beyond the Boring will display its growth status,
                 the date on which it was 'planted', and most importantly, when
                 it was last 'tended to.'
               </p>
               {/* todo: [ADD SCREENSHOT INDICATING GROWTH STAGE + DATES] */}
-              <p className="mt-5 md:mt-7">
+              <p className="mt-3 md:mt-5">
                 If you're curious to learn more, check out{' '}
                 <a
                   className="link"
