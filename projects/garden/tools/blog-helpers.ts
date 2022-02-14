@@ -30,13 +30,10 @@ const postInfos = new Map<string, { path: string; slug: string }>()
 export async function getPostInfos() {
   postInfos.clear()
 
-  const files = await fg('posts/*/*.mdx', { stats: true })
+  const files = await fg('posts/**/*.mdx', { stats: true })
 
-  for (let { path } of files) {
-    const regexResult = path.match(/posts\/\d+\/(.+)\.mdx$/)
-
-    if (!regexResult) throw new Error(`Invalid post path: ${path}`)
-    const [_, slug] = regexResult
+  for (let { name, path } of files) {
+    const slug = name.replace(/\.mdx$/, '')
 
     const duplicate = postInfos.get(slug)
     if (duplicate) {
