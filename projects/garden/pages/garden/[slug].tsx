@@ -67,7 +67,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
               </div>
               <div className="flex items-center space-x-1 sm:space-x-1.5">
                 <ClockIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span>{post.readingTime} minutes</span>
+                <span>{post.readingTime} min read</span>
               </div>
             </div>
 
