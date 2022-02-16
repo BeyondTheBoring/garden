@@ -8,18 +8,42 @@ import { relativeTime } from '@btb/utils'
 
 import { Container } from '@/components/Container'
 import { HeaderNav } from '@/components/HeaderNav'
-import { PostMetadata, getPost, getPostInfos } from '@/tools/blog-helpers'
 import { imagePlaceholder } from '@/tools/mdx/image-placeholder'
 import { imageSize } from '@/tools/mdx/image-size'
 import GrowthStageIcon from '../../components/GrowthStageIcon/GrowthStageIcon'
 import ClockIcon from '@heroicons/react/outline/ClockIcon'
+import { backlinks } from '@/tools/mdx/backlinks'
+import { getInboundLinks } from '@/tools/posts/parse-backlinks'
+import {
+  fetchPostMetadata,
+  fetchPostMetadataWithContentForStaticUsageOnly,
+  fetchPostPaths,
+} from '@/tools/posts/fetch-posts'
+import { PostMetadata } from '@/types/posts'
+import Link from 'next/link'
+import { LinkedArticleCard } from '@/components/LinkedArticleCard'
 
 export type PostProps = {
   post: PostMetadata
+  mentionedIn: Array<PostMetadata>
   mdx: MDXRemoteSerializeResult
 }
 
 const mdxComponents = {
+  a: ({ href, ...props }: React.ComponentProps<'a'>) => (
+    <Link href={href || ''}>
+      <a
+        className="link"
+        {...{
+          ...props,
+          ...(href?.includes('//')
+            ? { target: '_blank', rel: 'noreferrer' }
+            : {}),
+        }}
+      />
+    </Link>
+  ),
+
   img: (props: ImageProps) => (
     <span className="my-6 -mx-5 block shadow xs:-mx-8 sm:-mx-10 sm:my-8 md:-mx-12 xl:-mx-16 xl:my-12">
       <Image
@@ -43,7 +67,7 @@ const mdxComponents = {
   ),
 }
 
-const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
+const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
   return (
     <>
       <Head>
@@ -57,7 +81,7 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
       <Container className="mt-10 lg:mt-14 2xl:mt-20">
         <div className="mx-auto max-w-[68ch] text-base sm:text-lg xl:text-xl">
           <div className="flex flex-col">
-            <div className="flex space-x-10 text-xs font-bold uppercase text-gray-500 sm:text-sm">
+            <div className="flex space-x-10 text-xxs font-bold uppercase tracking-normal text-gray-500 sm:text-xs">
               <div className="flex items-center space-x-1 sm:space-x-1.5">
                 <GrowthStageIcon
                   stage={post.stage}
@@ -67,7 +91,9 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
               </div>
               <div className="flex items-center space-x-1 sm:space-x-1.5">
                 <ClockIcon className="h-4 w-4 sm:h-5 sm:w-5" />
-                <span>{post.readingTime} min read</span>
+                <span>
+                  {post.readingTime === 0 ? '<1' : post.readingTime} min read
+                </span>
               </div>
             </div>
 
@@ -103,18 +129,20 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
           </div>
 
           <article className="relative my-6 mx-auto overflow-hidden rounded-3xl bg-white text-gray-700 shadow sm:my-8">
-            <div className="aspect-w-16 aspect-h-9 shadow-lg md:shadow-xl">
-              <Image
-                src={post.image.src}
-                alt={post.image.alt || post.title}
-                blurDataURL={post.image.placeholder}
-                className="!filter-none"
-                objectFit="cover"
-                layout="fill"
-                loading="lazy"
-                placeholder="blur"
-              />
-            </div>
+            {post.image && (
+              <div className="aspect-w-16 aspect-h-9 shadow-lg md:shadow-xl">
+                <Image
+                  src={post.image.src}
+                  alt={post.image.alt || post.title}
+                  blurDataURL={post.image.placeholder}
+                  className="!filter-none"
+                  objectFit="cover"
+                  layout="fill"
+                  loading="lazy"
+                  placeholder="blur"
+                />
+              </div>
+            )}
 
             {/* when adjusting margin, adjust negative margins on 'img'
                 components too, so they remain full width */}
@@ -122,6 +150,19 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
               <MDXRemote {...mdx} components={mdxComponents} />
             </div>
           </article>
+
+          {mentionedIn.length > 0 && (
+            <div className="mt-12 flex flex-col sm:mt-16 xl:mt-24">
+              <h2 className="text-xl font-bold text-gray-900 sm:text-2xl xl:text-3xl 2xl:text-4xl">
+                Mentioned in
+              </h2>
+              <ul className="mx-auto my-4 grid gap-6 sm:my-7 sm:gap-8 md:grid-cols-2 xl:my-10 xl:gap-10 2xl:my-12">
+                {mentionedIn.map(post => (
+                  <LinkedArticleCard as="li" key={post.slug} post={post} />
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </Container>
     </>
@@ -129,28 +170,40 @@ const PostPage: NextPage<PostProps> = ({ post, mdx }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = Array.from((await getPostInfos()).values())
+  const posts = await fetchPostPaths()
 
   return {
     fallback: false,
-    paths: posts.map(post => ({ params: { slug: post.slug } })),
+    paths: Object.keys(posts).map(slug => ({ params: { slug } })),
   }
 }
 
 export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   const slug = params?.slug as string
-  const { post, content } = await getPost(slug)
+
+  const { content, ...post } =
+    await fetchPostMetadataWithContentForStaticUsageOnly(slug, true)
+
+  const inboundLinks = (await getInboundLinks(slug)).map(link =>
+    fetchPostMetadata(link.slug, true),
+  )
+
+  const mentionedIn = (await Promise.all(inboundLinks)).sort((a, b) =>
+    a.date.updated > b.date.updated ? -1 : 1,
+  )
 
   return {
     props: {
       mdx: await serialize(content, {
         mdxOptions: {
           rehypePlugins: [
+            [backlinks, {}],
             [imageSize, {}],
             [imagePlaceholder, {}],
           ],
         },
       }),
+      mentionedIn,
       post,
     },
   }

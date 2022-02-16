@@ -1,7 +1,7 @@
 import { Element } from 'hast'
 import { Plugin } from 'unified'
 import visit from 'unist-util-visit'
-import { getPlaceholder } from '../get-placeholder'
+import { getPlaceholder } from '../images/get-placeholder'
 
 export const imagePlaceholder: Plugin = options => {
   return async tree => {

@@ -10,6 +10,10 @@ export function relativeTime(isoDate: string) {
   const today = new Date(new Date().toISOString().slice(0, 10)).getTime()
   const targetTime = new Date(isoDate).getTime()
 
+  if (!isoDate || !targetTime) {
+    return 'unknown'
+  }
+
   const deltaDays = (targetTime - today) / (1000 * 3600 * 24)
   const deltaMonths = Math.round(deltaDays / (365 / 12))
 

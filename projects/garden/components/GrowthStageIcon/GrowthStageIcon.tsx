@@ -17,7 +17,7 @@ export default function GrowthStageIcon({
   stage,
   ...props
 }: GrowthStageIconProps) {
-  const Icon = icons[stage]
+  const Icon = icons[stage.toUpperCase() as GrowthStage]
   return Icon ? (
     <Icon role="img" aria-label={`Growth stage ${stage}`} {...props} />
   ) : null

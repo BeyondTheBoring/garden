@@ -5,7 +5,7 @@ import sizeOf from 'image-size'
 import { Plugin } from 'unified'
 import visit from 'unist-util-visit'
 
-import { fetchImage } from '../fetch-image'
+import { fetchImage } from '../images/fetch-image'
 
 type ImageSizeOptions = {
   publicDir?: string
