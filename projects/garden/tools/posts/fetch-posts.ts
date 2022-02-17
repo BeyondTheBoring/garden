@@ -44,7 +44,7 @@ export async function fetchPostMetadataWithContentForStaticUsageOnly(
   generateImagePlaceholders = false,
 ): Promise<PostMetadataWithContent> {
   const { content, data } = await fetchPostMatter(slug)
-  const { title, aliases, stage, description, date } = data
+  const { title, aliases, stage, description, date, published } = data
 
   const image = (data.image as PostMetadata['image']) || null
   if (image && generateImagePlaceholders) {
@@ -59,11 +59,12 @@ export async function fetchPostMetadataWithContentForStaticUsageOnly(
     stage: stage || null,
     description: description || '',
     date: {
-      created: date?.created.toISOString().substr(0, 10) || null,
-      updated: date?.updated.toISOString().substr(0, 10) || null,
+      created: date?.created?.toISOString().substr(0, 10) || null,
+      updated: date?.updated?.toISOString().substr(0, 10) || null,
     },
     image,
     readingTime: Math.round(readingTime(content).minutes + 0.25),
+    published: published || false,
   }
 }
 

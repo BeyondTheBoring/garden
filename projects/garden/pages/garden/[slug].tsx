@@ -22,6 +22,7 @@ import {
 import { PostMetadata } from '@/types/posts'
 import Link from 'next/link'
 import { LinkedArticleCard } from '@/components/LinkedArticleCard'
+import { ArticleCards } from '@/components/ArticleCards'
 
 export type PostProps = {
   post: PostMetadata
@@ -156,11 +157,10 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
               <h2 className="text-xl font-bold text-gray-900 sm:text-2xl xl:text-3xl 2xl:text-4xl">
                 Mentioned in
               </h2>
-              <ul className="mx-auto my-4 grid gap-6 sm:my-7 sm:gap-8 md:grid-cols-2 xl:my-10 xl:gap-10 2xl:my-12">
-                {mentionedIn.map(post => (
-                  <LinkedArticleCard as="li" key={post.slug} post={post} />
-                ))}
-              </ul>
+              <ArticleCards
+                posts={mentionedIn}
+                className="mx-auto my-4 grid gap-6 sm:my-7 sm:gap-8 md:grid-cols-2 xl:my-10 xl:gap-10 2xl:my-12"
+              />
             </div>
           )}
         </div>
@@ -188,9 +188,7 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
     fetchPostMetadata(link.slug, true),
   )
 
-  const mentionedIn = (await Promise.all(inboundLinks)).sort((a, b) =>
-    a.date.updated > b.date.updated ? -1 : 1,
-  )
+  const mentionedIn = await Promise.all(inboundLinks)
 
   return {
     props: {

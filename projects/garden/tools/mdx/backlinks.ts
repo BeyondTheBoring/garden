@@ -46,13 +46,15 @@ export const backlinks: Plugin = options => {
           )
 
           if (linkedPost) {
-            node.children[backlinkIndex] = {
-              type: 'element',
-              tagName: 'a',
-              children: [backlink],
-              properties: {
-                href: linkedPost.slug,
-              },
+            if (linkedPost.published) {
+              node.children[backlinkIndex] = {
+                type: 'element',
+                tagName: 'a',
+                children: [backlink],
+                properties: {
+                  href: linkedPost.slug,
+                },
+              }
             }
           } else {
             console.warn(

@@ -8,7 +8,7 @@ export interface PostMetadata {
   image: {
     src: string
     alt: string
-    placeholder?: string
+    placeholder?: string | null
   }
 
   date: {
@@ -19,6 +19,7 @@ export interface PostMetadata {
   description: string
   readingTime: number
   stage: GrowthStage
+  published: boolean
 }
 
 export interface PostMetadataWithContent extends PostMetadata {

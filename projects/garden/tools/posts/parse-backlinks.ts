@@ -14,6 +14,7 @@ interface BacklinksInfo {
   slug: string
   outboundLinks: Backlink[]
   inboundLinks: Backlink[]
+  published: boolean
 }
 
 // Extract all instances of substrings between double brackets [[]]
@@ -36,11 +37,12 @@ export async function parseBacklinks() {
   // Create initial objects. Identify each by a combined title and
   // aliases identifier Initialise empty outbound and inbound link arrays
   const postsWithBacklinks: BacklinksInfo[] = posts.map(
-    ({ slug, title, aliases }) => ({
+    ({ slug, title, aliases, published }) => ({
       slug,
       ids: [title, ...aliases],
       outboundLinks: [],
       inboundLinks: [],
+      published,
     }),
   )
 

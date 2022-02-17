@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
 import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
@@ -9,6 +9,8 @@ import { LinkedArticleCard } from '@/components/LinkedArticleCard'
 import colors from '@/theme/colors'
 import { fetchAllPostsMetadata } from '@/tools/posts/fetch-posts'
 import { PostMetadata } from '@/types/posts'
+import Link from 'next/link'
+import { ArticleCards } from '@/components/ArticleCards'
 
 export type GardenIndexProps = {
   posts: PostMetadata[]
@@ -43,12 +45,10 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
           </button>
         </p>
 
-        {/* todo: extract this to a component for reusability with "Mentioned In" sections */}
-        <ul className="mx-auto mt-8 grid gap-6 sm:gap-8 md:mt-10 md:grid-cols-2 lg:mt-12 xl:mt-14 xl:grid-cols-3 xl:gap-10">
-          {posts.map(post => (
-            <LinkedArticleCard as="li" key={post.slug} post={post} />
-          ))}
-        </ul>
+        <ArticleCards
+          posts={posts}
+          className="mx-auto mt-8 grid gap-6 sm:gap-8 md:mt-10 md:grid-cols-2 lg:mt-12 xl:mt-14 xl:grid-cols-3 xl:gap-10"
+        />
       </PageMainContainer>
 
       <DigitalGardenExplainer
@@ -60,11 +60,7 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
 }
 
 export const getStaticProps: GetStaticProps<GardenIndexProps> = async () => {
-  const allPosts = await fetchAllPostsMetadata(true)
-
-  const posts = allPosts.sort((a, b) =>
-    a.date.updated > b.date.updated ? -1 : 1,
-  )
+  const posts = await fetchAllPostsMetadata(true)
 
   return {
     props: {
