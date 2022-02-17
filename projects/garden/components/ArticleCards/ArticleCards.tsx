@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 
 import { PostMetadata } from '@/types/posts'
 import { LinkedArticleCard } from '@/components/LinkedArticleCard'
+import { routes } from '@/utils/routes'
 
 export interface ArticleCardsProps extends React.ComponentProps<'ul'> {
   posts: PostMetadata[]
@@ -21,7 +22,7 @@ export default function ArticleCards({ posts, ...ulProps }: ArticleCardsProps) {
             <LinkedArticleCard as="li" post={post} />
           ) : (
             <li className="hidden">
-              <Link href={`/garden/${post.slug}`}>
+              <Link href={routes.post(post.slug)}>
                 <a>${post.title}</a>
               </Link>
             </li>

@@ -3,6 +3,7 @@ import { Plugin } from 'unified'
 import visit from 'unist-util-visit'
 
 import { parseBacklinks } from '@/tools/posts/parse-backlinks'
+import { routes } from '@/utils/routes'
 
 export const backlinks: Plugin = options => {
   return async tree => {
@@ -52,7 +53,7 @@ export const backlinks: Plugin = options => {
                 tagName: 'a',
                 children: [backlink],
                 properties: {
-                  href: linkedPost.slug,
+                  href: routes.post(linkedPost.slug),
                 },
               }
             }

@@ -5,6 +5,7 @@ import { ElementType } from 'react'
 import Water from '@/assets/icons/outline/water.svg'
 import { GrowthStageIcon } from '@/components/GrowthStageIcon'
 import { PostMetadata } from '@/types/posts'
+import { routes } from '@/utils/routes'
 import { relativeTime } from '../../../utils/lib/date-utils'
 
 export interface LinkedArticleCardProps {
@@ -20,7 +21,7 @@ export default function LinkedArticleCard({
 
   return (
     <Element className="relative max-w-md overflow-hidden rounded-3xl bg-white shadow ring-gray-900 ring-offset-2 ring-offset-white transition-all duration-150 ease-out focus-within:-translate-y-1 focus-within:-translate-x-px focus-within:ring hover:-translate-y-1 hover:-translate-x-px hover:shadow-md">
-      <Link href={`/garden/${post.slug}`}>
+      <Link href={routes.post(post.slug)}>
         <a className="flex h-full w-full flex-col" aria-label={post.title}>
           <div className="m-4 flex flex-1 flex-col xs:m-7">
             <h2 className="sm text-base font-bold xs:text-lg">{post.title}</h2>
