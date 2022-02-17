@@ -1,3 +1,5 @@
+import classnames from 'classnames'
+
 import colors from '@/theme/colors'
 
 export type MonsterEyeProps = {
@@ -10,7 +12,7 @@ export default function MonsterEye({ className = '' }: MonsterEyeProps) {
       role="img"
       aria-label="Monster"
       viewBox="0 0 33 32"
-      className={className}
+      className={classnames(className, 'group')}
     >
       <g clipPath="url(#a)">
         <path
@@ -32,10 +34,12 @@ export default function MonsterEye({ className = '' }: MonsterEyeProps) {
         <path
           d="M16.151 24.323a8.295 8.295 0 1 0 0-16.59 8.295 8.295 0 0 0 0 16.59Z"
           fill={colors.blue['500']}
+          className="origin-center transform transition-transform duration-300 ease-out group-hover:scale-[120%]"
         />
         <path
           d="M16.151 20.175a4.148 4.148 0 1 0 0-8.295 4.148 4.148 0 0 0 0 8.295Z"
           fill={colors.gray['900']}
+          className="origin-center transform transition-transform duration-300 ease-out group-hover:scale-[120%]"
         />
         <path
           d="M13.04 14.99a2.074 2.074 0 1 0 0-4.147 2.074 2.074 0 0 0 0 4.148Z"
