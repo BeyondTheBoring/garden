@@ -12,6 +12,7 @@ const nextConfig = {
       properties: ['^data-test', '^data-placeholder'],
     },
   },
+
   experimental: {
     externalDir: true,
     optimizeCss: true,
@@ -24,8 +25,6 @@ const nextConfig = {
 
   reactStrictMode: true,
   swcMinify: true,
-
-  staticPageGenerationTimeout: 360,
 }
 
 module.exports = withPlugins(
