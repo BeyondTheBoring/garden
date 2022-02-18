@@ -7,7 +7,6 @@ import { optimize } from 'svgo'
 import { fetchImage } from './fetch-image'
 
 const promise: Record<string, Promise<string> | undefined> = {}
-
 export async function getPlaceholder(image: string) {
   if (promise[image]) {
     // for performance reasons, only get the placeholder for the same image once
@@ -15,6 +14,10 @@ export async function getPlaceholder(image: string) {
     return promise[image]
   }
 
+  return (promise[image] = getPlaceholderImpl(image))
+}
+
+async function getPlaceholderImpl(image: string) {
   let src = image.startsWith('http')
     ? await fetchImage(image)
     : path.join('public', image)
@@ -57,6 +60,5 @@ export async function getPlaceholder(image: string) {
     console.warn(`SVG placeholder too big at ${sizeKB} KB: ${image}`)
   }
 
-  promise[image] = Promise.resolve(placeholder)
-  return promise[image]
+  return placeholder
 }

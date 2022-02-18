@@ -33,6 +33,10 @@ export async function parseBacklinks() {
     return promise
   }
 
+  return (promise = parseBacklinksImpl())
+}
+
+export async function parseBacklinksImpl() {
   // Get content and frontmatter for each post
   const posts = await fetchAllPostsMetadataWithContentForStaticUsageOnly()
 
@@ -93,8 +97,7 @@ export async function parseBacklinks() {
     }
   }
 
-  promise = Promise.resolve(postsWithBacklinks)
-  return promise
+  return postsWithBacklinks
 }
 
 export async function getInboundLinks(slug: string) {
