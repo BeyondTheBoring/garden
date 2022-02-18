@@ -24,11 +24,13 @@ const extractLinks = (str: string) => {
   return str.match(matcher) || []
 }
 
-let cached: BacklinksInfo[]
+let promise: Promise<BacklinksInfo[]>
 
 export async function parseBacklinks() {
-  if (cached) {
-    return cached
+  if (promise) {
+    // for performance reasons, only parse once
+    // must restart the build or edit this file to parse again
+    return promise
   }
 
   // Get content and frontmatter for each post
@@ -91,8 +93,8 @@ export async function parseBacklinks() {
     }
   }
 
-  cached = postsWithBacklinks
-  return postsWithBacklinks
+  promise = Promise.resolve(postsWithBacklinks)
+  return promise
 }
 
 export async function getInboundLinks(slug: string) {

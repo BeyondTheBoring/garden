@@ -6,15 +6,20 @@ import { optimize } from 'svgo'
 
 import { fetchImage } from './fetch-image'
 
-const cache: Record<string, string> = {}
+const promise: Record<string, Promise<string> | undefined> = {}
 
 export async function getPlaceholder(image: string) {
-  if (cache[image]) return cache[image]
+  if (promise[image]) {
+    // for performance reasons, only get the placeholder for the same image once
+    // must restart the build or edit this file to re-generate the placeholder
+    return promise[image]
+  }
 
   let src = image.startsWith('http')
     ? await fetchImage(image)
     : path.join('public', image)
 
+  console.time(`getting placeholder ${image}`)
   const result = (await sqip({
     input: src,
     outputFileName: src instanceof Buffer ? '__image__' : undefined,
@@ -28,6 +33,7 @@ export async function getPlaceholder(image: string) {
       },
     ],
   })) as SqipResult
+  console.timeEnd(`getting placeholder ${image}`)
 
   const optimized = optimize(result.content, {
     multipass: true,
@@ -51,6 +57,6 @@ export async function getPlaceholder(image: string) {
     console.warn(`SVG placeholder too big at ${sizeKB} KB: ${image}`)
   }
 
-  cache[image] = placeholder
-  return placeholder
+  promise[image] = Promise.resolve(placeholder)
+  return promise[image]
 }

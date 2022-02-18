@@ -170,7 +170,9 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  console.time(`[slug] fetchPostPaths`)
   const posts = await fetchPostPaths()
+  console.timeEnd(`[slug] fetchPostPaths`)
 
   return {
     fallback: false,
@@ -181,14 +183,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   const slug = params?.slug as string
 
+  console.time(`[slug] getStaticProps TOTAL`)
+  console.time(`[slug] fetchPostMetadataWithContentForStaticUsageOnly`)
   const { content, ...post } =
     await fetchPostMetadataWithContentForStaticUsageOnly(slug, true)
+  console.timeEnd(`[slug] fetchPostMetadataWithContentForStaticUsageOnly`)
 
+  console.time(`[slug] getInboundLinks`)
   const inboundLinks = (await getInboundLinks(slug)).map(link =>
     fetchPostMetadata(link.slug, true),
   )
 
   const mentionedIn = await Promise.all(inboundLinks)
+  console.timeEnd(`[slug] getInboundLinks`)
+  console.timeEnd(`[slug] getStaticProps TOTAL`)
 
   return {
     props: {
