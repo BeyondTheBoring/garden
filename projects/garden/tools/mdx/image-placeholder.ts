@@ -23,6 +23,7 @@ export const imagePlaceholder: Plugin = options => {
 
       image.properties.placeholder = 'blur'
       image.properties.blurDataURL = await getPlaceholder(src)
+      image.properties['data-placeholder'] = image.properties.blurDataURL
     }
   }
 }

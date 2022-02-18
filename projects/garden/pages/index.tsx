@@ -31,7 +31,7 @@ const Home: NextPage = () => {
 
       <PageMainContainer
         title="Learning should be fun"
-        className="mx-auto max-w-3xl lg:max-w-4xl"
+        className="prose-site mx-auto max-w-3xl lg:max-w-4xl"
       >
         <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
           <p>
@@ -40,14 +40,14 @@ const Home: NextPage = () => {
             </b>
           </p>
 
-          <p className="mt-4 xs:mt-5 lg:mt-6">
+          <p>
             But, everyone loves a fascinating{' '}
             <b className="text-gray-900">story</b>, a compelling{' '}
             <b className="text-gray-900">game</b>, or a unique{' '}
             <b className="text-gray-900">adventure</b>.
           </p>
 
-          <p className="mt-4 xs:mt-5 lg:mt-6">
+          <p>
             I'm Merott, and I'm on a mission to{' '}
             <b className="text-gray-900">
               make online courses worthy of people's undivided attention.{' '}
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
             <b className="text-gray-900">build powerful, thrilling courses.</b>
           </p>
 
-          <p className="mt-4 xs:mt-5 lg:mt-6">
+          <p>
             You'll find ideas around{' '}
             <b className="text-gray-900">
               learning experience design, storytelling, gamification,
@@ -71,16 +71,14 @@ const Home: NextPage = () => {
           The Garden 🌱
         </h2>
 
-        <p className="mt-4 xs:mt-5 lg:mt-6">
-          Imagine a blog, but a living and breathing one.
-        </p>
+        <p>Imagine a blog, but a living and breathing one.</p>
 
-        <p className="mt-4 xs:mt-5 lg:mt-6">
+        <p>
           Ideas start as tiny seeds, cultivated over time until they grow into
           solid, reliable trees.
         </p>
 
-        <p className="mt-4 xs:mt-5 lg:mt-6">
+        <p>
           Not every seed survives, and the work is never complete. Even the
           trees need regular grooming to keep them healthy and fruitful.
         </p>

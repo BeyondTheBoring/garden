@@ -21,7 +21,6 @@ import {
 } from '@/tools/posts/fetch-posts'
 import { PostMetadata } from '@/types/posts'
 import Link from 'next/link'
-import { LinkedArticleCard } from '@/components/LinkedArticleCard'
 import { ArticleCards } from '@/components/ArticleCards'
 
 export type PostProps = {
@@ -136,6 +135,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
                   src={post.image.src}
                   alt={post.image.alt || post.title}
                   blurDataURL={post.image.placeholder}
+                  data-placeholder={post.image.placeholder}
                   className="!filter-none"
                   objectFit="cover"
                   layout="fill"

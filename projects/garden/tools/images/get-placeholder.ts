@@ -9,7 +9,6 @@ import { fetchImage } from './fetch-image'
 const cache: Record<string, string> = {}
 
 export async function getPlaceholder(image: string) {
-  if (!image) return null
   if (cache[image]) return cache[image]
 
   let src = image.startsWith('http')

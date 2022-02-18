@@ -1,15 +1,13 @@
 import { GetStaticProps, NextPage } from 'next'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
 import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
 import { HeaderNav } from '@/components/HeaderNav'
 import { PageMainContainer } from '@/components/PageMainContainer'
-import { LinkedArticleCard } from '@/components/LinkedArticleCard'
 import colors from '@/theme/colors'
 import { fetchAllPostsMetadata } from '@/tools/posts/fetch-posts'
 import { PostMetadata } from '@/types/posts'
-import Link from 'next/link'
 import { ArticleCards } from '@/components/ArticleCards'
 
 export type GardenIndexProps = {

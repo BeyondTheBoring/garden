@@ -5,6 +5,7 @@ import { Fragment } from 'react'
 
 import { WavyHeader } from '@/components/WavyHeader'
 import colors from '@/theme/colors'
+import digitalGardenImg from './digital-garden.png'
 
 export type DigitalGardenExplainerProps = {
   open: boolean
@@ -83,10 +84,11 @@ export default function DigitalGardenExplainer({
               <div className="-mx-8 my-8 md:-mx-10 md:my-10">
                 <div className="aspect-w-16 aspect-h-9 relative">
                   <Image
-                    src="/img/digital-garden-32.png"
+                    src={digitalGardenImg}
                     alt="Visualization of a digital garden, with a seed growing into a seedling, a sapling, and eventually a solid tree producing products (an apple.)"
                     layout="fill"
                     className="object-cover"
+                    placeholder="blur"
                   />
                 </div>
               </div>

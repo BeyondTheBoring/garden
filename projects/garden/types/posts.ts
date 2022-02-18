@@ -8,7 +8,7 @@ export interface PostMetadata {
   image: {
     src: string
     alt: string
-    placeholder?: string | null
+    placeholder?: string
   }
 
   date: {

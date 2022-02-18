@@ -8,10 +8,15 @@ const nextConfig = {
   experimental: {
     externalDir: true,
     optimizeCss: true,
+    reactRemoveProperties: {
+      // The regexes defined here are processed in Rust so the syntax is
+      // different from JavaScript `RegExp`s. See https://docs.rs/regex.
+      properties: ['^data-test', '^data-placeholder'],
+    },
   },
 
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['images.unsplash.com', 'secure.gravatar.com'],
     formats: ['image/avif', 'image/webp'],
   },
 

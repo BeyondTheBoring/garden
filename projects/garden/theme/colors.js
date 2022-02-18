@@ -4,6 +4,7 @@ module.exports = {
   black: twColors.black,
   white: twColors.white,
   blue: twColors.sky,
+  cyan: twColors.cyan,
   gray: twColors.slate,
   green: twColors.lime,
   yellow: {

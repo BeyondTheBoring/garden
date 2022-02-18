@@ -1,0 +1,7 @@
+@layer utilities {
+  .prose-site {
+    p:not(:first-child) {
+      @apply mt-4 xs:mt-5 lg:mt-6;
+    }
+  }
+}

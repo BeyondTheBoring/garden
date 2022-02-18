@@ -3,8 +3,8 @@
     @apply -mx-[0.08em] rounded bg-gradient-to-b from-yellow-300 to-yellow-300
       bg-no-repeat px-[0.08em]
       outline-none
-      [background-position:0_95%]
-      [background-size:100%_0.12em]
+      [background-position:0_90%]
+      [background-size:100%_0.2em]
       hover:from-yellow-200
       hover:[background-size:100%_100%] focus:from-yellow-200
       focus:ring-1

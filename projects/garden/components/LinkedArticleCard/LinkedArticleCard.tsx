@@ -63,6 +63,7 @@ export default function LinkedArticleCard({
                 loading="lazy"
                 placeholder="blur"
                 blurDataURL={post.image.placeholder}
+                data-placeholder={post.image.placeholder}
               />
             )}
           </div>
