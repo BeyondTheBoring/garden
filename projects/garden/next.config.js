@@ -5,14 +5,17 @@ const reactSvg = require('next-react-svg')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    externalDir: true,
-    optimizeCss: true,
+  compiler: {
     reactRemoveProperties: {
       // The regexes defined here are processed in Rust so the syntax is
       // different from JavaScript `RegExp`s. See https://docs.rs/regex.
       properties: ['^data-test', '^data-placeholder'],
     },
+  },
+
+  experimental: {
+    externalDir: true,
+    optimizeCss: true,
   },
 
   images: {
@@ -21,6 +24,7 @@ const nextConfig = {
   },
 
   reactStrictMode: true,
+  swcMinify: true,
 }
 
 module.exports = withPlugins(
