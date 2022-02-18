@@ -4,7 +4,7 @@ import fg from 'fast-glob'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 
-import { getPlaceholder } from '../images/get-placeholder'
+import { placeholders } from '../images/placeholders'
 import { PostMetadata, PostMetadataWithContent } from '@/types/posts'
 
 const postPaths: Record<string, { path: string; slug: string }> = {}
@@ -48,7 +48,7 @@ export async function fetchPostMetadataWithContentForStaticUsageOnly(
 
   const image = (data.image as PostMetadata['image']) || null
   if (image && generateImagePlaceholders) {
-    image.placeholder = await getPlaceholder(image.src)
+    image.placeholder = await placeholders.make(image.src)
   }
 
   return {

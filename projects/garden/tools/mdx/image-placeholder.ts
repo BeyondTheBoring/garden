@@ -1,7 +1,7 @@
 import { Element } from 'hast'
 import { Plugin } from 'unified'
 import visit from 'unist-util-visit'
-import { getPlaceholder } from '../images/get-placeholder'
+import { placeholders } from '../images/placeholders'
 
 export const imagePlaceholder: Plugin = options => {
   return async tree => {
@@ -22,7 +22,7 @@ export const imagePlaceholder: Plugin = options => {
       }
 
       image.properties.placeholder = 'blur'
-      image.properties.blurDataURL = await getPlaceholder(src)
+      image.properties.blurDataURL = await placeholders.make(src)
       image.properties['data-placeholder'] = image.properties.blurDataURL
     }
   }
