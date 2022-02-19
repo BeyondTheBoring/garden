@@ -28,5 +28,16 @@ placeholders.clear()
     await placeholders.make(imagePath)
   }
 
+  if (frozen) {
+    for (let hash of Object.keys(previousPlaceholders)) {
+      if (!placeholders.has(hash)) {
+        console.error(
+          `\nFound an extranous placeholder with hash: ${hash}\n---> FIX: yarn build:placeholders <---\n`,
+        )
+        process.exit(1)
+      }
+    }
+  }
+
   placeholders.save()
 })()

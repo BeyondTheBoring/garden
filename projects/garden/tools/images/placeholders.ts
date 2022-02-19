@@ -20,6 +20,10 @@ class Placeholders {
     this.data = {}
   }
 
+  has(hash: string) {
+    return hash in this.data
+  }
+
   get(hash: string) {
     return this.data[hash]
   }
