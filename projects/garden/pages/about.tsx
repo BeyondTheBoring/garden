@@ -23,7 +23,7 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
         <title>Beyond the Boring | Learning should be fun</title>
         <meta
           name="description"
-          content="I'm Merott, and I'm on a mission to make online courses worthy of people's undivided attention."
+          content="I’m Merott, and I’m on a mission to make online courses worthy of people’s undivided attention."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -53,12 +53,12 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
           gamification and storytelling in online courses.
         </p>
         <p>
-          I decided to double down on the thing that excited me the most. That's
+          I decided to double down on the thing that excited me the most. That’s
           what this website is about—feeding my curiosity while helping you
           build powerful, engaging courses.
         </p>
         <p>
-          I'm on Twitter{' '}
+          I’m on Twitter{' '}
           <a
             className="link"
             href="https://twitter.com/merott"

@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         <title>Beyond the Boring | Learning should be fun</title>
         <meta
           name="description"
-          content="I'm Merott, and I'm on a mission to make online courses worthy of people's undivided attention."
+          content="I’m Merott, and I’m on a mission to make online courses worthy of people’s undivided attention."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -48,9 +48,9 @@ const Home: NextPage = () => {
           </p>
 
           <p>
-            I'm Merott, and I'm on a mission to{' '}
+            I’m Merott, and I’m on a mission to{' '}
             <b className="text-gray-900">
-              make online courses worthy of people's undivided attention.{' '}
+              make online courses worthy of people’s undivided attention.{' '}
             </b>
             Beyond the Boring is a digital garden 🌱 feeding my curiosity while
             helping you{' '}
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
           </p>
 
           <p>
-            You'll find ideas around{' '}
+            You’ll find ideas around{' '}
             <b className="text-gray-900">
               learning experience design, storytelling, gamification,
             </b>{' '}

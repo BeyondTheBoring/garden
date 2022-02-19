@@ -18,6 +18,11 @@
 
     "editor.wordWrap": "wordWrapColumn",
 
+    "editor.unicodeHighlight.allowedCharacters": {
+      "‘": true,
+      "’": true
+    },
+
     "files.associations": {
       "**/blueprint-templates/**": "txt"
     },

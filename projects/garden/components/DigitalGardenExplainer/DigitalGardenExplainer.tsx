@@ -72,7 +72,7 @@ export default function DigitalGardenExplainer({
                 Imagine a blog, but a <em>living and breathing</em> one! 🌱
               </p>
               <p className="mt-3 md:mt-5">
-                It's a collection of notes, ideas and explorations starting as
+                It’s a collection of notes, ideas and explorations starting as
                 tiny seeds, and cultivated over time until they grow into solid,
                 reliable trees.
               </p>
@@ -116,12 +116,12 @@ export default function DigitalGardenExplainer({
               </ul>
               <p className="mt-3 md:mt-5">
                 Every post on Beyond the Boring will display its growth status,
-                the date on which it was 'planted', and most importantly, when
-                it was last 'tended to.'
+                the date on which it was ‘planted’, and most importantly, when
+                it was last ‘tended to.’
               </p>
               {/* todo: [ADD SCREENSHOT INDICATING GROWTH STAGE + DATES] */}
               <p className="mt-3 md:mt-5">
-                If you're curious to learn more, check out{' '}
+                If you’re curious to learn more, check out{' '}
                 <a
                   className="link"
                   href="https://maggieappleton.com/garden-history"
