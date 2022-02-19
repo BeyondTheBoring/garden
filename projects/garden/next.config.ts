@@ -1,14 +1,14 @@
-const path = require('path')
+import path from 'path'
 
 const nextMDX = require('@next/mdx')
 const withPlugins = require('next-compose-plugins')
 const reactSvg = require('next-react-svg')
+import { NextConfig } from 'next/types'
 
-const { imageSize } = require('./tools/mdx/image-size')
-const { imagePlaceholder } = require('./tools/mdx/image-placeholder')
+import { imageSize } from './tools/mdx/image-size'
+import { imagePlaceholder } from './tools/mdx/image-placeholder'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   compiler: {
     reactRemoveProperties: {
       // The regexes defined here are processed in Rust so the syntax is

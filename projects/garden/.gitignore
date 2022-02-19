@@ -2,6 +2,9 @@
 /.next/
 /out/
 
+# using next.config.ts instead
+/next.config.js
+
 # production
 /build
 

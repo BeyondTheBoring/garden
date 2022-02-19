@@ -6,7 +6,10 @@
     "dev": "PORT=2222 next-remote-watch ./posts",
     "build": "yarn build:placeholders --frozen && next build",
     "build:backlinks": "yarn run-ts scripts/build-backlinks",
+    "build:nextconfig": "esbuild next.config.ts --bundle --outfile=next.config.js --platform=node --external:./node_modules/* --external:../../node_modules/* --target=es2020",
     "build:placeholders": "yarn run-ts scripts/build-placeholders",
+    "prebuild": "yarn build:nextconfig",
+    "predev": "yarn build:nextconfig",
     "run-ts": "ts-node -O '{\"module\": \"commonjs\"}'",
     "start": "next start -p 2222",
     "lint": "next lint"
@@ -41,6 +44,7 @@
     "autoprefixer": "^10.4.2",
     "classnames": "^2.3.1",
     "critters": "^0.0.16",
+    "esbuild": "^0.14.23",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
     "fs-extra": "^10.0.0",

@@ -1,15 +1,18 @@
-const { readFileSync, readJsonSync, writeJsonSync } = require('fs-extra')
-const md5 = require('md5')
-const miniSvgDataUri = require('mini-svg-data-uri')
-const path = require('path')
-const { sqip } = require('sqip')
-const { optimize } = require('svgo')
-const { fetchImage } = require('./fetch-image')
+import { readFileSync, readJsonSync, writeJsonSync } from 'fs-extra'
+import md5 from 'md5'
+import miniSvgDataUri from 'mini-svg-data-uri'
+import path from 'path'
+import { sqip, SqipResult } from 'sqip'
+import { optimize } from 'svgo'
+
+import { fetchImage } from './fetch-image'
 
 class Placeholders {
+  private needsSort = false
+  private jsonFile = 'tools/images/placeholders.data.json'
+  private data: Record<string, string>
+
   constructor() {
-    this.needsSort = false
-    this.jsonFile = 'tools/images/placeholders.data.json'
     this.data = readJsonSync(this.jsonFile)
   }
 
@@ -17,15 +20,15 @@ class Placeholders {
     this.data = {}
   }
 
-  get(hash) {
+  get(hash: string) {
     return this.data[hash]
   }
 
   getAll() {
-    return Object.assign({}, this.data)
+    return { ...this.data }
   }
 
-  set(hash, placeholder) {
+  set(hash: string, placeholder: string) {
     if (!hash.match(/^[a-f0-9]{32}$/)) {
       throw new Error(`hash must be an MD5 string. Received: ${hash}`)
     }
@@ -39,9 +42,9 @@ class Placeholders {
     writeJsonSync(this.jsonFile, this.data, { spaces: 2 })
   }
 
-  async make(image) {
+  async make(image: string) {
     const isRemote = image.includes('//')
-    let hash
+    let hash: string | undefined
 
     const imageSrc =
       isRemote || image.startsWith('public/')
@@ -64,26 +67,24 @@ class Placeholders {
     return result
   }
 
-  sort() {
+  private sort() {
     this.data = Object.keys(this.data)
       .sort()
-      .reduce((sorted, key) => {
+      .reduce<typeof this.data>((sorted, key) => {
         sorted[key] = this.data[key]
         return sorted
       }, {})
   }
 }
 
-module.exports = {
-  placeholders: new Placeholders(),
-}
+export const placeholders = new Placeholders()
 
-async function generatePlaceholder(image) {
+async function generatePlaceholder(image: string) {
   const isRemote = image.includes('//')
   let src = isRemote ? await fetchImage(image) : image
 
   console.time(`Generated Placeholder for ${image} in`)
-  const result = await sqip({
+  const result = (await sqip({
     input: src,
     outputFileName: src instanceof Buffer ? '__image__' : undefined,
     plugins: [
@@ -95,7 +96,7 @@ async function generatePlaceholder(image) {
         },
       },
     ],
-  })
+  })) as SqipResult
 
   const optimized = optimize(result.content, {
     multipass: true,

@@ -1,11 +1,11 @@
-const https = require('https')
+import https from 'https'
 
-function fetchImage(src) {
+export function fetchImage(src: string): Promise<Buffer> {
   const url = new URL(src)
 
   return new Promise((resolve, reject) => {
     https.get(url, function (response) {
-      const chunks = []
+      const chunks: any[] = []
       response
         .on('data', function (chunk) {
           chunks.push(chunk)
@@ -18,5 +18,3 @@ function fetchImage(src) {
     })
   })
 }
-
-module.exports = { fetchImage }
