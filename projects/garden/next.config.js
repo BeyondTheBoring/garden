@@ -1,7 +1,11 @@
 const path = require('path')
 
+const nextMDX = require('@next/mdx')
 const withPlugins = require('next-compose-plugins')
 const reactSvg = require('next-react-svg')
+
+const { imageSize } = require('./tools/mdx/image-size')
+const { imagePlaceholder } = require('./tools/mdx/image-placeholder')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -23,6 +27,8 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+
   reactStrictMode: true,
   swcMinify: true,
 }
@@ -31,6 +37,19 @@ module.exports = withPlugins(
   [
     /* [plugin, { ...config }] */
     [reactSvg, { include: path.resolve(__dirname, 'assets') }],
+    [
+      nextMDX({
+        extension: /\.mdx?$/,
+        options: {
+          providerImportSource: '@mdx-js/react',
+          remarkPlugins: [],
+          rehypePlugins: [
+            [imageSize, {}],
+            [imagePlaceholder, {}],
+          ],
+        },
+      }),
+    ],
   ],
   nextConfig,
 )

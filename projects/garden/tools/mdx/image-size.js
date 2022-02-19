@@ -1,23 +1,15 @@
-import * as path from 'path'
+const path = require('path')
 
-import { Element } from 'hast'
-import sizeOf from 'image-size'
-import { Plugin } from 'unified'
-import visit from 'unist-util-visit'
+const sizeOf = require('image-size')
+const visit = require('unist-util-visit')
 
-import { fetchImage } from '../images/fetch-image'
+const { fetchImage } = require('../images/fetch-image')
 
-type ImageSizeOptions = {
-  publicDir?: string
-}
-
-export const imageSize: Plugin<[ImageSizeOptions?]> = ({
-  publicDir = 'public',
-} = {}) => {
+const imageSize = ({ publicDir = 'public' } = {}) => {
   return async tree => {
-    let images: Element[] = []
+    let images = []
 
-    visit<Element>(tree, 'element', node => {
+    visit(tree, 'element', node => {
       if (node.tagName === 'img') {
         images.push(node)
       }
@@ -26,7 +18,7 @@ export const imageSize: Plugin<[ImageSizeOptions?]> = ({
     for (let image of images) {
       if (!image.properties) return
 
-      let src: string | Buffer = image.properties?.src as string
+      let src = image.properties?.src
       if (!src || typeof src !== 'string') {
         return
       }
@@ -45,3 +37,5 @@ export const imageSize: Plugin<[ImageSizeOptions?]> = ({
     }
   }
 }
+
+module.exports = { imageSize }

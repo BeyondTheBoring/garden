@@ -1,13 +1,11 @@
-import { Element } from 'hast'
-import { Plugin } from 'unified'
-import visit from 'unist-util-visit'
-import { placeholders } from '../images/placeholders'
+const visit = require('unist-util-visit')
+const { placeholders } = require('../images/placeholders')
 
-export const imagePlaceholder: Plugin = options => {
+const imagePlaceholder = options => {
   return async tree => {
-    let images: Element[] = []
+    let images = []
 
-    visit<Element>(tree, 'element', node => {
+    visit(tree, 'element', node => {
       if (node.tagName === 'img') {
         images.push(node)
       }
@@ -27,3 +25,5 @@ export const imagePlaceholder: Plugin = options => {
     }
   }
 }
+
+module.exports = { imagePlaceholder }

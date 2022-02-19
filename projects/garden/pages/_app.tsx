@@ -1,8 +1,14 @@
+import { MdxProvider } from '@/components/MdxProvider'
 import '@/styles/main.css'
+
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <MdxProvider>
+      <Component {...pageProps} />
+    </MdxProvider>
+  )
 }
 
 export default MyApp
