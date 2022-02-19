@@ -1,19 +1,25 @@
 import { MDXProvider } from '@mdx-js/react'
 import Image from 'next/image'
+import classnames from 'classnames'
 
 export interface MdxProviderProps {
   children: React.ReactNode
 }
 
-const LazyImage = (props: React.ComponentProps<'img'>) => (
+const LazyImage = ({
+  src,
+  alt,
+  className,
+  ...props
+}: React.ComponentProps<'img'>) => (
   <Image
-    {...props}
-    placeholder="blur"
-    src={props.src || ''}
-    alt={props.alt || ''}
-    className="!filter-none"
+    src={src || ''}
+    alt={alt || ''}
+    className={classnames('!filter-none', className)}
     layout="responsive"
     loading="lazy"
+    {...props}
+    placeholder="blur"
   />
 )
 

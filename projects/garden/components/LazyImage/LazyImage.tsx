@@ -22,7 +22,6 @@ export default function LazyImage({
             {...props}
             alt={alt}
             className={classnames('!filter-none', className)}
-            loading="lazy"
             {...userProps}
           />
         ),

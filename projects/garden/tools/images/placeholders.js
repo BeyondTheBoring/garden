@@ -39,7 +39,7 @@ class Placeholders {
     writeJsonSync(this.jsonFile, this.data, { spaces: 2 })
   }
 
-  async make(image, force = false) {
+  async make(image) {
     const isRemote = image.includes('//')
     let hash
 
@@ -48,7 +48,7 @@ class Placeholders {
         ? image
         : path.join('public', image)
 
-    if (!isRemote && !force) {
+    if (!isRemote) {
       hash = md5(readFileSync(imageSrc))
       const existing = this.get(hash)
       if (existing) return existing

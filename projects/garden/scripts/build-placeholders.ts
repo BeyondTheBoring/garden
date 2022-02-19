@@ -25,7 +25,7 @@ placeholders.clear()
       process.exit(1)
     }
 
-    placeholders.set(hash, await placeholders.make(imagePath, true))
+    await placeholders.make(imagePath)
   }
 
   placeholders.save()

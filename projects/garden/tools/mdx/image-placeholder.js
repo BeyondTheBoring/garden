@@ -19,6 +19,7 @@ const imagePlaceholder = options => {
         return
       }
 
+      image.properties.loading = 'lazy'
       image.properties.placeholder = 'blur'
       image.properties.blurDataURL = await placeholders.make(src)
       image.properties['data-placeholder'] = image.properties.blurDataURL
