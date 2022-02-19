@@ -46,9 +46,9 @@ export async function fetchPostMetadataWithContentForStaticUsageOnly(
   const { content, data } = await fetchPostMatter(slug)
   const { title, aliases, stage, description, date, published } = data
 
-  const image = (data.image as PostMetadata['image']) || null
-  if (image && generateImagePlaceholders) {
-    image.placeholder = await placeholders.make(image.src)
+  const cover = (data.cover as PostMetadata['cover']) || null
+  if (cover && generateImagePlaceholders) {
+    cover.placeholder = await placeholders.make(cover.src)
   }
 
   return {
@@ -62,7 +62,7 @@ export async function fetchPostMetadataWithContentForStaticUsageOnly(
       created: date?.created?.toISOString().substr(0, 10) || null,
       updated: date?.updated?.toISOString().substr(0, 10) || null,
     },
-    image,
+    cover: cover,
     readingTime: Math.round(readingTime(content).minutes + 0.25),
     published: published || false,
   }

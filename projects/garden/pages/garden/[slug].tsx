@@ -129,13 +129,13 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
           </div>
 
           <article className="relative my-6 mx-auto overflow-hidden rounded-3xl bg-white text-gray-700 shadow sm:my-8">
-            {post.image && (
+            {post.cover && (
               <div className="aspect-w-16 aspect-h-9 shadow-lg md:shadow-xl">
                 <Image
-                  src={post.image.src}
-                  alt={post.image.alt || post.title}
-                  blurDataURL={post.image.placeholder}
-                  data-placeholder={post.image.placeholder}
+                  src={post.cover.src}
+                  alt={post.cover.alt || post.title}
+                  blurDataURL={post.cover.placeholder}
+                  data-placeholder={post.cover.placeholder}
                   className="!filter-none"
                   objectFit="cover"
                   layout="fill"

@@ -53,17 +53,17 @@ export default function LinkedArticleCard({
           </div>
 
           <div className="aspect-w-16 aspect-h-9 -order-1 select-none bg-gray-200 shadow">
-            {post.image && (
+            {post.cover && (
               <Image
-                src={post.image.src}
-                alt={post.image.alt || post.title}
+                src={post.cover.src}
+                alt={post.cover.alt || post.title}
                 className="!filter-none"
                 objectFit="cover"
                 layout="fill"
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={post.image.placeholder}
-                data-placeholder={post.image.placeholder}
+                blurDataURL={post.cover.placeholder}
+                data-placeholder={post.cover.placeholder}
               />
             )}
           </div>

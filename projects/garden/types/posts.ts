@@ -5,7 +5,7 @@ export interface PostMetadata {
   slug: string
   title: string
 
-  image: {
+  cover: {
     src: string
     alt: string
     placeholder?: string
