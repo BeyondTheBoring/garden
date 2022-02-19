@@ -9,18 +9,21 @@ class MyDocument extends Document {
             rel="preload"
             href="/fonts/BrixSans-Bold.woff2"
             as="font"
+            type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/BrixSans-Regular.woff2"
             as="font"
+            type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
             href="/fonts/MerottFuzzy-Bold.woff2"
             as="font"
+            type="font/woff2"
             crossOrigin="anonymous"
           />
         </Head>
