@@ -4,6 +4,7 @@ import md5 from 'md5'
 import { placeholders } from '../tools/images/placeholders'
 
 const frozen = process.argv.slice(2).includes('--frozen')
+const fix = '---> FIX: yarn build:placeholders <---'
 
 const previousPlaceholders = placeholders.getAll()
 placeholders.clear()
@@ -20,7 +21,7 @@ placeholders.clear()
 
     if (frozen) {
       console.error(
-        `\nMissing placeholder for image: ${imagePath}\n---> FIX: yarn build:placeholders <---\n`,
+        `\nMissing placeholder for image: ${imagePath}\n--->${fix}<---\n`,
       )
       process.exit(1)
     }
@@ -32,7 +33,7 @@ placeholders.clear()
     for (let hash of Object.keys(previousPlaceholders)) {
       if (!placeholders.has(hash)) {
         console.error(
-          `\nFound an extranous placeholder with hash: ${hash}\n---> FIX: yarn build:placeholders <---\n`,
+          `\nFound an extranous placeholder with hash: ${hash}\n${fix}\n`,
         )
         process.exit(1)
       }
