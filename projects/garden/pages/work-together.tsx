@@ -5,6 +5,8 @@ import FistBump from '@/assets/icons/color/fist-bump.svg'
 import { HeaderNav } from '@/components/HeaderNav'
 import colors from '@/theme/colors'
 import { PageMainContainer } from '@/components/PageMainContainer'
+import Container from '../components/Container/Container'
+import SavvyCal from '../components/SavvyCal/SavvyCal'
 
 interface WorkTogetherProps {}
 
@@ -45,14 +47,11 @@ const WorkTogether: NextPage<WorkTogetherProps> = () => {
         <p>
           Pick a time, book that call, and I look forward to chatting with you!
         </p>
-
-        <div className="mx-auto mt-8 h-[750px] w-full max-w-md overflow-hidden rounded-3xl shadow xxs:h-[790px] xs:mt-10 lg:mt-16">
-          <iframe
-            className="h-full w-full"
-            src="https://savvycal.com/merott/virtual-coffee"
-          />
-        </div>
       </PageMainContainer>
+
+      <Container className="my-8 xs:my-10 lg:my-16">
+        <SavvyCal link="merott/virtual-coffee" theme="light" />
+      </Container>
     </>
   )
 }
