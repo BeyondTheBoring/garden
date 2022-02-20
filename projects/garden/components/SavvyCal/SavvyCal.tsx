@@ -1,4 +1,5 @@
 import Script from 'next/script'
+import { useEffect } from 'react'
 
 export interface SavvyCalProps {
   link: string
@@ -11,6 +12,12 @@ export default function SavvyCal({ theme, link }: SavvyCalProps) {
     theme,
     selector: '#savvycal',
   }
+
+  useEffect(() => {
+    if ('SavvyCal' in window) {
+      ;(window as any).SavvyCal('inline', config)
+    }
+  })
 
   return (
     <>
