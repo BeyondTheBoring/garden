@@ -47,10 +47,10 @@ export default function DigitalGardenExplainer({
             <WavyHeader
               baseColor={colors.green['200']}
               lightColor={colors.green[100]}
-              className="p-8 pb-12 md:p-10 md:pb-16"
+              className="px-8 pt-8 pb-10 xl:pt-12 xl:pb-16"
             >
               <div className="flex items-center">
-                <Dialog.Title className="text-xl font-bold md:text-2xl">
+                <Dialog.Title className="text-xl font-bold md:text-2xl xl:text-3xl">
                   A Digital Garden
                 </Dialog.Title>
                 <button

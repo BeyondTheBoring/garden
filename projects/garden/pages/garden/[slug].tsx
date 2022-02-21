@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image, { ImageProps } from 'next/image'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import { useState } from 'react'
 
 import { relativeTime } from '@btb/utils'
 
@@ -22,6 +23,7 @@ import {
 import { PostMetadata } from '@/types/posts'
 import Link from 'next/link'
 import { ArticleCards } from '@/components/ArticleCards'
+import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
 
 export type PostProps = {
   post: PostMetadata
@@ -68,6 +70,8 @@ const mdxComponents = {
 }
 
 const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
+  const [showGardenExplainer, setShowGardenExplainer] = useState(false)
+
   return (
     <>
       <Head>
@@ -81,15 +85,19 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
       <Container className="mt-10 lg:mt-14 2xl:mt-20">
         <div className="mx-auto max-w-[68ch] text-base sm:text-lg xl:text-xl">
           <div className="flex flex-col">
-            <div className="flex space-x-10 text-xxs font-bold uppercase tracking-normal text-gray-500 sm:text-xs">
-              <div className="flex items-center space-x-1 sm:space-x-1.5">
+            <div className="flex space-x-10 text-xxs tracking-normal text-gray-500 sm:text-xs">
+              <button
+                aria-label={`Growth stage: ${post.stage}`}
+                className="flex items-center space-x-1 text-inherit font-bold uppercase hover:text-gray-900 sm:space-x-1.5"
+                onClick={() => setShowGardenExplainer(true)}
+              >
                 <GrowthStageIcon
                   stage={post.stage}
                   className="h-4 w-4 sm:h-5 sm:w-5"
                 />
                 <span>{post.stage}</span>
-              </div>
-              <div className="flex items-center space-x-1 sm:space-x-1.5">
+              </button>
+              <div className="flex items-center space-x-1 font-bold uppercase sm:space-x-1.5">
                 <ClockIcon className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span>
                   {post.readingTime === 0 ? '<1' : post.readingTime} min read
@@ -165,6 +173,11 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
           )}
         </div>
       </Container>
+
+      <DigitalGardenExplainer
+        open={showGardenExplainer}
+        onClose={() => setShowGardenExplainer(false)}
+      />
     </>
   )
 }
