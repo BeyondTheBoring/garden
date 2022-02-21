@@ -37,16 +37,13 @@ const WorkTogether: NextPage<WorkTogetherProps> = () => {
       >
         <p>
           If you want to build a course that’s worthy of people’s attention, and
-          you enjoy the ideas I share on Beyond the Boring, I’d love to chat
-          with you!
+          you enjoy the ideas I share on Beyond the Boring, I’d love to help!
         </p>
         <p>
           <strong>No obligations and completely risk-free</strong>—it’s
           Pay-What-You-Want! 💸
         </p>
-        <p>
-          Pick a time, book that call, and I look forward to chatting with you!
-        </p>
+        <p>Pick a time below, and we're off to the races!</p>
       </PageMainContainer>
 
       <Container className="my-8 xs:my-10 lg:my-16">
