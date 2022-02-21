@@ -33,7 +33,7 @@ const WorkTogether: NextPage<WorkTogetherProps> = () => {
 
       <PageMainContainer
         title="Let’s work together!"
-        className="prose-site mx-auto mt-6 flex max-w-3xl flex-col xs:mt-8 lg:mt-16 lg:max-w-4xl"
+        className="prose-site mx-auto mt-8 flex max-w-3xl flex-col xs:mt-10 lg:mt-16 lg:max-w-4xl"
       >
         <p>
           If you want to build a course that’s worthy of people’s attention, and

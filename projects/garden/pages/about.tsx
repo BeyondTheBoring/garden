@@ -29,14 +29,14 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
       </Head>
 
       <HeaderNav gradient={headerGradient}>
-        <div className="relative mx-auto flex h-52 w-52 overflow-hidden rounded-full bg-cyan-300">
+        <div className="relative mx-auto flex h-36 w-36 overflow-hidden rounded-full bg-cyan-300 md:h-40 md:w-40 tall:lg:h-[200px] tall:lg:w-[200px]">
           <LazyImage image={avatar} />
         </div>
       </HeaderNav>
 
       <PageMainContainer
         title="Hey there! 👋🏻"
-        className="prose-site mx-auto mt-6 flex max-w-3xl flex-col xs:mt-8 lg:mt-16 lg:max-w-4xl"
+        className="prose-site mx-auto mt-8 flex max-w-3xl flex-col xs:mt-10 lg:mt-16 lg:max-w-4xl"
       >
         <p>
           <strong>I'm Merott</strong>
