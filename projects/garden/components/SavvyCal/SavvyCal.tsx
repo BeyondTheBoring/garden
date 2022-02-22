@@ -23,7 +23,7 @@ export default function SavvyCal({ theme, link }: SavvyCalProps) {
     <>
       <div
         id="savvycal"
-        className="mx-auto w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow lg:max-w-none"
+        className="hack-rounded mx-auto w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow lg:max-w-none"
       />
 
       <Script id="savvycal-setup" strategy="lazyOnload">
