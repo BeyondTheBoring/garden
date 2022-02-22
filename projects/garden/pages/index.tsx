@@ -8,10 +8,7 @@ import { Monster } from '@/components/Monster'
 import colors from '@/theme/colors'
 import { PageMainContainer } from '@/components/PageMainContainer'
 
-const headerGradient = {
-  baseColor: colors.yellow[300],
-  lightColor: colors.yellow[200],
-}
+const headerGradient = { baseColor: colors.yellow[300] }
 
 const Home: NextPage = () => {
   return (

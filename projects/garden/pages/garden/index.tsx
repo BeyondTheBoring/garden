@@ -19,12 +19,7 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
 
   return (
     <>
-      <HeaderNav
-        gradient={{
-          baseColor: colors.green[300],
-          lightColor: colors.green[200],
-        }}
-      >
+      <HeaderNav gradient={{ baseColor: colors.green[300] }}>
         <BeanSeedling className="mx-auto w-36 max-w-full drop-shadow-lg md:w-40 tall:lg:w-[200px]" />
       </HeaderNav>
 

@@ -7,6 +7,7 @@ module.exports = {
   cyan: twColors.cyan,
   gray: twColors.slate,
   green: twColors.lime,
+  red: twColors.red,
   yellow: {
     50: '#fffbeb',
     100: '#fef3c7',
