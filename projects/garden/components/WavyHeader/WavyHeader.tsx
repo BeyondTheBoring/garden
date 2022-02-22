@@ -1,5 +1,3 @@
-import colors from '@/theme/colors'
-
 export type WavyHeaderProps = React.ComponentProps<'div'> & {
   baseColor: string
   lightColor: string

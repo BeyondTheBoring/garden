@@ -10,7 +10,7 @@ import SavvyCal from '../components/SavvyCal/SavvyCal'
 
 interface WorkTogetherProps {}
 
-const headerGradient = { baseColor: colors.red[200] }
+const headerGradient = { baseColor: colors.violet[200] }
 
 const WorkTogether: NextPage<WorkTogetherProps> = () => {
   return (
