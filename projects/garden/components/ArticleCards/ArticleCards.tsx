@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 
 import { PostMetadata } from '@/types/posts'
 import { LinkedArticleCard } from '@/components/LinkedArticleCard'
-import { routes } from '@/utils/routes'
+import { routes } from '@/lib/utils/routes'
 
 export interface ArticleCardsProps extends React.ComponentProps<'ul'> {
   posts: PostMetadata[]

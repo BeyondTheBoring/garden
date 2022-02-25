@@ -2,7 +2,7 @@ import { FormEventHandler, useRef, useState } from 'react'
 
 import Confetti from '@/assets/icons/color/confetti.svg'
 import { PopupPanel } from '@/components/PopupPanel'
-import { Via } from '@/enums/Via'
+import { Via } from '@/lib/enums/Via'
 import colors from '@/theme/colors'
 import { XCircleIcon } from '@heroicons/react/outline'
 import { SpinnerButton } from '@/components/SpinnerButton'

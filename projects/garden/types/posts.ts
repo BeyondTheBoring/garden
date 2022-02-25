@@ -1,4 +1,4 @@
-import { GrowthStage } from '@/enums/GrowthStage'
+import { GrowthStage } from '@/lib/enums/GrowthStage'
 
 export interface PostMetadata {
   aliases: string[]

@@ -3,7 +3,7 @@ import { Plugin } from 'unified'
 import visit from 'unist-util-visit'
 
 import { parseBacklinks } from '@/tools/posts/parse-backlinks'
-import { routes } from '@/utils/routes'
+import { routes } from '@/lib/utils/routes'
 
 export const backlinks: Plugin = options => {
   return async tree => {

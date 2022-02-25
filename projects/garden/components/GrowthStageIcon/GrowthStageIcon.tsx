@@ -1,5 +1,5 @@
 import Almond from '@/assets/icons/outline/almond.svg'
-import { GrowthStage } from '@/enums/GrowthStage'
+import { GrowthStage } from '@/lib/enums/GrowthStage'
 
 const icons: Record<GrowthStage, React.ElementType | null> = {
   SEED: Almond,

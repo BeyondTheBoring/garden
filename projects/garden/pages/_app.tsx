@@ -1,5 +1,5 @@
 import { MdxProvider } from '@/components/MdxProvider'
-import '@/styles/main.css'
+import '@/theme/styles/main.css'
 
 import type { AppProps } from 'next/app'
 
