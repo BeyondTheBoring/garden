@@ -1,11 +1,13 @@
 export type WavyHeaderProps = React.ComponentProps<'div'> & {
   baseColor: string
   lightColor: string
+  headerShadow?: string
 }
 
 export default function WavyHeader({
   baseColor,
   lightColor,
+  headerShadow = 'drop-shadow-sm',
   ...props
 }: WavyHeaderProps) {
   return (
@@ -14,7 +16,7 @@ export default function WavyHeader({
         <svg
           viewBox="0 0 800 160"
           preserveAspectRatio="none"
-          className="h-full w-full drop-shadow-sm"
+          className={`h-full w-full ${headerShadow}`}
         >
           <path
             d="M0 160c185.5-77.675 800 73.253 800-101.772V0H0v160Z"

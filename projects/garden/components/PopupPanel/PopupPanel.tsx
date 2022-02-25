@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import { Fragment } from 'react'
+import { Fragment, MutableRefObject } from 'react'
 
 import { WavyHeader, WavyHeaderProps } from '@/components/WavyHeader'
 import colors from '@/theme/colors'
@@ -10,6 +10,7 @@ export interface PopupPanelProps {
   onClose: () => void
   title: string
   children: React.ReactNode
+  initialFocus?: MutableRefObject<HTMLElement | null>
   headerConfig?: WavyHeaderProps
 }
 
@@ -18,6 +19,7 @@ export default function PopupPanel({
   children,
   open,
   onClose,
+  initialFocus,
   headerConfig = {
     baseColor: colors.yellow[100],
     lightColor: colors.yellow[100],
@@ -28,6 +30,7 @@ export default function PopupPanel({
       <Dialog
         open={open}
         onClose={onClose}
+        initialFocus={initialFocus}
         className="fixed inset-3 z-10 xs:inset-5"
       >
         <Transition.Child
@@ -51,10 +54,10 @@ export default function PopupPanel({
           leaveFrom="scale-100 translate-x-0"
           leaveTo="scale-75 translate-x-[110%]"
         >
-          <div className="relative ml-auto flex h-full w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl">
+          <div className="relative ml-auto flex h-full w-full max-w-xl flex-col overflow-hidden rounded-3xl bg-gray-50 shadow-2xl">
             <WavyHeader
               {...headerConfig}
-              className="px-8 pt-6 pb-10 md:pt-8 md:pb-12"
+              className="px-8 pt-6 pb-10 md:pt-8 md:pb-14"
             >
               <div className="flex items-center">
                 <Dialog.Title className="text-xl font-bold text-gray-900 md:text-2xl">
@@ -73,7 +76,7 @@ export default function PopupPanel({
 
             <Dialog.Description
               as="div"
-              className="relative -mt-4 flex-1 overflow-y-scroll px-8 py-6 md:-mt-8 md:px-10 md:py-8 md:text-lg"
+              className="relative -mt-4 flex-1 overflow-y-scroll px-8 py-10 md:-mt-8 md:px-10 md:py-14 md:text-lg"
             >
               {children}
             </Dialog.Description>

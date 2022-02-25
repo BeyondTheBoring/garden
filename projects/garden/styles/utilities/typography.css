@@ -4,4 +4,8 @@
       @apply mt-4 xs:mt-5 lg:mt-6;
     }
   }
+
+  .font-hand {
+    @apply tracking-normal;
+  }
 }

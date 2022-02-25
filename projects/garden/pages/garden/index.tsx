@@ -31,6 +31,7 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
           Ideas around learning experience design, storytelling, and
           gamification, growing over time from tiny seeds to solid trees.
           <button
+            type="button"
             className="btn btn-dark ml-2 inline-block rounded-full px-2 pt-[2px] text-xs"
             onClick={() => setShowGardenExplainer(true)}
           >

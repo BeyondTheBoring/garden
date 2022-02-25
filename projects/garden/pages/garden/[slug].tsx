@@ -87,6 +87,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
           <div className="flex flex-col">
             <div className="flex space-x-10 text-xxs tracking-normal text-gray-500 sm:text-xs">
               <button
+                type="button"
                 aria-label={`Growth stage: ${post.stage}`}
                 className="flex items-center space-x-1 text-inherit font-bold uppercase hover:text-gray-900 sm:space-x-1.5"
                 onClick={() => setShowGardenExplainer(true)}

@@ -27,40 +27,24 @@ const Home: NextPage = () => {
       </HeaderNav>
 
       <PageMainContainer
-        title="Learning should be fun"
+        title="Learning should be exciting"
         className="prose-site mx-auto max-w-3xl lg:max-w-4xl"
       >
         <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
           <p>
             <b className="text-gray-900">
-              No one wants another boring “online course.”
+              Then why, are so many online courses, so damn boring?! 🥱
             </b>
           </p>
 
           <p>
-            But, everyone loves a fascinating{' '}
-            <b className="text-gray-900">story</b>, a compelling{' '}
-            <b className="text-gray-900">game</b>, or a unique{' '}
-            <b className="text-gray-900">adventure</b>.
+            I’m Merott, and Beyond the Boring is a digital garden feeding my
+            curiosity while helping you build courses people are excited about.
           </p>
 
           <p>
-            I’m Merott, and I’m on a mission to{' '}
-            <b className="text-gray-900">
-              make online courses worthy of people’s undivided attention.{' '}
-            </b>
-            Beyond the Boring is a digital garden 🌱 feeding my curiosity while
-            helping you{' '}
-            <b className="text-gray-900">build powerful, thrilling courses.</b>
-          </p>
-
-          <p>
-            You’ll find ideas around{' '}
-            <b className="text-gray-900">
-              learning experience design, storytelling, gamification,
-            </b>{' '}
-            and how you might{' '}
-            <b className="text-gray-900">apply them to your own courses.</b>
+            You’ll find ideas around learning experience design, storytelling,
+            gamification, and how you might apply them to your own courses.
           </p>
         </div>
 
@@ -68,21 +52,11 @@ const Home: NextPage = () => {
           The Garden 🌱
         </h2>
 
-        <p>Imagine a blog, but a living and breathing one.</p>
-
-        <p>
-          Ideas start as tiny seeds, cultivated over time until they grow into
-          solid, reliable trees.
-        </p>
-
-        <p>
-          Not every seed survives, and the work is never complete. Even the
-          trees need regular grooming to keep them healthy and fruitful.
-        </p>
+        <p>This is where ideas grow… tiny seeds to solid trees…</p>
 
         <div className="mt-6 text-center xs:mt-8 lg:mt-10">
           <Link href="/garden">
-            <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
+            <a className="btn btn-dark inline-flex items-center rounded-full py-2.5 px-6 text-sm focus:ring-4 focus:ring-offset-4 xs:py-3 xs:px-7 xs:text-base lg:py-4 lg:px-9 lg:text-lg">
               <span>Visit the Garden</span>
               <ArrowRight className="ml-2 h-5 w-5 lg:h-6 lg:w-6" />
             </a>

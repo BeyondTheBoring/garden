@@ -2,7 +2,7 @@ import { Popover, Transition } from '@headlessui/react'
 import MenuAlt3Icon from '@heroicons/react/outline/MenuAlt3Icon'
 import classnames from 'classnames'
 import Link from 'next/link'
-import { Fragment, ReactElement } from 'react'
+import { Fragment, ReactElement, useState } from 'react'
 
 import Fingerprint from '@/assets/icons/outline/fingerprint.svg'
 import Leaf from '@/assets/icons/outline/leaf.svg'
@@ -10,6 +10,7 @@ import TriangleCircle from '@/assets/icons/outline/triangle-circle.svg'
 import { SlopedRadial, SlopedRadialProps } from '@/components/SlopedRadial'
 import { Container } from '@/components/Container'
 import { MonsterEye } from '@/components/MonsterEye'
+import { SubscribePanel } from '@/components/SubscribePanel'
 
 const navLinks: Array<{
   title: string
@@ -39,6 +40,8 @@ export type HeaderNavProps = {
 }
 
 export default function HeaderNav({ children, gradient }: HeaderNavProps) {
+  const [showSubscriptionPanel, setShowSubscriptionPanel] = useState(false)
+
   return (
     <header
       className={classnames('relative', {
@@ -58,7 +61,9 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
           <Link href="/">
             <a className="flex items-center space-x-3 font-hand text-lg font-bold tracking-tight text-gray-900 lg:space-x-5 lg:text-[22px]">
               <MonsterEye className="h-6 lg:h-8" />
-              <span className="mt-[.2em] leading-tight">Beyond the Boring</span>
+              <span className="mt-[.2em] leading-tight tracking-tight">
+                Beyond the Boring
+              </span>
             </a>
           </Link>
 
@@ -108,7 +113,11 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
               </li>
             ))}
             <li className="text-xxs md:text-xs lg:text-sm">
-              <button className="btn btn-dark ml-2 rounded-full px-3 py-1.5 leading-none md:px-4 md:py-2 lg:px-5 lg:py-2.5">
+              <button
+                type="button"
+                className="btn btn-dark ml-2 rounded-full px-3 py-1.5 leading-none md:px-4 md:py-2 lg:px-5 lg:py-2.5"
+                onClick={() => setShowSubscriptionPanel(true)}
+              >
                 Subscribe
               </button>
             </li>
@@ -117,6 +126,11 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
       </Container>
 
       {children && <div className="absolute -bottom-5 w-full">{children}</div>}
+
+      <SubscribePanel
+        onClose={() => setShowSubscriptionPanel(false)}
+        open={showSubscriptionPanel}
+      />
     </header>
   )
 }
