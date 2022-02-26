@@ -9,8 +9,8 @@
       "path": "projects/utils"
     },
     {
-      "path": ".",
-      "name": "@btb"
+      "name": "@btb",
+      "path": "."
     }
   ],
   "settings": {

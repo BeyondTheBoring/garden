@@ -1,9 +1,14 @@
 {
   "name": "beyond-the-boring",
   "private": true,
-  "workspaces": [
-    "projects/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "projects/*"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
   "scripts": {
     "build": "lerna run build --parallel",
     "dev": "lerna run dev --parallel",
@@ -12,15 +17,7 @@
     "hack:tailwind-intellisense": "ln -sf projects/garden/tailwind.config.js tailwind.config.js"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
     "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "lerna": "^4.0.0",
-    "prettier": "^2.5.1",
-    "prettier-plugin-tailwindcss": "^0.1.7",
-    "pretty-quick": "^3.1.3",
-    "ts-jest": "^27.1.3",
-    "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
+    "lerna": "^4.0.0"
   }
 }
