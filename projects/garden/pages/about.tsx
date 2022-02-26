@@ -12,7 +12,10 @@ interface AboutProps {
   avatar: LazyImageData
 }
 
-const headerGradient = { baseColor: colors.cyan[200] }
+const headerGradient = {
+  baseColor: colors.cyan[200],
+  initialColor: colors.cyan[100],
+}
 
 const About: NextPage<AboutProps> = ({ avatar }) => {
   return (

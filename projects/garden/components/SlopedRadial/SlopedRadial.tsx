@@ -3,14 +3,15 @@ import { useEffect, useState } from 'react'
 import btbColors from '@/theme/colors'
 
 export type SlopedRadialProps = {
+  initialColor: string
   baseColor: string
 }
 
-let previousBaseColor: string = btbColors.yellow[100]
+let previousBaseColor: string | undefined
 
 export default function SlopedRadial(props: SlopedRadialProps) {
   const [baseColor, setBaseColor] = useState(
-    previousBaseColor || props.baseColor,
+    previousBaseColor || props.initialColor || props.baseColor,
   )
 
   const newBaseColor = props.baseColor
