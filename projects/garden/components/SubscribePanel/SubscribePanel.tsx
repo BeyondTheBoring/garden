@@ -1,4 +1,4 @@
-import { FormEventHandler, useRef, useState } from 'react'
+import { FormEventHandler, useEffect, useRef, useState } from 'react'
 
 import Confetti from '@/assets/icons/color/confetti.svg'
 import { PopupPanel } from '@/components/PopupPanel'
@@ -22,6 +22,15 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    // reset when opening the panel
+    if (open) {
+      setName('')
+      setEmail('')
+      setStatus('idle')
+    }
+  }, [open])
 
   const subscribe: FormEventHandler<HTMLFormElement> = async event => {
     event.preventDefault()
@@ -66,6 +75,7 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
             type="name"
             placeholder="Mario"
             ref={nameInputRef}
+            value={name}
             onChange={e => setName(e.target.value)}
             required
           />
