@@ -1,0 +1,27 @@
+{
+  "blueprint.templatesPath": ["../../blueprint-templates"],
+
+  "editor.wordWrap": "wordWrapColumn",
+
+  "editor.unicodeHighlight.allowedCharacters": {
+    "‘": true,
+    "’": true
+  },
+
+  "files.associations": {
+    "**/blueprint-templates/**": "txt"
+  },
+
+  "grammarly.dialect": "british",
+
+  "files.exclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/coverage": true
+  },
+
+  "search.exclude": {
+    "**/*.log": true,
+    "**/yarn.lock": true
+  }
+}

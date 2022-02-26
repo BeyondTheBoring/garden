@@ -6,7 +6,7 @@ import Water from '@/assets/icons/outline/water.svg'
 import { GrowthStageIcon } from '@/components/GrowthStageIcon'
 import { PostMetadata } from '@/types/posts'
 import { routes } from '@/lib/utils/routes'
-import { relativeTime } from '../../../utils/lib/date-utils'
+import { relativeTime } from '@/lib/utils/date-utils'
 
 export interface LinkedArticleCardProps {
   as?: ElementType

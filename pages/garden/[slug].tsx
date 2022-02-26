@@ -5,7 +5,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { useState } from 'react'
 
-import { relativeTime } from '@btb/utils'
+import { relativeTime } from '@/lib/utils/date-utils'
 
 import { Container } from '@/components/Container'
 import { HeaderNav } from '@/components/HeaderNav'

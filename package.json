@@ -1,23 +1,68 @@
 {
-  "name": "beyond-the-boring",
+  "name": "@btb/garden",
+  "version": "0.0.0",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "projects/*"
-    ],
-    "nohoist": [
-      "**"
-    ]
-  },
   "scripts": {
-    "build": "lerna run build --parallel",
-    "dev": "lerna run dev --parallel",
-    "prepare": "husky install && yarn hack:tailwind-intellisense",
-    "test": "jest",
-    "hack:tailwind-intellisense": "ln -sf projects/garden/tailwind.config.js tailwind.config.js"
+    "dev": "PORT=2222 next-remote-watch ./posts",
+    "build": "yarn build:placeholders --frozen && next build",
+    "build:backlinks": "yarn run-ts scripts/build-backlinks",
+    "build:nextconfig": "esbuild next.config.ts --bundle --outfile=next.config.js --platform=node --external:./node_modules/* --external:../../node_modules/* --target=es2020",
+    "build:placeholders": "yarn run-ts scripts/build-placeholders",
+    "lint": "next lint",
+    "prebuild": "yarn build:nextconfig",
+    "predev": "yarn build:nextconfig",
+    "run-ts": "ts-node -O '{\"module\": \"commonjs\"}'",
+    "start": "next start -p 2222",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.5.0",
+    "@heroicons/react": "^1.0.5",
+    "@mdx-js/loader": "^2.0.0",
+    "@mdx-js/react": "^2.0.0",
+    "@next/mdx": "^12.1.0",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "gray-matter": "^4.0.3",
+    "image-size": "^1.0.1",
+    "mini-svg-data-uri": "^1.4.3",
+    "next": "12.1.0",
+    "next-mdx-remote": "^3.0.8",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "reading-time": "^1.5.0",
+    "sqip": "^1.0.0-alpha.35",
+    "sqip-plugin-primitive": "^1.0.0-alpha.37",
+    "svgo": "^2.8.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/jest": "^27.4.0",
+    "@types/md5": "^2.3.2",
+    "@types/node": "17.0.18",
+    "@types/react": "17.0.39",
+    "@types/svgo": "^2.6.2",
+    "autoprefixer": "^10.4.2",
+    "classnames": "^2.3.1",
+    "critters": "^0.0.16",
+    "esbuild": "^0.14.23",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "fs-extra": "^10.0.0",
     "husky": "^7.0.4",
-    "lerna": "^4.0.0"
+    "jest": "^27.5.1",
+    "md5": "^2.3.0",
+    "next-compose-plugins": "^2.2.1",
+    "next-react-svg": "^1.1.3",
+    "next-remote-watch": "^1.0.0",
+    "postcss": "^8.4.6",
+    "postcss-import": "^14.0.2",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.7",
+    "pretty-quick": "^3.1.3",
+    "tailwindcss": "^3.0.23",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.5.0",
+    "typescript": "4.5.5"
   }
 }
