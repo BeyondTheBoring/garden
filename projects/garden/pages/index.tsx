@@ -31,11 +31,7 @@ const Home: NextPage = () => {
         className="prose-site mx-auto max-w-3xl lg:max-w-4xl"
       >
         <div className="mt-8 xs:mt-10 lg:mt-14 xl:mt-16">
-          <p>
-            <b className="text-gray-900">
-              Then why, are so many online courses, so damn boring?! 🥱
-            </b>
-          </p>
+          <p>Then why, are so many online courses, so damn boring?! 🥱</p>
 
           <p>
             I’m Merott, and Beyond the Boring is a digital garden feeding my
@@ -43,8 +39,12 @@ const Home: NextPage = () => {
           </p>
 
           <p>
-            You’ll find ideas around learning experience design, storytelling,
-            gamification, and how you might apply them to your own courses.
+            You’ll find{' '}
+            <b className="text-gray-900">
+              ideas around learning design, student engagement, gamification and
+              storytelling
+            </b>
+            , and how you might apply them to your own courses.
           </p>
         </div>
 

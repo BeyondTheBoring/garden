@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import { HeaderNav } from '@/components/HeaderNav'
 import colors from '@/theme/colors'
@@ -43,27 +44,37 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
         </p>
 
         <p>
-          I curated and summarised over 200 articles, videos, and podcast
-          episodes over 18 months, sharing them in my weekly newsletter for
-          course creators. Of all the things I shared during that time, I found
-          myself most excited and drawn to ideas around student engagement,
+          I used to write a{' '}
+          <Link href="https://coursecreatorsweekly.com">
+            <a className="link" rel="noreferrer" target="_blank">
+              curated newsletter
+            </a>
+          </Link>{' '}
+          for course creators, sharing hours of insights from over 200 articles,
+          podcasts and videos in a concise, digestible format. From
+          audience-building and idea validation, to content design, pricing,
+          marketing, and way more! 💰
+        </p>
+
+        <p>
+          But, of everything I wrote about, I found myself most excited and
+          drawn to ideas around learning design, student engagement,
           gamification and storytelling in online courses.
         </p>
+
         <p>
           I decided to double down on the thing that excited me the most. That’s
           what this website is about—feeding my curiosity while helping you
           build powerful, engaging courses.
         </p>
+
         <p>
           I’m on Twitter{' '}
-          <a
-            className="link"
-            href="https://twitter.com/merott"
-            rel="noreferrer"
-            target="_blank"
-          >
-            @merott
-          </a>
+          <Link href="https://twitter.com/merott">
+            <a className="link" rel="noreferrer" target="_blank">
+              @merott
+            </a>
+          </Link>
           . Say hello—my DMs are open!
         </p>
       </PageMainContainer>

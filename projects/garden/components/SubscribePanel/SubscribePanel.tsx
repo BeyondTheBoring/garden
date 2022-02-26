@@ -85,7 +85,7 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
           <span className="flex items-center justify-between">
             <span>Your email address</span>
             <span className="font-hand text-xxs font-bold text-gray-500 xxs:text-xs">
-              No spam, ever
+              No spam, ever.
             </span>
           </span>
           <input
