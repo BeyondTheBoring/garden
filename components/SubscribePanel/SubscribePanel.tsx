@@ -1,13 +1,19 @@
 import { FormEventHandler, useEffect, useRef, useState } from 'react'
 
 import Confetti from '@/assets/icons/color/confetti.svg'
+import PaperPlane from '@/assets/icons/color/paper-plane.svg'
 import { PopupPanel } from '@/components/PopupPanel'
 import { Via } from '@/lib/enums/Via'
 import colors from '@/theme/colors'
 import { XCircleIcon } from '@heroicons/react/outline'
 import { SpinnerButton } from '@/components/SpinnerButton'
 
-type Status = 'idle' | 'subscribing' | 'subscribed' | 'error'
+type Status =
+  | 'idle'
+  | 'subscribing'
+  | 'pending_confirm'
+  | 'subscribed'
+  | 'error'
 const genericError = 'Something went wrong. Please try again.'
 
 export interface SubscribePanelProps {
@@ -22,6 +28,8 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState('')
+
+  const done = status === 'pending_confirm' || status === 'subscribed'
 
   useEffect(() => {
     // reset when opening the panel
@@ -53,14 +61,15 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
         throw new Error(genericError)
       }
 
-      setStatus('subscribed')
+      const { requiresConfirmation } = await response.json()
+      setStatus(requiresConfirmation ? 'pending_confirm' : 'subscribed')
     } catch (error) {
       setStatus('error')
       setError(error instanceof Error ? error.message : genericError)
     }
   }
 
-  const subscriptionForm = status !== 'subscribed' && (
+  const subscriptionForm = !done && (
     <form className="flex flex-col" onSubmit={subscribe}>
       <div className="text-base md:text-lg">
         <label className="flex flex-col">
@@ -143,7 +152,7 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
       open={open}
       onClose={onClose}
       title={
-        status === 'subscribed' && name
+        done && name
           ? `You're awesome, ${name.replace(/^./, c => c.toUpperCase())}! 😍`
           : 'Subscribe to BTB, the newsletter 📮'
       }
@@ -154,33 +163,56 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
         headerShadow: 'drop-shadow-[0px_1px_2px_#fde28a]',
       }}
     >
-      {status === 'subscribed' ? (
+      {done ? (
         <div className="mt-8 text-center md:mt-12">
-          <Confetti
-            className="mx-auto w-36 md:w-40"
-            role="img"
-            aria-label="confetti"
-          />
+          {status === 'pending_confirm' ? (
+            <PaperPlane
+              className="mx-auto w-36 md:w-40"
+              role="img"
+              aria-label="paper plane"
+            />
+          ) : (
+            <Confetti
+              className="mx-auto w-36 md:w-40"
+              role="img"
+              aria-label="confetti"
+            />
+          )}
 
           <div className="mt-12 text-gray-900">
-            <p className="text-2xl font-bold">
-              Please check your {email.endsWith('@hey.com') ? 'Imbox' : 'inbox'}
-              …
-            </p>
-
-            <p className="mt-2 leading-relaxed md:mt-3">
-              Please click the confirmation link I just sent you… otherwise
-              <br className="hidden sm:block" aria-hidden="true" /> you won't be
-              getting my emails! 😬
-            </p>
-
-            <button
-              type="button"
-              className="btn btn-primary mt-6 rounded-xl px-5 py-1.5 text-sm md:mt-10 md:rounded-2xl md:py-2.5 md:px-7 md:text-base"
-              onClick={() => onClose()}
-            >
-              Got it, will do now!
-            </button>
+            {status === 'pending_confirm' ? (
+              <>
+                <p className="text-2xl font-bold">
+                  Please check your{' '}
+                  {email.endsWith('@hey.com') ? 'Imbox' : 'inbox'}…
+                </p>
+                <p className="mt-2 leading-relaxed md:mt-3">
+                  Please click the confirmation link I just sent you… otherwise
+                  <br className="hidden sm:block" aria-hidden="true" /> you
+                  won't be getting my emails! 😬
+                </p>
+                <button
+                  type="button"
+                  className="btn btn-primary mt-6 rounded-xl px-5 py-1.5 text-sm md:mt-10 md:rounded-2xl md:py-2.5 md:px-7 md:text-base"
+                  onClick={() => onClose()}
+                >
+                  Got it, will do now!
+                </button>
+              </>
+            ) : (
+              <>
+                <p className="leading-relaxed">
+                  You're on the list, nothing else to do!
+                </p>
+                <button
+                  type="button"
+                  className="btn btn-primary mt-6 rounded-xl px-5 py-1.5 text-sm md:mt-10 md:rounded-2xl md:py-2.5 md:px-7 md:text-base"
+                  onClick={() => onClose()}
+                >
+                  OK, sweet!
+                </button>
+              </>
+            )}
           </div>
         </div>
       ) : (

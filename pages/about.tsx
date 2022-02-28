@@ -55,7 +55,7 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
           </Link>{' '}
           for course creators, sharing hours of insights from over 200 articles,
           podcasts and videos in a concise, digestible format. From
-          audience-building and idea validation, to content design, pricing,
+          audience-building and idea validation to content design, pricing,
           marketing, and way more! 💰
         </p>
 

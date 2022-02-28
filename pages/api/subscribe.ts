@@ -1,11 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 import { Via } from '@/lib/enums/Via'
-import { TALLY_WELCOME_FORM_ID } from '@/lib/env'
+import {
+  BTB_FORM_ID,
+  BTB_FORM_AUTO_CONFIRM_ID,
+  TALLY_WELCOME_FORM_ID,
+} from '@/lib/env'
 import { ck } from '@/lib/api/ck/client'
 
 enum SubscriptionResult {
   Invalid,
+  RequireConfirm,
   Success,
 }
 
@@ -18,8 +23,12 @@ export default async function handler(
       console.log('/subscribe')
       const result = await subscribe(req.body)
 
+      if (result === SubscriptionResult.RequireConfirm) {
+        return res.status(200).json({ requiresConfirmation: true })
+      }
+
       if (result === SubscriptionResult.Success) {
-        return res.status(200).end()
+        return res.status(200).json({ requiresConfirmation: false })
       }
     } else if (req.method === 'GET') {
       const redirectUri = await confirmSubscriber(req.query)
@@ -55,15 +64,27 @@ async function subscribe(body: NextApiRequest['body']) {
     return SubscriptionResult.Invalid
   }
 
-  if (!email.match(/^merott\+.+@merott.com$/)) {
-    console.error('ERROR: Signups only allowed with merott+<any>@merott.com.')
+  if (!email.match(/@merott\.com$/)) {
+    console.error('ERROR: Testing! Only test emails are allowed!')
     return SubscriptionResult.Invalid
   }
 
-  const response = await ck.subscribe({ email, name, timezone, via })
+  const existingSubscriber = await ck.findSubscriber(email)
+
+  const formId = existingSubscriber ? BTB_FORM_AUTO_CONFIRM_ID : BTB_FORM_ID
+
+  const response = await ck.subscribe(formId, {
+    email,
+    name,
+    timezone,
+    via,
+  })
+
   console.log('-> Subscribed:', await response.json())
 
-  return SubscriptionResult.Success
+  return existingSubscriber
+    ? SubscriptionResult.Success
+    : SubscriptionResult.RequireConfirm
 }
 
 async function confirmSubscriber(query: NextApiRequest['query']) {
