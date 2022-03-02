@@ -9,6 +9,7 @@ import {
 import { ck } from '@/lib/api/ck/client'
 
 enum SubscriptionResult {
+  Cancelled,
   Invalid,
   RequireConfirm,
   Success,
@@ -21,7 +22,15 @@ export default async function handler(
   try {
     if (req.method === 'POST') {
       console.log('/subscribe')
-      const result = await subscribe(req.body)
+      let result = await subscribe(req.body)
+
+      if (result === SubscriptionResult.Cancelled) {
+        console.log(
+          'Existing, cancelled subscriber. Trying again with auto-confirm…',
+        )
+
+        result = await subscribe(req.body, true)
+      }
 
       if (result === SubscriptionResult.RequireConfirm) {
         return res.status(200).json({ requiresConfirmation: true })
@@ -44,7 +53,7 @@ export default async function handler(
   return res.status(400).end()
 }
 
-async function subscribe(body: NextApiRequest['body']) {
+async function subscribe(body: NextApiRequest['body'], autoConfirm?: boolean) {
   console.log('->', { body })
   const { name, email, timezone, via } = body
 
@@ -69,9 +78,8 @@ async function subscribe(body: NextApiRequest['body']) {
     return SubscriptionResult.Invalid
   }
 
-  const existingSubscriber = await ck.findSubscriber(email)
-
-  const formId = existingSubscriber ? BTB_FORM_AUTO_CONFIRM_ID : BTB_FORM_ID
+  const useAutoConfirm = autoConfirm || !!(await ck.findSubscriber(email))
+  const formId = useAutoConfirm ? BTB_FORM_AUTO_CONFIRM_ID : BTB_FORM_ID
 
   const response = await ck.subscribe(formId, {
     email,
@@ -80,9 +88,15 @@ async function subscribe(body: NextApiRequest['body']) {
     via,
   })
 
-  console.log('-> Subscribed:', await response.json())
+  const { subscription } = await response.json()
 
-  return existingSubscriber
+  console.log('-> Subscribed:', { subscription })
+
+  if (subscription.state === 'cancelled') {
+    return SubscriptionResult.Cancelled
+  }
+
+  return useAutoConfirm
     ? SubscriptionResult.Success
     : SubscriptionResult.RequireConfirm
 }
