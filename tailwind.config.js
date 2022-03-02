@@ -20,6 +20,24 @@ const fontSizeConfig = {
   'inherit': 'inherit',
 }
 
+const screens = {
+  xxs: '360px',
+  xs: '480px',
+  ...defaultTheme.screens,
+  tall: { raw: '(min-height: 750px)' },
+}
+
+// add negated screen sizes with reverse queries
+for (let screen in screens) {
+  const size = screens[screen]
+  if (typeof size === 'string' && size.endsWith('px')) {
+    const px = Number(size.replace(/px$/, ''))
+    if (isNaN(px)) continue
+    const lowerScreenQuery = { max: `${px - 1}px` }
+    screens[`-${screen}`] = lowerScreenQuery
+  }
+}
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -49,12 +67,7 @@ module.exports = {
       bold: 700,
     },
 
-    screens: {
-      xxs: '360px',
-      xs: '480px',
-      ...defaultTheme.screens,
-      tall: { raw: '(min-height: 750px)' },
-    },
+    screens,
 
     extend: {
       borderRadius: {

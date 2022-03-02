@@ -1,4 +1,5 @@
-import SubscribePanel from './SubscribePanel'
+import dynamic from 'next/dynamic'
+
+const SubscribePanel = dynamic(() => import('./SubscribePanel'))
 
 export { SubscribePanel }
-export * from './SubscribePanel'

@@ -60,7 +60,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
           )}
         >
           <Link href="/">
-            <a className="flex items-center space-x-3 font-hand text-lg font-bold tracking-tight text-gray-900 lg:space-x-5 lg:text-[22px]">
+            <a className="flex items-center space-x-3 font-hand text-lg font-bold tracking-tight text-gray-900 lg:space-x-5 lg:text-xl">
               <MonsterEye className="h-6 lg:h-8" />
               <span className="mt-[.2em] leading-tight tracking-tight">
                 Beyond the Boring
@@ -101,10 +101,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                   <li>
                     <button
                       className="flex w-full items-center space-x-4 whitespace-nowrap py-2 pl-6 pr-10 font-medium text-cyan-800 hover:bg-yellow-200 focus:bg-yellow-200 focus:outline-none"
-                      onClick={() => {
-                        console.log('->', 'hey there')
-                        setShowSubscriptionPanel(true)
-                      }}
+                      onClick={() => setShowSubscriptionPanel(true)}
                     >
                       <span className="inline-block">
                         <PaperPlane className="h-6 w-6" />

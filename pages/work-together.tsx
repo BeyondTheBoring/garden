@@ -43,10 +43,10 @@ const WorkTogether: NextPage<WorkTogetherProps> = () => {
           <strong>No obligations and completely risk-free</strong>—it’s
           Pay-What-You-Want! 💸
         </p>
-        <p>Pick a time below, and we're off to the races!</p>
+        <p>Pick a time below, and let's talk!</p>
       </PageMainContainer>
 
-      <Container className="my-8 xs:my-10 lg:my-16">
+      <Container className="mt-8 xs:mt-10 lg:mt-16">
         <SavvyCal link="merott/virtual-coffee" theme="light" />
       </Container>
     </>

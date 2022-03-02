@@ -219,8 +219,8 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
         <>
           <div className="prose-site">
             <p className="font-medium text-gray-900">
-              Learn how to build an engaging and effective online course, with
-              powerful storytelling, simple gamification, and more! 💡
+              Exploring ways to build engaging and effective online courses,
+              with powerful storytelling, simple gamification, and more! 💡
             </p>
 
             <p>

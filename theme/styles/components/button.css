@@ -13,6 +13,10 @@
     &.btn-primary {
       @apply border-yellow-400 bg-yellow-300 text-gray-900 shadow-yellow-300 ring-yellow-400 hover:border-yellow-300 hover:bg-yellow-200 focus:border-yellow-300 active:border-yellow-400 active:bg-yellow-300 disabled:border-yellow-300 disabled:bg-yellow-200;
     }
+
+    &.btn-flat {
+      @apply border-none shadow-none ring-offset-0;
+    }
   }
 
   .btn-icon {

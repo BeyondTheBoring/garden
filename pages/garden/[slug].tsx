@@ -137,7 +137,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
             </ul>
           </div>
 
-          <article className="relative my-6 mx-auto overflow-hidden rounded-3xl bg-white text-gray-700 shadow sm:my-8">
+          <article className="relative mx-auto mt-6 overflow-hidden rounded-3xl bg-white text-gray-700 shadow sm:mt-8">
             {post.cover && (
               <div className="aspect-w-16 aspect-h-9 shadow-lg md:shadow-xl">
                 <Image

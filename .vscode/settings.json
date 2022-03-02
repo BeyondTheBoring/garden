@@ -1,5 +1,5 @@
 {
-  "blueprint.templatesPath": ["../../blueprint-templates"],
+  "blueprint.templatesPath": [".vscode/blueprint-templates"],
 
   "editor.wordWrap": "wordWrapColumn",
 

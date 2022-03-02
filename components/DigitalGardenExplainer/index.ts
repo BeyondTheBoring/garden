@@ -1,4 +1,5 @@
-import DigitalGardenExplainer from './DigitalGardenExplainer'
+import dynamic from 'next/dynamic'
+
+const DigitalGardenExplainer = dynamic(() => import('./DigitalGardenExplainer'))
 
 export { DigitalGardenExplainer }
-export * from './DigitalGardenExplainer'
