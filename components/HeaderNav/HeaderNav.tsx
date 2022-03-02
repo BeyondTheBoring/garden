@@ -6,6 +6,7 @@ import { Fragment, ReactElement, useState } from 'react'
 
 import Fingerprint from '@/assets/icons/outline/fingerprint.svg'
 import Leaf from '@/assets/icons/outline/leaf.svg'
+import PaperPlane from '@/assets/icons/outline/paper-plane.svg'
 import TriangleCircle from '@/assets/icons/outline/triangle-circle.svg'
 import { SlopedRadial, SlopedRadialProps } from '@/components/SlopedRadial'
 import { Container } from '@/components/Container'
@@ -88,7 +89,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                       <Link href={link.href} passHref>
                         <Popover.Button
                           as="a"
-                          className="flex items-center space-x-4 whitespace-nowrap py-2 pl-6 pr-10 font-medium text-gray-800 hover:bg-yellow-200 focus:bg-yellow-200 focus:outline-none"
+                          className="flex w-full items-center space-x-4 whitespace-nowrap py-2 pl-6 pr-10 font-medium text-gray-800 hover:bg-yellow-200 focus:bg-yellow-200 focus:outline-none"
                         >
                           <span className="inline-block">{link.icon}</span>
                           <span>{link.title}</span>
@@ -96,6 +97,21 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                       </Link>
                     </li>
                   ))}
+                  <hr className="my-2 border-gray-200" />
+                  <li>
+                    <button
+                      className="flex w-full items-center space-x-4 whitespace-nowrap py-2 pl-6 pr-10 font-medium text-cyan-800 hover:bg-yellow-200 focus:bg-yellow-200 focus:outline-none"
+                      onClick={() => {
+                        console.log('->', 'hey there')
+                        setShowSubscriptionPanel(true)
+                      }}
+                    >
+                      <span className="inline-block">
+                        <PaperPlane className="h-6 w-6" />
+                      </span>
+                      <span>Subscribe</span>
+                    </button>
+                  </li>
                 </ul>
               </Popover.Panel>
             </Transition>
