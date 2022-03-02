@@ -77,8 +77,16 @@ async function subscribe(body: NextApiRequest['body'], autoConfirm?: boolean) {
     console.error('ERROR: Testing! Only test emails are allowed!')
     return SubscriptionResult.Invalid
   }
+  // if someone is already subscribed, but not explicitly to BTB (from CCW days)
+  // they can be added to the BTB *auto-confirm* form (no confirmation email.)
+  // if someone is already subscribed to BTB explicitly, they don't need a
+  // confirmation, and I'm not going to add them to the BTB auto-confirm either,
+  // since they're an active subscriber already.
+  const existingSubscriber = await ck.findSubscriber(email)
+  const isExistingSubscriberToAutoConfirm =
+    existingSubscriber && !existingSubscriber.fields.x_btb_status
 
-  const useAutoConfirm = autoConfirm || !!(await ck.findSubscriber(email))
+  const useAutoConfirm = autoConfirm || isExistingSubscriberToAutoConfirm
   const formId = useAutoConfirm ? BTB_FORM_AUTO_CONFIRM_ID : BTB_FORM_ID
 
   const response = await ck.subscribe(formId, {
@@ -93,10 +101,13 @@ async function subscribe(body: NextApiRequest['body'], autoConfirm?: boolean) {
   console.log('-> Subscribed:', { subscription })
 
   if (subscription.state === 'cancelled') {
+    // Cancelled subscribers of a form with a double opt-in can't be added back
+    // via the CK API (it seems), but they can be added to a single opt-in form.
+    // I'll use this as a sign to use auto-confirm.
     return SubscriptionResult.Cancelled
   }
 
-  return useAutoConfirm
+  return useAutoConfirm || existingSubscriber
     ? SubscriptionResult.Success
     : SubscriptionResult.RequireConfirm
 }
