@@ -73,10 +73,6 @@ async function subscribe(body: NextApiRequest['body'], autoConfirm?: boolean) {
     return SubscriptionResult.Invalid
   }
 
-  if (!email.match(/@merott\.com$/)) {
-    console.error('ERROR: Testing! Only test emails are allowed!')
-    return SubscriptionResult.Invalid
-  }
   // if someone is already subscribed, but not explicitly to BTB (from CCW days)
   // they can be added to the BTB *auto-confirm* form (no confirmation email.)
   // if someone is already subscribed to BTB explicitly, they don't need a
