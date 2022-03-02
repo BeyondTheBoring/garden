@@ -9,7 +9,7 @@ const fix = '---> FIX: yarn build:placeholders <---'
 const previousPlaceholders = placeholders.getAll()
 placeholders.clear()
 ;(async () => {
-  const images = await fg('public/**/*.(png|jpg)')
+  const images = await fg('public/img/**/*.(png|jpg)')
 
   for (let imagePath of images) {
     const hash = md5(readFileSync(imagePath))

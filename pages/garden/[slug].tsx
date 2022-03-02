@@ -77,7 +77,6 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
       <Head>
         <title>Beyond the Boring | Engage your students</title>
         <meta name="description" content={post.description} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <HeaderNav />

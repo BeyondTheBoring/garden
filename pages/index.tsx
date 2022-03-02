@@ -22,7 +22,6 @@ const Home: NextPage = () => {
           name="description"
           content="I’m Merott, and I’m on a mission to make online courses worthy of people’s undivided attention."
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <HeaderNav gradient={headerGradient}>
