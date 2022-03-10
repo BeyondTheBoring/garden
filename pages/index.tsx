@@ -13,7 +13,7 @@ const headerGradient = {
   initialColor: colors.yellow[200],
 }
 
-const title = 'Learning should be exciting | Beyond the Boring'
+const title = 'Learning should be exciting'
 const description = `Ideas around learning design, student engagement, gamification and storytelling, and how you might apply them to your own courses.`
 
 const Home: NextPage = () => {
