@@ -48,18 +48,22 @@ class Placeholders {
 
   async make(image: string) {
     const isRemote = image.includes('//')
-    let hash: string | undefined
 
     const imageSrc =
       isRemote || image.startsWith('public/')
         ? image
         : path.join('public', image)
 
-    if (!isRemote) {
-      hash = md5(readFileSync(imageSrc))
-      const existing = this.get(hash)
-      if (existing) return existing
+    if (isRemote) {
+      console.warn(`Using a remote image--consider downloading it: ${imageSrc}`)
     }
+
+    const hash = isRemote
+      ? md5(await fetchImage(imageSrc))
+      : md5(readFileSync(imageSrc))
+
+    const existing = this.get(hash)
+    if (existing) return existing
 
     const result = await generatePlaceholder(imageSrc)
 

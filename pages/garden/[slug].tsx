@@ -47,7 +47,7 @@ const mdxComponents = {
   ),
 
   img: (props: ImageProps) => (
-    <span className="my-6 -mx-5 block shadow xs:-mx-8 sm:-mx-10 sm:my-8 md:-mx-12 xl:-mx-16 xl:my-12">
+    <span className="my-6 -mx-5 block border-t border-b border-gray-500 border-opacity-10 shadow-sm xs:-mx-8 sm:-mx-10 sm:my-8 md:-mx-12 xl:-mx-16 xl:my-12">
       <Image
         {...props}
         alt={props.alt}
@@ -58,8 +58,15 @@ const mdxComponents = {
     </span>
   ),
 
+  h2: (props: React.ComponentProps<'p'>) => (
+    <h2
+      className="mt-8 text-xl font-bold text-gray-900 sm:mt-10 sm:text-2xl xl:mt-14 xl:text-3xl"
+      {...props}
+    />
+  ),
+
   p: (props: React.ComponentProps<'p'>) => (
-    <p className="my-4 sm:my-5 xl:my-7" {...props} />
+    <p className="mt-4 sm:mt-5 xl:mt-6" {...props} />
   ),
 
   li: (props: React.ComponentProps<'li'>) => <li className="pl-2" {...props} />,
@@ -138,7 +145,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
 
           <article className="relative mx-auto mt-6 overflow-hidden rounded-3xl bg-white text-gray-700 shadow sm:mt-8">
             {post.cover && (
-              <div className="aspect-w-16 aspect-h-9 shadow-lg md:shadow-xl">
+              <div className="aspect-w-16 aspect-h-9 shadow-lg">
                 <Image
                   src={post.cover.src}
                   alt={post.cover.alt || post.title}
