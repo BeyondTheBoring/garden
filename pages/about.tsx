@@ -46,6 +46,11 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
         </p>
 
         <p>
+          I'm a full-time web developer, and part-time…
+          searching-for-my-thing-er! 😅
+        </p>
+
+        <p>
           I used to write a{' '}
           <Link href="https://coursecreatorsweekly.com">
             <a className="link" rel="noreferrer" target="_blank">
