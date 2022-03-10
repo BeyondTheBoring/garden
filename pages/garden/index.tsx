@@ -1,5 +1,4 @@
 import { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 import { useState } from 'react'
 
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
@@ -10,6 +9,7 @@ import colors from '@/theme/colors'
 import { fetchAllPostsMetadata } from '@/tools/posts/fetch-posts'
 import { PostMetadata } from '@/types/posts'
 import { ArticleCards } from '@/components/ArticleCards'
+import { Head } from '@/components/Head'
 
 export type GardenIndexProps = {
   posts: PostMetadata[]
@@ -20,13 +20,11 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
 
   return (
     <>
-      <Head>
-        <title>The Garden | Beyond the Boring</title>
-        <meta
-          name="description"
-          content="Ideas around learning design, student engagement, gamification and storytelling, growing over time from tiny seeds to solid trees."
-        />
-      </Head>
+      <Head
+        title="The Garden"
+        description="Ideas around learning design, student engagement, gamification and storytelling, growing over time from tiny seeds to solid trees."
+        image="img/social-image-garden.png"
+      />
 
       <HeaderNav
         gradient={{

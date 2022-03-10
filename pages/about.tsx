@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
 
 import { HeaderNav } from '@/components/HeaderNav'
@@ -7,6 +6,7 @@ import colors from '@/theme/colors'
 import { LazyImage, LazyImageData } from '@/components/LazyImage'
 import { makeLazyImage } from '@/tools/images/make-lazy-image'
 import { PageMainContainer } from '@/components/PageMainContainer'
+import { Head } from '@/components/Head'
 
 interface AboutProps {
   avatar: LazyImageData
@@ -20,13 +20,11 @@ const headerGradient = {
 const About: NextPage<AboutProps> = ({ avatar }) => {
   return (
     <>
-      <Head>
-        <title>About me | Beyond the Boring</title>
-        <meta
-          name="description"
-          content="I’m Merott, and this is a digital garden feeding my curiosity while helping you build powerful, engaging courses."
-        />
-      </Head>
+      <Head
+        title="About me"
+        description="I’m Merott, and this is a digital garden feeding my curiosity while helping you build powerful, engaging courses."
+        image="img/social-image-about-me.png"
+      />
 
       <HeaderNav gradient={headerGradient}>
         <div className="relative mx-auto flex h-36 w-36 overflow-hidden rounded-full bg-cyan-300 md:h-40 md:w-40 tall:lg:h-[200px] tall:lg:w-[200px]">

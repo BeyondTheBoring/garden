@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 
 import FistBump from '@/assets/icons/color/fist-bump.svg'
 import { HeaderNav } from '@/components/HeaderNav'
@@ -7,6 +6,7 @@ import colors from '@/theme/colors'
 import { PageMainContainer } from '@/components/PageMainContainer'
 import Container from '../components/Container/Container'
 import SavvyCal from '../components/SavvyCal/SavvyCal'
+import { Head } from '@/components/Head'
 
 interface WorkTogetherProps {}
 
@@ -18,13 +18,11 @@ const headerGradient = {
 const WorkTogether: NextPage<WorkTogetherProps> = () => {
   return (
     <>
-      <Head>
-        <title>Work together | Beyond the Boring</title>
-        <meta
-          name="description"
-          content="If you want to build a course that’s worthy of people’s attention, let's talk!"
-        />
-      </Head>
+      <Head
+        title="Work together"
+        description="If you want to build a course that’s worthy of people’s attention, let’s talk!"
+        image="img/social-image-work-together.png"
+      />
 
       <HeaderNav gradient={headerGradient}>
         <FistBump className="mx-auto w-36 max-w-full drop-shadow-lg md:w-40 tall:lg:w-[200px]" />

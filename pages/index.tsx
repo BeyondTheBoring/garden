@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
 
 import ArrowRight from '@/assets/icons/filled/arrow-right.svg'
@@ -7,22 +6,20 @@ import { HeaderNav } from '@/components/HeaderNav'
 import { Monster } from '@/components/Monster'
 import colors from '@/theme/colors'
 import { PageMainContainer } from '@/components/PageMainContainer'
+import { Head } from '@/components/Head'
 
 const headerGradient = {
   baseColor: colors.yellow[300],
   initialColor: colors.yellow[200],
 }
 
+const title = 'Learning should be exciting | Beyond the Boring'
+const description = `Ideas around learning design, student engagement, gamification and storytelling, and how you might apply them to your own courses.`
+
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Beyond the Boring | Learning should be exciting</title>
-        <meta
-          name="description"
-          content="Ideas around learning design, student engagement, gamification and storytelling, and how you might apply them to your own courses."
-        />
-      </Head>
+      <Head title={title} description={description} />
 
       <HeaderNav gradient={headerGradient}>
         <Monster className="mx-auto w-36 max-w-full drop-shadow-lg md:w-40 tall:lg:w-[200px]" />

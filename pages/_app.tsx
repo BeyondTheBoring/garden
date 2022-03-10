@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
-import Head from 'next/head'
 
 import { Footer } from '@/components/Footer'
+import { Head } from '@/components/Head'
 import { MdxProvider } from '@/components/MdxProvider'
 import '@/theme/styles/main.css'
 

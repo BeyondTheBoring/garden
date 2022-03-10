@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 import Image, { ImageProps } from 'next/image'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -24,6 +23,7 @@ import { PostMetadata } from '@/types/posts'
 import Link from 'next/link'
 import { ArticleCards } from '@/components/ArticleCards'
 import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
+import { Head } from '@/components/Head'
 
 export type PostProps = {
   post: PostMetadata
@@ -81,10 +81,11 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
 
   return (
     <>
-      <Head>
-        <title>{post.title} | Beyond the Boring</title>
-        <meta name="description" content={post.description} />
-      </Head>
+      <Head
+        description={post.description}
+        title={post.title}
+        image={post.cover.src}
+      />
 
       <HeaderNav />
 
