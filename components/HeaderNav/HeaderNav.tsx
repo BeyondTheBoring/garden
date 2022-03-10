@@ -2,6 +2,7 @@ import { Popover, Transition } from '@headlessui/react'
 import MenuAlt3Icon from '@heroicons/react/outline/MenuAlt3Icon'
 import classnames from 'classnames'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { Fragment, ReactElement, useState } from 'react'
 
 import Fingerprint from '@/assets/icons/outline/fingerprint.svg'
@@ -42,6 +43,7 @@ export type HeaderNavProps = {
 
 export default function HeaderNav({ children, gradient }: HeaderNavProps) {
   const [showSubscriptionPanel, setShowSubscriptionPanel] = useState(false)
+  const router = useRouter()
 
   return (
     <header
@@ -119,9 +121,26 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
             {navLinks.map(link => (
               <li key={link.title}>
                 <Link href={link.href}>
-                  <a className="flex items-center space-x-2 text-gray-800 subpixel-antialiased hover:text-gray-900 focus:text-gray-900">
+                  <a
+                    className={classnames(
+                      'flex items-center space-x-2 text-gray-800 subpixel-antialiased hover:text-gray-900 focus:text-gray-900',
+                      {
+                        'text-gray-900': router.pathname == link.href,
+                      },
+                    )}
+                  >
                     <span className="hidden lg:inline-block">{link.icon}</span>
-                    <span>{link.title}</span>
+                    <span
+                      className={classnames(
+                        'border-transparent inline-block border-b-2 py-px lg:py-1',
+                        {
+                          'border-b-gray-900 text-gray-900':
+                            router.pathname == link.href,
+                        },
+                      )}
+                    >
+                      {link.title}
+                    </span>
                   </a>
                 </Link>
               </li>

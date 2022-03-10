@@ -3,6 +3,8 @@ const twColors = require('tailwindcss/colors')
 module.exports = {
   black: twColors.black,
   white: twColors.white,
+  transparent: twColors.transparent,
+
   blue: twColors.sky,
   cyan: twColors.cyan,
   gray: twColors.slate,
