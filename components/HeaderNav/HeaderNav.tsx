@@ -47,7 +47,8 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
     <header
       className={classnames('relative', {
         'h-[240px] tall:lg:h-[320px]': gradient,
-        'border-b border-gray-200': !gradient,
+        'sticky top-0 z-10 border-gray-200 bg-gray-50 bg-opacity-95 shadow-sm backdrop-blur backdrop-brightness-150 backdrop-contrast-200 backdrop-saturate-50':
+          !gradient,
       })}
     >
       {gradient && <SlopedRadial {...gradient} />}

@@ -31,7 +31,7 @@ export default function PopupPanel({
         open={open}
         onClose={onClose}
         initialFocus={initialFocus}
-        className="fixed inset-3 z-10 xs:inset-5"
+        className="fixed inset-3 z-20 xs:inset-5"
       >
         <Transition.Child
           as={Fragment}
