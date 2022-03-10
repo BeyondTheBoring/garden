@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 import { useState } from 'react'
 
 import BeanSeedling from '@/assets/icons/color/bean-seedling.svg'
@@ -19,6 +20,14 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
 
   return (
     <>
+      <Head>
+        <title>The Garden | Beyond the Boring</title>
+        <meta
+          name="description"
+          content="Ideas around learning design, student engagement, gamification and storytelling, growing over time from tiny seeds to solid trees."
+        />
+      </Head>
+
       <HeaderNav
         gradient={{
           baseColor: colors.green[300],

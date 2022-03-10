@@ -21,10 +21,10 @@ const About: NextPage<AboutProps> = ({ avatar }) => {
   return (
     <>
       <Head>
-        <title>Beyond the Boring | Learning should be fun</title>
+        <title>About me | Beyond the Boring</title>
         <meta
           name="description"
-          content="I’m Merott, and I’m on a mission to make online courses worthy of people’s undivided attention."
+          content="I’m Merott, and this is a digital garden feeding my curiosity while helping you build powerful, engaging courses."
         />
       </Head>
 

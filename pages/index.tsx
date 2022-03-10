@@ -17,10 +17,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Beyond the Boring | Learning should be fun</title>
+        <title>Beyond the Boring | Learning should be exciting</title>
         <meta
           name="description"
-          content="I’m Merott, and I’m on a mission to make online courses worthy of people’s undivided attention."
+          content="Ideas around learning design, student engagement, gamification and storytelling, and how you might apply them to your own courses."
         />
       </Head>
 

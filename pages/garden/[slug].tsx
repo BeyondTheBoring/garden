@@ -82,7 +82,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
   return (
     <>
       <Head>
-        <title>Beyond the Boring | Engage your students</title>
+        <title>{post.title} | Beyond the Boring</title>
         <meta name="description" content={post.description} />
       </Head>
 
