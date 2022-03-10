@@ -8,6 +8,12 @@
     "’": true
   },
 
+  // Prettier messes up CK templates -- Let VSCode take care of HTML formatting
+  "html.format.wrapLineLength": 80,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
   "files.associations": {
     "**/blueprint-templates/**": "txt"
   },

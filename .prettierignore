@@ -1,1 +1,4 @@
 blueprint-templates
+
+# Let VSCode take care of HTML files
+*.html
