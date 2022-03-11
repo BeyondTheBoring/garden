@@ -1,3 +1,4 @@
+import { usePlausible } from 'next-plausible'
 import { FormEventHandler, useEffect, useRef, useState } from 'react'
 
 import Confetti from '@/assets/icons/color/confetti.svg'
@@ -22,6 +23,7 @@ export interface SubscribePanelProps {
 }
 
 export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
+  const plausible = usePlausible()
   const nameInputRef = useRef<HTMLInputElement>(null)
 
   const [name, setName] = useState('')
@@ -37,8 +39,10 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
       setName('')
       setEmail('')
       setStatus('idle')
+
+      plausible('view subscription panel')
     }
-  }, [open])
+  }, [open, plausible])
 
   const subscribe: FormEventHandler<HTMLFormElement> = async event => {
     event.preventDefault()
@@ -60,6 +64,8 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
       if (response.status !== 200) {
         throw new Error(genericError)
       }
+
+      plausible('subscribe')
 
       const { requiresConfirmation } = await response.json()
       setStatus(requiresConfirmation ? 'pending_confirm' : 'subscribed')

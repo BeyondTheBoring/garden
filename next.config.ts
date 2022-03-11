@@ -3,6 +3,7 @@ import path from 'path'
 const nextMDX = require('@next/mdx')
 const withPlugins = require('next-compose-plugins')
 const reactSvg = require('next-react-svg')
+const { withPlausibleProxy } = require('next-plausible')
 import { NextConfig } from 'next/types'
 
 import { imageSize } from './tools/mdx/image-size'
@@ -49,6 +50,13 @@ module.exports = withPlugins(
           ],
         },
       }),
+    ],
+    [
+      withPlausibleProxy({
+        subdirectory: 'hola',
+        customDomain: process.env.NEXT_PUBLIC_SITE_URL,
+      }),
+      {},
     ],
   ],
   nextConfig,

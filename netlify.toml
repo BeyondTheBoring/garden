@@ -16,3 +16,8 @@ environment = { NEXT_PUBLIC_SITE_URL = "https://beyondtheboring.com" }
 
 # 🔰 Secret variables that must be set via Netlify UI and .env.local 🔰 #
 # CK_SECRET
+
+[[redirects]]
+from = "/hola/*"
+to = "https://plausible.io/:splat"
+status = 200
