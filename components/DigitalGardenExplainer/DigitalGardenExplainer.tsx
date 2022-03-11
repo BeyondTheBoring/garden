@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { PopupPanel } from '@/components/PopupPanel'
 import digitalGardenImg from './digital-garden.png'
 import colors from '@/theme/colors'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { usePlausible } from '@/components/Plausible'
 
 export type DigitalGardenExplainerProps = {
   open: boolean
@@ -14,7 +15,12 @@ export default function DigitalGardenExplainer({
   open,
   onClose,
 }: DigitalGardenExplainerProps) {
+  const plausible = usePlausible()
   const contentRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    plausible('view garden explainer')
+  }, [plausible])
 
   return (
     <PopupPanel
