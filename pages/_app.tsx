@@ -1,10 +1,13 @@
 import type { AppProps } from 'next/app'
 
+import { ClarityProvider } from '@/components/ClarityProvider'
 import { Footer } from '@/components/Footer'
 import { Head } from '@/components/Head'
 import { MdxProvider } from '@/components/MdxProvider'
 import { PlausibleProvider } from '@/components/Plausible'
 import '@/theme/styles/main.css'
+
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -16,15 +19,17 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <div className="flex min-h-screen flex-col">
         <PlausibleProvider>
-          <MdxProvider>
-            <div className="mb-5 flex-auto">
-              <Component {...pageProps} />
-            </div>
+          <ClarityProvider projectId={clarityProjectId}>
+            <MdxProvider>
+              <div className="mb-5 flex-auto">
+                <Component {...pageProps} />
+              </div>
 
-            <div className="mt-auto w-full">
-              <Footer />
-            </div>
-          </MdxProvider>
+              <div className="mt-auto w-full">
+                <Footer />
+              </div>
+            </MdxProvider>
+          </ClarityProvider>
         </PlausibleProvider>
       </div>
     </>

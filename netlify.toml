@@ -7,12 +7,16 @@ package = "@netlify/plugin-nextjs"
 
 # ℹ️ Default env variables are set in .env
 
-[context.wip] # "wip" is the branch name
-environment = { NEXT_PUBLIC_SITE_URL = "https://wip.beyondtheboring.com" }
+# 📌 Environment variables for the WIP branch only 📌 #
+[context.wip.environment]
+NEXT_PUBLIC_CLARITY_PROJECT_ID = 'azfeyrbsn7'
+NEXT_PUBLIC_SITE_URL = 'https://wip.beyondtheboring.com'
 
-[context.production]
+
 # 📌 Environment variables for production only 📌 #
-environment = { NEXT_PUBLIC_SITE_URL = "https://beyondtheboring.com" }
+[context.production.environment]
+NEXT_PUBLIC_CLARITY_PROJECT_ID = 'azfj0ucrn2'
+NEXT_PUBLIC_SITE_URL = 'https://beyondtheboring.com'
 
 # 🔰 Secret variables that must be set via Netlify UI and .env.local 🔰 #
 # CK_SECRET
