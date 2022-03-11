@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.next.json",
+
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "theme/colors.js"],
+  "exclude": ["node_modules"]
+}

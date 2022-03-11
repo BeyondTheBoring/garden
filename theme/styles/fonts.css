@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'brix-sans';
+  src: url('/fonts/BrixSans-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'brix-sans';
+  src: url('/fonts/BrixSans-BoldItalic.woff2') format('woff2');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'brix-sans';
+  src: url('/fonts/BrixSans-Medium.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'brix-sans';
+  src: url('/fonts/BrixSans-MediumItalic.woff2') format('woff2');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'brix-sans';
+  src: url('/fonts/BrixSans-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'brix-sans';
+  src: url('/fonts/BrixSans-RegularItalic.woff2') format('woff2');
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Merott Fuzzy, based on Fuzzy Bubbles from Google Fonts */
+@font-face {
+  font-family: 'merott-fuzzy';
+  src: url('/fonts/MerottFuzzy-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'merott-fuzzy';
+  src: url('/fonts/MerottFuzzy-Regular.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}

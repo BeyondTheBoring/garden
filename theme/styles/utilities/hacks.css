@@ -1,0 +1,6 @@
+/* A bunch of CSS hacks for weird stuff */
+
+.hack-rounded {
+  /* when rounded corners don't apply in Safari... */
+  transform: translateZ(0);
+}

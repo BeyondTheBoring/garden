@@ -1,0 +1,25 @@
+@layer components {
+  .btn {
+    @apply relative inline-block border font-hand font-bold leading-tight shadow-sm ring-offset-2 transition duration-200 focus:border-gray-900 focus:outline-none focus:ring-2 disabled:cursor-default disabled:text-opacity-40 disabled:shadow-none;
+
+    &.btn-plain {
+      @apply border-gray-200 bg-white text-gray-700 shadow-gray-200 ring-gray-300 hover:border-gray-300 hover:bg-gray-50 focus:border-gray-100 focus:text-gray-900 active:border-gray-300 active:bg-gray-100 disabled:border-gray-200 disabled:bg-gray-50;
+    }
+
+    &.btn-dark {
+      @apply border-gray-900 bg-gray-900 text-white shadow-none ring-gray-900 hover:border-gray-700 hover:bg-gray-700 active:border-gray-900 active:bg-gray-900 disabled:border-gray-500 disabled:bg-gray-500;
+    }
+
+    &.btn-primary {
+      @apply border-yellow-400 bg-yellow-300 text-gray-900 shadow-yellow-300 ring-yellow-400 hover:border-yellow-300 hover:bg-yellow-200 focus:border-yellow-300 active:border-yellow-400 active:bg-yellow-300 disabled:border-yellow-300 disabled:bg-yellow-200;
+    }
+
+    &.btn-flat {
+      @apply border-none shadow-none ring-offset-0;
+    }
+  }
+
+  .btn-icon {
+    @apply -m-1 rounded-lg p-1 text-gray-800 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-800;
+  }
+}
