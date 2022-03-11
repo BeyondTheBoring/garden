@@ -1,7 +1,19 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "no-restricted-imports": ["error", { "paths": ["next/head"] }],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          { "name": "next/head" },
+          {
+            "name": "next-plausible",
+            "importNames": ["usePlausible"],
+            "message": "Use 'usePlausible' from @/components/Plausible instead."
+          }
+        ]
+      }
+    ],
     "react/no-unescaped-entities": [
       "error",
       {

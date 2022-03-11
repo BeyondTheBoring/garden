@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { Footer } from '@/components/Footer'
 import { Head } from '@/components/Head'
 import { MdxProvider } from '@/components/MdxProvider'
-import { PlausibleProvider } from '@/components/PlausibleProvider'
+import { PlausibleProvider } from '@/components/Plausible'
 import '@/theme/styles/main.css'
 
 function MyApp({ Component, pageProps }: AppProps) {

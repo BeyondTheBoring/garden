@@ -1,4 +1,3 @@
-import { usePlausible } from 'next-plausible'
 import { FormEventHandler, useEffect, useRef, useState } from 'react'
 
 import Confetti from '@/assets/icons/color/confetti.svg'
@@ -8,6 +7,7 @@ import { Via } from '@/lib/enums/Via'
 import colors from '@/theme/colors'
 import { XCircleIcon } from '@heroicons/react/outline'
 import { SpinnerButton } from '@/components/SpinnerButton'
+import { usePlausible } from '@/components/Plausible'
 
 type Status =
   | 'idle'
