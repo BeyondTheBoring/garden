@@ -19,8 +19,10 @@ export default function DigitalGardenExplainer({
   const contentRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    plausible('view garden explainer')
-  }, [plausible])
+    if (open) {
+      plausible('view garden explainer')
+    }
+  }, [open, plausible])
 
   return (
     <PopupPanel
