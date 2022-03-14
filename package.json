@@ -28,7 +28,7 @@
     "mini-svg-data-uri": "^1.4.3",
     "next": "12.1.0",
     "next-mdx-remote": "^3.0.8",
-    "next-plausible": "^3.1.5",
+    "next-plausible": "^3.1.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "reading-time": "^1.5.0",
