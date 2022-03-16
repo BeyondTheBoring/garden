@@ -31,14 +31,27 @@ export default function Head({
 
   return (
     <NextHead>
+      {/* HTML Meta Tags */}
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
 
-      <meta property="og:url" content={currentUrl} key="ogurl" />
-      <meta property="og:site_name" content={siteName} key="ogsitename" />
-      <meta property="og:title" content={pageTitle} key="ogtitle" />
-      <meta property="og:description" content={description} key="ogdesc" />
-      {image && <meta property="og:image" content={imageUrl} key="ogimage" />}
+      {/* Google / Search Engine Tags */}
+      <meta itemProp="name" content={pageTitle} key="g_name" />
+      <meta itemProp="description" content={description} key="g_desc" />
+      <meta itemProp="image" content={imageUrl} key="g_image" />
+
+      {/* Facebook Meta Tags */}
+      <meta property="og:type" content="website" key="og_type" />
+      <meta property="og:url" content={currentUrl} key="og_url" />
+      <meta property="og:site_name" content={siteName} key="og_site_name" />
+      <meta property="og:title" content={pageTitle} key="og_title" />
+      <meta property="og:description" content={description} key="og_desc" />
+      {image && <meta property="og:image" content={imageUrl} key="og_image" />}
+
+      <meta name="twitter:card" content="summary_large_image" key="tw_card" />
+      <meta name="twitter:title" content={pageTitle} key="tw_title" />
+      <meta name="twitter:description" content={description} key="tw_desc" />
+      <meta name="twitter:image" content={imageUrl} key="tw_image" />
 
       {children}
     </NextHead>
