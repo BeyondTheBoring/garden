@@ -51,6 +51,7 @@ export default function Head({
       <meta name="twitter:card" content="summary_large_image" key="tw_card" />
       <meta name="twitter:title" content={pageTitle} key="tw_title" />
       <meta name="twitter:description" content={description} key="tw_desc" />
+      <meta name="twitter:creator" content="@merott" key="tw_creator" />
       <meta name="twitter:image" content={imageUrl} key="tw_image" />
 
       {children}
