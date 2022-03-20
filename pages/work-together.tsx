@@ -44,7 +44,7 @@ const WorkTogether: NextPage<WorkTogetherProps> = () => {
       </PageMainContainer>
 
       <Container className="mt-8 xs:mt-10 lg:mt-16">
-        <SavvyCal link="merott/virtual-coffee" theme="light" />
+        <SavvyCal link="merott/work-together" theme="light" />
       </Container>
     </>
   )
