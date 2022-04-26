@@ -31,7 +31,7 @@ export default function LinkedArticleCard({
             </p>
 
             <div className="mt-auto">
-              <div className="mt-5 flex space-x-6 text-xxs font-medium uppercase text-gray-500 xs:text-xs">
+              <div className="mt-5 flex space-x-6 text-xs font-medium uppercase text-gray-500 xl:text-sm">
                 <div className="flex items-center">
                   <GrowthStageIcon
                     stage={post.stage}

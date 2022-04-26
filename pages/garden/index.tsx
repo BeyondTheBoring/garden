@@ -39,12 +39,12 @@ const Garden: NextPage<GardenIndexProps> = ({ posts }) => {
         title="The Garden"
         className="mt-4 flex flex-col xs:mt-6 lg:mt-10"
       >
-        <p className="mx-auto max-w-2xl text-center">
+        <p className="mx-auto max-w-3xl text-center">
           Ideas around learning experience design, storytelling, and
           gamification, growing over time from tiny seeds to solid trees.
           <button
             type="button"
-            className="btn btn-dark ml-2 inline-block rounded-full px-2 pt-[2px] text-xs"
+            className="btn btn-dark ml-2 inline-block rounded-full px-2 pt-[2px] text-xs !leading-snug lg:text-sm"
             onClick={() => setShowGardenExplainer(true)}
           >
             WTF?

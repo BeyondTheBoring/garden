@@ -81,7 +81,7 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
         <label className="flex flex-col">
           <span className="flex items-center justify-between">
             <span>Your first name</span>
-            <span className="font-hand text-xxs font-bold text-gray-500 xxs:text-xs">
+            <span className="font-hand text-xs font-bold text-gray-500 xs:text-sm">
               What do friends call you?
             </span>
           </span>
@@ -99,7 +99,7 @@ export default function SubscribePanel({ open, onClose }: SubscribePanelProps) {
         <label className="mt-4 flex flex-col">
           <span className="flex items-center justify-between">
             <span>Your email address</span>
-            <span className="font-hand text-xxs font-bold text-gray-500 xxs:text-xs">
+            <span className="font-hand text-xs font-bold text-gray-500 xs:text-sm">
               No spam, ever.
             </span>
           </span>

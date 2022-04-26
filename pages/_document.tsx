@@ -5,27 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
-            rel="preload"
-            href="/fonts/BrixSans-Bold.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/BrixSans-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/MerottFuzzy-Bold.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
+          <link rel="stylesheet" href="https://use.typekit.net/yli4hko.css" />
         </Head>
 
         <body className="bg-gray-50 text-base font-normal tracking-tight text-gray-700 antialiased selection:bg-yellow-200">

@@ -76,7 +76,7 @@ export default function Footer({}: FooterProps) {
           </p>
 
           <button
-            className="btn btn-primary btn-flat mt-6 ml-auto rounded-xl px-5 py-2.5 text-sm leading-none focus:bg-yellow-200 md:rounded-2xl md:px-7 md:text-base"
+            className="btn btn-primary btn-flat mt-6 ml-auto rounded-xl px-5 py-2.5 text-base leading-none focus:bg-yellow-200 md:rounded-2xl md:px-7 md:py-2 md:text-lg"
             type="button"
             onClick={() => setShowSubscriptionPanel(true)}
           >

@@ -63,7 +63,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
           )}
         >
           <Link href="/">
-            <a className="flex items-center space-x-3 font-hand text-lg font-bold tracking-tight text-gray-900 lg:space-x-5 lg:text-xl">
+            <a className="flex items-center space-x-3 font-hand text-xl font-bold tracking-tight text-gray-900 lg:space-x-5 lg:text-2xl">
               <MonsterEye className="h-6 lg:h-8" />
               <span className="mt-[.2em] leading-tight tracking-tight">
                 Beyond the Boring
@@ -145,7 +145,7 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                 </Link>
               </li>
             ))}
-            <li className="text-xxs md:text-xs lg:text-sm">
+            <li className="text-xs md:text-sm lg:text-base">
               <button
                 type="button"
                 className="btn btn-dark ml-2 rounded-full px-3 py-1.5 leading-none md:px-4 md:py-2 lg:px-5 lg:py-2.5"

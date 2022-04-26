@@ -106,9 +106,9 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
       <HeaderNav />
 
       <Container className="mt-10 lg:mt-14 2xl:mt-20">
-        <div className="mx-auto max-w-[71ch] text-base sm:text-lg xl:text-xl">
+        <div className="mx-auto max-w-[75ch] text-base sm:text-lg xl:text-xl">
           <div className="flex flex-col">
-            <div className="flex space-x-10 text-xxs tracking-normal text-gray-500 sm:text-xs">
+            <div className="flex space-x-10 text-xs tracking-normal text-gray-500 sm:text-sm">
               <button
                 type="button"
                 aria-label={`Growth stage: ${post.stage}`}
@@ -142,7 +142,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
               aria-label="key dates"
             >
               <li className="flex flex-col">
-                <span className="text-xxs font-medium text-gray-500 sm:text-xs">
+                <span className="text-xs font-medium text-gray-500 sm:text-sm">
                   Planted
                 </span>
                 <span className="text-xs font-bold text-gray-600 sm:text-sm">
@@ -150,7 +150,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
                 </span>
               </li>
               <li className="flex flex-col">
-                <span className="text-xxs font-medium text-gray-500 sm:text-xs">
+                <span className="text-xs font-medium text-gray-500 sm:text-sm">
                   Last tended
                 </span>
                 <span className="text-xs font-bold text-gray-600 sm:text-sm">
