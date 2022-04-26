@@ -132,9 +132,9 @@ export default function HeaderNav({ children, gradient }: HeaderNavProps) {
                     <span className="hidden lg:inline-block">{link.icon}</span>
                     <span
                       className={classnames(
-                        'border-transparent inline-block border-b-2 py-px lg:py-1',
+                        'inline-block border-b-2 border-transparent py-px hover:border-b-gray-900 hover:border-opacity-20 lg:py-1',
                         {
-                          'border-b-gray-900 text-gray-900':
+                          'border-b-gray-900 !border-opacity-100 text-gray-900':
                             router.pathname == link.href,
                         },
                       )}
