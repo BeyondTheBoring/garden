@@ -24,6 +24,8 @@ import Link from 'next/link'
 import { ArticleCards } from '@/components/ArticleCards'
 import { DigitalGardenExplainer } from '@/components/DigitalGardenExplainer'
 import { Head } from '@/components/Head'
+import { Question } from '@/components/Question'
+import { BlockQuote, BlockQuoteProps } from '@/components/BlockQuote'
 
 export type PostProps = {
   post: PostMetadata
@@ -31,11 +33,15 @@ export type PostProps = {
   mdx: MDXRemoteSerializeResult
 }
 
+const fullWidthMediaClassNames = `my-6 -mx-5 block border-t border-b border-gray-500 border-opacity-10 shadow-sm xs:-mx-8 sm:-mx-10 sm:my-8 md:-mx-12 xl:-mx-20 xl:my-12`
+
 const mdxComponents = {
+  Question,
+
   a: ({ href, ...props }: React.ComponentProps<'a'>) => (
     <Link href={href || ''}>
       <a
-        className="link"
+        className={typeof props.children === 'string' ? 'link' : ''}
         {...{
           ...props,
           ...(href?.includes('//')
@@ -46,8 +52,12 @@ const mdxComponents = {
     </Link>
   ),
 
+  blockquote: (props: BlockQuoteProps) => (
+    <BlockQuote className="border-cyan-400" {...props} />
+  ),
+
   img: (props: ImageProps) => (
-    <span className="my-6 -mx-5 block border-t border-b border-gray-500 border-opacity-10 shadow-sm xs:-mx-8 sm:-mx-10 sm:my-8 md:-mx-12 xl:-mx-16 xl:my-12">
+    <span className={fullWidthMediaClassNames}>
       <Image
         {...props}
         alt={props.alt}
@@ -66,13 +76,19 @@ const mdxComponents = {
   ),
 
   p: (props: React.ComponentProps<'p'>) => (
-    <p className="mt-4 sm:mt-5 xl:mt-6" {...props} />
+    <p className="mt-4 first:mt-0 sm:mt-5 xl:mt-6" {...props} />
   ),
 
   li: (props: React.ComponentProps<'li'>) => <li className="pl-2" {...props} />,
 
   ul: (props: React.ComponentProps<'ul'>) => (
-    <ul className="ml-5 -mt-3 list-disc sm:-mt-4" {...props} />
+    <ul className="ml-5 mt-2 list-disc sm:mt-3" {...props} />
+  ),
+
+  video: (props: React.ComponentProps<'video'>) => (
+    <div className={fullWidthMediaClassNames}>
+      <video {...props} />
+    </div>
   ),
 }
 
@@ -84,13 +100,13 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
       <Head
         description={post.description}
         title={post.title}
-        image={post.cover.src}
+        image={post.cover?.src}
       />
 
       <HeaderNav />
 
       <Container className="mt-10 lg:mt-14 2xl:mt-20">
-        <div className="mx-auto max-w-[68ch] text-base sm:text-lg xl:text-xl">
+        <div className="mx-auto max-w-[71ch] text-base sm:text-lg xl:text-xl">
           <div className="flex flex-col">
             <div className="flex space-x-10 text-xxs tracking-normal text-gray-500 sm:text-xs">
               <button
@@ -163,7 +179,7 @@ const PostPage: NextPage<PostProps> = ({ post, mentionedIn, mdx }) => {
 
             {/* when adjusting margin, adjust negative margins on 'img'
                 components too, so they remain full width */}
-            <div className="m-5 xs:m-8 sm:m-10 md:m-12 xl:m-16">
+            <div className="m-5 xs:m-8 sm:m-10 md:m-12 xl:my-16 xl:mx-20">
               <MDXRemote {...mdx} components={mdxComponents} />
             </div>
           </article>

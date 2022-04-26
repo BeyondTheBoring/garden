@@ -1,9 +1,10 @@
 import Almond from '@/assets/icons/outline/almond.svg'
+import Seedling from '@/assets/icons/outline/seedling.svg'
 import { GrowthStage } from '@/lib/enums/GrowthStage'
 
 const icons: Record<GrowthStage, React.ElementType | null> = {
   SEED: Almond,
-  SEEDLING: null,
+  SEEDLING: Seedling,
   SAPLING: null,
   TREE: null,
   FRUIT: null,

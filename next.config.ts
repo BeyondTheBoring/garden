@@ -24,7 +24,11 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    domains: ['images.unsplash.com', 'secure.gravatar.com'],
+    domains: [
+      'images.pexels.com',
+      'images.unsplash.com',
+      'secure.gravatar.com',
+    ],
     formats: ['image/avif', 'image/webp'],
   },
 

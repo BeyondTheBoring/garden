@@ -37,7 +37,7 @@ export default function LinkedArticleCard({
                     stage={post.stage}
                     className="h-4 w-4 xs:h-5 xs:w-5"
                   />
-                  <div className="ml-1">Seed</div>
+                  <div className="ml-1">{post.stage}</div>
                 </div>
 
                 <div className="flex items-center">
